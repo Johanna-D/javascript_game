@@ -1,5 +1,5 @@
 # javascript_game
-Jeu Javascript 
+<h1>Hup's tale</h1>
 Réalisé par Johanna Delachambre et Yann Soca
 
 Jeu en 2D Zelda-like
