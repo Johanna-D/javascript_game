@@ -54,14 +54,34 @@ function changeCouleur(c) {
   console.log(c);
 }
 
+function anime() {
+  
+  // 1) On efface l'Ã©cran
+  ctx.clearRect(grille.x,grille.y, canvas.width, canvas.height);
+
+  drawMap(grille);
+  // 2) On dessine et on déplace le char 1
+  drawPerso(hup);
+  deplacementPerso(hup);
+  //if(inputStates.SPACE) {
+    //char1.addBullet(Date.now()); 
+  //}
+
+  // On demande une nouvelle frame d'animation
+  window.requestAnimationFrame(anime);
+
+}
 
 function init() {
   
   canvas = document.querySelector("#myCanvas");
   ctx = canvas.getContext("2d");
-  var grille = new quadrillageMap;
-   drawMap(grille);
-  
+  grille = new quadrillageMap;
+  hup = new personnage;
+  drawMap(grille);
+   //drawPerso(hup);
+   //hup.deplacementPerso();
+   
   canvas.onmousedown = (event) => {
     processMouseMouve(event);
     let x = Math.floor(mousePos.x/grille.taille); 
@@ -70,7 +90,7 @@ function init() {
     console.log("map x=" + x + " y = " + y + " c = " + couleurCourante);
     grille.drawrectClic(x*grille.taille,y*grille.taille, couleurCourante)
   }
-    
+   anime(); 
    }
 
 /* -----------------INFOS POUR PLUS TARD -------------------------------------
