@@ -39,12 +39,12 @@ function processMouseMouve(evt) {
  }
 
 
-function drawMap(p1){
-  for(let i =0;i< p1.ligne ;i++){
-    let multl = p1.taille * i;
-    for(let j = 0;j<p1.colonne;j++){
-      let multc = p1.taille * j;
-      map[i][j]= p1.drawrect(multl,multc);
+function drawMap(grille){
+  for(let i =0;i< grille.ligne ;i++){
+    let multl = grille.taille * i;
+    for(let j = 0;j<grille.colonne;j++){
+      let multc = grille.taille * j;
+      map[i][j]= grille.drawrect(multl,multc);
     }
   }
 }
@@ -59,16 +59,16 @@ function init() {
   
   canvas = document.querySelector("#myCanvas");
   ctx = canvas.getContext("2d");
-  var p1 = new quadrillageMap;
-   drawMap(p1);
+  var grille = new quadrillageMap;
+   drawMap(grille);
   
   canvas.onmousedown = (event) => {
     processMouseMouve(event);
-    let x = Math.floor(mousePos.x/p1.taille); 
-    let y = Math.floor(mousePos.y/p1.taille); 
+    let x = Math.floor(mousePos.x/grille.taille); 
+    let y = Math.floor(mousePos.y/grille.taille); 
     map[y][x] = couleurCourante;
     console.log("map x=" + x + " y = " + y + " c = " + couleurCourante);
-    p1.drawrectClic(x*p1.taille,y*p1.taille, couleurCourante)
+    grille.drawrectClic(x*grille.taille,y*grille.taille, couleurCourante)
   }
     
    }
