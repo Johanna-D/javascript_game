@@ -7,7 +7,7 @@ for (var i = 0; i < 40; i++)
 }
 
 var couleurCourante="black";
-
+var newElement;
 class quadrillageMap{
   constructor(){
     this.x = 1;
@@ -54,10 +54,14 @@ function changeCouleur(c) {
   console.log(c);
 }
 
+function ajouteRoche(){
+  newElement = "roche";
+}
+
 function anime() {
   
   // 1) On efface l'Ã©cran
-  ctx.clearRect(grille.x,grille.y, canvas.width, canvas.height);
+  //ctx.clearRect(grille.x,grille.y, canvas.width, canvas.height);
 
   drawMap(grille);
   // 2) On dessine et on déplace le char 1
@@ -70,6 +74,11 @@ function anime() {
   // On demande une nouvelle frame d'animation
   window.requestAnimationFrame(anime);
 
+}
+function Roche(x,y){ 
+  p = new roche(x*grille.taille,y*grille.taille); 
+  draw(p);
+  return p;
 }
 
 function init() {
@@ -86,9 +95,12 @@ function init() {
     processMouseMouve(event);
     let x = Math.floor(mousePos.x/grille.taille); 
     let y = Math.floor(mousePos.y/grille.taille); 
-    map[y][x] = couleurCourante;
-    console.log("map x=" + x + " y = " + y + " c = " + couleurCourante);
-    grille.drawrectClic(x*grille.taille,y*grille.taille, couleurCourante)
+    if(newElement == "roche"){
+      map[y][x] = Roche(x,y);
+      console.log("map x=" + x + " y = " + y + " c = " + map[y][x]);
+      //grille.drawrectClic(x*grille.taille,y*grille.taille, )
+      //draw(map[y][x]);
+    }
   }
    anime(); 
    }

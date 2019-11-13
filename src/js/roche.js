@@ -1,15 +1,16 @@
 
 class roche{
-  constructor(){
-    this.x = 1;
-    this.y = 1;
+  constructor(x,y){
+    this.x = x;
+    this.y = y;
     this.taille = 16;
     this.couleurRoche = "#655b5b";
   }
-  drawrectClic(x,y, couleurRoche){
-    ctx.save();
-    ctx.fillStyle = couleurRoche;
-    ctx.fillRect(this.x * x,this.y * y,this.taille,this.taille);
-    ctx.restore();
-  }
+  
+}
+function draw(roche){
+  ctx.save();
+  ctx.fillStyle = roche.couleurRoche;
+  ctx.fillRect(roche.x,roche.y,roche.taille,roche.taille);
+  ctx.restore();
 }
