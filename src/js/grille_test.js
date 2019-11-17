@@ -1,9 +1,9 @@
 window.onload = init;
 var canvas;
-var map = new Array(40);
-for (var i = 0; i < 40; i++)
+var map = new Array(20);
+for (var i = 0; i < 20; i++)
 {
- map[i] = new Array(40);
+ map[i] = new Array(20);
 }
 
 var couleurCourante="black";
@@ -30,13 +30,33 @@ class quadrillageMap{
 function processMouseMouve(evt) {
   let rect = evt.target.getBoundingClientRect()
   let mouseX = evt.clientX - rect.left;
-  let mouseY = evt.clientY - rect.top;  
-  
+  let mouseY = evt.clientY - rect.top;
+
   mousePos = {
     x: mouseX,
     y: mouseY
   }
  }
+
+ function collision(map, hup) {
+    var testX=hup.x;
+    var testY=hup.y;
+    if (testX < map.x){ testX=map.x-5;}
+    if (testX > map.x+map.taille){ testX=map.x+map.taille/4;}
+    if (testY < map.y){ testY=map.y-5;}
+    if (testY > map.y+map.taille){ testY=map.y+map.taille/4;}
+    return (((hup.x-testX)*(hup.x-testX)+(hup.y-testY)*(hup.y-testY))< hup.taille*hup.taille);
+ }
+
+ function testeCollisionsSourisAutresRectangles(map,hup) {
+       if(collision(map,hup)){
+         map.couleurRoche = "green";
+       }
+       else{
+         map.couleurRoche = "#655b5b";
+       }
+     }
+
 
 
 function drawMap(grille){
@@ -59,50 +79,53 @@ function ajouteRoche(){
 }
 
 function anime() {
-  
-  // 1) On efface l'Ã©cran
-  //ctx.clearRect(grille.x,grille.y, canvas.width, canvas.height);
 
-  drawMap(grille);
+  // 1) On efface l'Ã©cran
+  ctx.clearRect(grille.x,grille.y, canvas.width, canvas.height);
+  //drawMap(grille);
   // 2) On dessine et on déplace le char 1
   drawPerso(hup);
   deplacementPerso(hup);
+  for(a =0; a<20;a++){
+    for(b = 0;b<20;b++){
+      if(map[a][b] instanceof roche){
+        drawRoche(map[a][b]);
+
+        testeCollisionsSourisAutresRectangles(map[a][b],hup);
+      }
+    }
+  }
+
   //if(inputStates.SPACE) {
-    //char1.addBullet(Date.now()); 
+    //char1.addBullet(Date.now());
   //}
 
   // On demande une nouvelle frame d'animation
   window.requestAnimationFrame(anime);
 
 }
-function Roche(x,y){ 
-  p = new roche(x*grille.taille,y*grille.taille); 
-  draw(p);
-  return p;
-}
 
 function init() {
-  
+
   canvas = document.querySelector("#myCanvas");
   ctx = canvas.getContext("2d");
   grille = new quadrillageMap;
   hup = new personnage;
-  drawMap(grille);
    //drawPerso(hup);
    //hup.deplacementPerso();
-   
+
   canvas.onmousedown = (event) => {
     processMouseMouve(event);
-    let x = Math.floor(mousePos.x/grille.taille); 
-    let y = Math.floor(mousePos.y/grille.taille); 
+    let x = Math.floor(mousePos.x/grille.taille);
+    let y = Math.floor(mousePos.y/grille.taille);
     if(newElement == "roche"){
-      map[y][x] = Roche(x,y);
-      console.log("map x=" + x + " y = " + y + " c = " + map[y][x]);
+      map[x][y] = new roche(x*grille.taille,y*grille.taille);
+      console.log("map x=" + x + " y = " + y + " c = " + map[x][y]);
       //grille.drawrectClic(x*grille.taille,y*grille.taille, )
       //draw(map[y][x]);
     }
   }
-   anime(); 
+   anime();
    }
 
 /* -----------------INFOS POUR PLUS TARD -------------------------------------
