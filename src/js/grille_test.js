@@ -1,5 +1,9 @@
 window.onload = init;
 var canvas;
+let moved = true;
+let moveg = true;
+let moveb = true;
+let moveh = true;
 const roches =[];
 var map = new Array(20);
 for (var i = 0; i < 20; i++)
@@ -40,30 +44,17 @@ function processMouseMouve(evt) {
 
 
  function collision(map,hup) {
-       if ( hup.x==map.x+map.taille && (hup.y >=  map.y-8 && hup.y<= map.y+8)){
-         hup.vg=0;
-       }
-       else{
-         hup.vg=8;
-       }
-       if ( hup.x==map.x-map.taille && (hup.y >=  map.y-8 && hup.y<= map.y+8)){
-         hup.vd=0;
-       }
-       else{
-         hup.vd=8;
-       }
-       if( hup.y==map.y-map.taille && (hup.x >=  map.x-8 && hup.x<= map.x+8)){
-         hup.vb =0;
-       }
-       else{
-         hup.vb = 8;
-       }
-       if( hup.y==map.y+map.taille && (hup.x >=  map.x-8 && hup.x<= map.x+8)){
-         hup.vh =0;
-       }
-       else{
-         hup.vh = 8;
-       }
+       if ( hup.x==map.x+map.taille && (hup.y >=  map.y-8 && hup.y<= map.y+8))
+         moveg = false;
+
+       if ( hup.x==map.x-map.taille && (hup.y >=  map.y-8 && hup.y<= map.y+8))
+           moved = false;
+
+       if( hup.y==map.y-map.taille && (hup.x >=  map.x-8 && hup.x<= map.x+8))
+           moveb = false;
+       if( hup.y==map.y+map.taille && (hup.x >=  map.x-8 && hup.x<= map.x+8))
+           moveh = false;
+
 }
 
 function drawMap(grille){
@@ -92,16 +83,39 @@ function anime() {
   //drawMap(grille);
   // 2) On dessine et on déplace le char 1
   drawPerso(hup);
-  deplacementPerso(hup);
+
+  moveg = true;
+    moved = true;
+    moveh = true;
+    moveb = true;
+    deplacementPerso(hup);
   for(a =0; a<20;a++){
     for(b = 0;b<20;b++){
       if(map[a][b] instanceof roche){
         drawRoche(map[a][b]);
         collision(map[a][b],hup);
+
         //deplacementPerso(hup,map[a][b]);
       }
     }
+
   }
+    if(moveg == true)
+        hup.vg =8;
+    else
+        hup.vg =0;
+    if(moved == true)
+        hup.vd =8;
+    else
+        hup.vd =0;
+    if(moveb == true)
+        hup.vb =8;
+    else
+        hup.vb =0;
+    if(moveh == true)
+        hup.vh =8;
+    else
+        hup.vh =0;
   // On demande une nouvelle frame d'animation
   window.requestAnimationFrame(anime);
 
