@@ -2,7 +2,7 @@ class Objet{
     constructor(x,y){
         this.x = x;
         this.y = y;
-        this.taille = 16;
+        this.taille = 32;
         }
     draw(){
         ctx.save();

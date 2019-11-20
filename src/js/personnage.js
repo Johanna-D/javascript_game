@@ -2,37 +2,30 @@ class personnage{
     constructor(){
       this.x = canvas.width/2;
       this.y = canvas.height/2;
-      this.taille = 16;
+      this.taille = 32;
       this.couleurPerso = 'black';
-      this.vg=8;
-      this.vd=8;
-      this.vh=8;
-      this.vb=8;
+      this.vg=32;
+      this.vd=32;
+      this.vh=32;
+      this.vb=32;
     }
+    collision(map) {
+      if ( this.x==map.x+map.taille && (this.y >=  map.y-8 && this.y<= map.y+8))
+        moveg = false;
+      if ( this.x==map.x-map.taille && (this.y >=  map.y-8 && this.y<= map.y+8))
+          moved = false;
+      if( this.y==map.y-map.taille && (this.x >=  map.x-8 && this.x<= map.x+8))
+          moveb = false;
+      if( this.y==map.y+map.taille && (this.x >=  map.x-8 && this.x<= map.x+8))
+          moveh = false;
 
-
-    /*deplacement2(){
-      if(inputStates.left){
-        this.x = this.x-this.vg
-      }
-    if(inputStates.right){
-      this.x = this.x+this.vd
     }
-    if(inputStates.up){
-    this.y = this.y-this.vh
-    }
-    if(inputStates.down){
-    this.y = this.y+this.vb
-    }
-    }*/
-    
     draw(){
         ctx.save();
         ctx.fillStyle = this.couleurPerso;
         ctx.fillRect(this.x,this.y,this.taille,this.taille);
         ctx.restore();
       }
-    
   }
   function deplacementHup(hup){
     window.onkeydown = function(e) {
