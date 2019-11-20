@@ -4,6 +4,9 @@ let moved = true;
 let moveg = true;
 let moveb = true;
 let moveh = true;
+let d1 = true;
+let d2 = false;
+var ennemis = [];
 var newElement;
 var taille = 32
 var map = new Array(24);
@@ -16,30 +19,10 @@ for (var i = 0; i < 24; i++)
   }
 }
 
-class quadrillageMap{
-  constructor(){
-    this.x = 1;
-    this.y = 1;
-    this.taille = 16;
-    this.ligne = canvas.height/this.taille;
-    this.colonne = canvas.width/this.taille;
-  }
-  drawrect(multl,multc){
-    ctx.strokeRect(this.x * multl,this.y * multc,this.taille,this.taille);
-  }
-  drawrectClic(x,y, couleur){
-    ctx.save();
-    ctx.fillStyle = couleur;
-    ctx.fillRect(this.x * x,this.y * y,this.taille,this.taille);
-    ctx.restore();
-  }
-}
-
 function processMouseMouve(evt) {
   let rect = evt.target.getBoundingClientRect()
   let mouseX = evt.clientX - rect.left;
   let mouseY = evt.clientY - rect.top;
-
   mousePos = {
     x: mouseX,
     y: mouseY
@@ -56,21 +39,11 @@ function drawMap(grille){
   }
 }
 
-function changeCouleur(c) {
-  couleurCourante = c;
-  console.log(c);
-}
-
 function ajoute(element){
   newElement = element;
 }
-
 function anime() {
-
-  // 1) On efface l'Ã©cran
   ctx.clearRect(1,1, canvas.width, canvas.height);
-  //drawMap(grille);
-  // 2) On dessine et on déplace le char 1
   moveg = true;
   moved = true;
   moveh = true;
@@ -82,10 +55,11 @@ function anime() {
       }
       if(map[a][b] instanceof roche){
         map[a][b].draw();
-        hup.collision(map[a][b]);
+        hup.collisiondecor(map[a][b]);
       }
       if(map[a][b] instanceof arbre){
         map[a][b].draw();
+        hup.collisiondecor(map[a][b]);
       }
       if(map[a][b] instanceof eau){
         map[a][b].draw();
@@ -96,6 +70,11 @@ function anime() {
     }
   }
   hup.draw();
+  ennemis[0].draw();
+  if(d1){
+    ennemis[0].deplacement1();
+  }
+  else{ennemis[0].deplacement2();}
   deplacementHup(hup);
     if(moveg == true)
         hup.vg =32;
@@ -122,8 +101,8 @@ function init() {
 
   canvas = document.querySelector("#myCanvas");
   ctx = canvas.getContext("2d");
-  //grille = new quadrillageMap;
-  hup = new personnage;
+  hup = new hup((canvas.width/2)-32,(canvas.height/2)-32);
+  ennemis.push(new ennemi1(128,128));
   canvas.onmousedown = (event) => {
     processMouseMouve(event);
     let x = Math.floor(mousePos.x/taille);
@@ -139,6 +118,9 @@ function init() {
     }
     if(newElement == "herbe"){
       map[x][y] = new herbe(x*taille,y*taille);
+    }
+    if(newElement == "sol"){
+      map[x][y] = new sol(x*taille,y*taille);
     }
   }
    anime();
