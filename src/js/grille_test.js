@@ -82,20 +82,18 @@ function anime() {
   ctx.clearRect(grille.x,grille.y, canvas.width, canvas.height);
   //drawMap(grille);
   // 2) On dessine et on déplace le char 1
-  drawPerso(hup);
+  hup.draw();
 
   moveg = true;
     moved = true;
     moveh = true;
     moveb = true;
-    deplacementPerso(hup);
+    deplacementHup(hup);
   for(a =0; a<20;a++){
     for(b = 0;b<20;b++){
       if(map[a][b] instanceof roche){
         drawRoche(map[a][b]);
         collision(map[a][b],hup);
-
-        //deplacementPerso(hup,map[a][b]);
       }
     }
 

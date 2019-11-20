@@ -9,52 +9,56 @@ class personnage{
       this.vh=8;
       this.vb=8;
     }
-  }
 
- function deplacementPerso(hup){
-  window.onkeydown = function(e) {
-    var key = e.keyCode || e.which;
-    switch (key) {
-        case 37:
-        //-Move left
-      hup.x -= hup.vg;
-      break;
-      case 39:
-        //-Move right
-        hup.x += hup.vd;
-        break;
-    case 38:
-        //-Move up
-        hup.y -= hup.vh;
-        break;
-    case 40:
-        //-Move down
-        hup.y += hup.vb;
-        break;
-    default:
-        break;
+
+    /*deplacement2(){
+      if(inputStates.left){
+        this.x = this.x-this.vg
+      }
+    if(inputStates.right){
+      this.x = this.x+this.vd
     }
-
-}
-}
-/*function deplacementPerso(hup){
-  if(inputStates.left){
-    hup.x = hup.x-hup.vg
+    if(inputStates.up){
+    this.y = this.y-this.vh
+    }
+    if(inputStates.down){
+    this.y = this.y+this.vb
+    }
+    }*/
+    
+    draw(){
+        ctx.save();
+        ctx.fillStyle = this.couleurPerso;
+        ctx.fillRect(this.x,this.y,this.taille,this.taille);
+        ctx.restore();
+      }
+    
   }
-if(inputStates.right){
-  hup.x = hup.x+hup.vd
-}
-if(inputStates.up){
-hup.y = hup.y-hup.vh
-}
-if(inputStates.down){
-hup.y = hup.y+hup.vb
-}
-}*/
-
-function drawPerso(hup){
-    ctx.save();
-    ctx.fillStyle = hup.couleurPerso;
-    ctx.fillRect(hup.x,hup.y,hup.taille,hup.taille);
-    ctx.restore();
+  function deplacementHup(hup){
+    window.onkeydown = function(e) {
+      var key = e.keyCode || e.which;
+      switch (key) {
+          case 37:
+          //-Move left
+        hup.x -= hup.vg;
+        break;
+        case 39:
+          //-Move right
+          hup.x += hup.vd;
+          break;
+      case 38:
+          //-Move up
+          hup.y -= hup.vh;
+          break;
+      case 40:
+          //-Move down
+          hup.y += hup.vb;
+          break;
+      default:
+          break;
+      }
+  
   }
+  }
+
+ 
