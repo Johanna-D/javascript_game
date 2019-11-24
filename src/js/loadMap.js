@@ -8,7 +8,7 @@
 
 */
 
-function loadMap(){
+function loadMap(mapToLoad){
     
     //maps.push(sauvegarde); A UTILISER SI PLUSIEURS MAPS
     
@@ -17,16 +17,16 @@ function loadMap(){
       
       for(var j = 0; j < 18; j++)
      {
-       if (map1[i][j].couleur == eauMap.couleur){
+       if (mapToLoad[i][j].couleur == eauMap.couleur){
         map[i][j] = new eau(i*taille,j*taille);
        }
-       else if (map1[i][j].couleur == herbeMap.couleur){
+       else if (mapToLoad[i][j].couleur == herbeMap.couleur){
         map[i][j] = new herbe(i*taille,j*taille);
        }
-       else if (map1[i][j].couleur == rocheMap.couleur){
+       else if (mapToLoad[i][j].couleur == rocheMap.couleur){
         map[i][j] = new roche(i*taille,j*taille);
        }
-       else if (map1[i][j].couleur == arbreMap.couleur){
+       else if (mapToLoad[i][j].couleur == arbreMap.couleur){
         map[i][j] = new arbre(i*taille,j*taille);
        }
        else{
