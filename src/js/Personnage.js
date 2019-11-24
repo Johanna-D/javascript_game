@@ -8,9 +8,10 @@ class Personnage {
     this.vh = 32;
     this.vb = 32;
   }
-  collisiondécor(map) {
+  collisiondecor(map) {
+    
     if ( this.x==map.x+map.taille && (this.y >=  map.y-8 && this.y<= map.y+8))
-      moveg = false;
+        moveg = false;
     if ( this.x==map.x-map.taille && (this.y >=  map.y-8 && this.y<= map.y+8))
         moved = false;
     if( this.y==map.y-map.taille && (this.x >=  map.x-8 && this.x<= map.x+8))

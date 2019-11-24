@@ -10,6 +10,7 @@
   <script src="js/herbe.js"></script>
   <script src="js/eau.js"></script>
   <script src="js/grille_test.js"></script>
+  <script src="js/maps.js"></script>
   <script src="js/Personnage.js"></script>
   <script src="js/hup.js"></script>
   <script src="js/ennemi1.js"></script>
@@ -26,12 +27,11 @@
     <img onclick="ajoute('arbre')" src="css/tree.jpg"> Ajouter un arbre <br>
     <img onclick="ajoute('eau')" src="css/water.png"> Ajouter de l'eau <br>
     <img onclick="ajoute('herbe')" src="css/herbe.png"> Ajouter de l'herbe <br>
-
-    <form>
-      <label>Nom de la map</label>
-      <input type="text" name="nomMap" id="nomMap" />
-      <input type="submit" value="Valider" onclick="saveMap()" />
-    </form>
+    <img onclick="loadMap()" src="css/load.png"> Charger la map <br>
+      
+    
+    
   </p>
+  
 </body>
 </html>

@@ -8,6 +8,17 @@ let d1 = true;
 let d2 = false;
 var ennemis = [];
 var newElement;
+
+/* pour la sauvegarde des maps, à ne pas toucher !! */
+let maps = [];
+var sauvegarde;
+var solMap = new sol();
+var eauMap = new eau();
+var herbeMap = new herbe();
+var arbreMap = new arbre();
+var rocheMap = new roche();
+/* fin variables pour sauvegarde des maps */
+
 var taille = 32
 var map = new Array(24);
 for (var i = 0; i < 24; i++)
@@ -42,6 +53,8 @@ function drawMap(grille){
 function ajoute(element){
   newElement = element;
 }
+
+
 function anime() {
   ctx.clearRect(1,1, canvas.width, canvas.height);
   moveg = true;
@@ -71,34 +84,39 @@ function anime() {
   }
   hup.draw();
   ennemis[0].draw();
-  if(d1){
-    ennemis[0].deplacement1();
-  }
-  else{ennemis[0].deplacement2();}
+  ennemis[0].deplacement1();
   deplacementHup(hup);
-    if(moveg == true)
+    if(moveg == true){
         hup.vg =32;
-    else
+    }
+    else{
         hup.vg =0;
-    if(moved == true)
+    }
+    if(moved == true){
         hup.vd =32;
-    else
+    }
+    else{
         hup.vd =0;
-    if(moveb == true)
+    }
+    if(moveb == true){
         hup.vb =32;
-    else
+    }
+    else{
         hup.vb =0;
-    if(moveh == true)
+    }
+    if(moveh == true){
         hup.vh =32;
-    else
+    }
+    else{
         hup.vh =0;
+    }
   // On demande une nouvelle frame d'animation
   window.requestAnimationFrame(anime);
 
 }
 
 function init() {
-
+  
   canvas = document.querySelector("#myCanvas");
   ctx = canvas.getContext("2d");
   hup = new hup((canvas.width/2)-32,(canvas.height/2)-32);
@@ -124,6 +142,7 @@ function init() {
     }
   }
    anime();
+   
    }
 
 /* -----------------INFOS POUR PLUS TARD -------------------------------------
