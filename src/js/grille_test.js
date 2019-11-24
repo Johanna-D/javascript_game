@@ -11,7 +11,7 @@ var newElement;
 
 /* pour la sauvegarde des maps, à ne pas toucher !! */
 let maps = [];
-var sauvegarde;
+var map1;
 var solMap = new sol();
 var eauMap = new eau();
 var herbeMap = new herbe();
@@ -119,6 +119,7 @@ function init() {
   
   canvas = document.querySelector("#myCanvas");
   ctx = canvas.getContext("2d");
+  loadMap();
   hup = new hup((canvas.width/2)-32,(canvas.height/2)-32);
   ennemis.push(new ennemi1(128,128));
   canvas.onmousedown = (event) => {
