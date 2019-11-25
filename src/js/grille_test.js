@@ -40,20 +40,9 @@ function processMouseMouve(evt) {
   }
  }
 
-function drawMap(grille){
-  for(let i =0;i< grille.ligne ;i++){
-    let multl = grille.taille * i;
-    for(let j = 0;j<grille.colonne;j++){
-      let multc = grille.taille * j;
-      map[i][j]= grille.drawrect(multl,multc);
-    }
-  }
-}
-
 function ajoute(element){
   newElement = element;
 }
-
 
 function anime() {
   ctx.clearRect(1,1, canvas.width, canvas.height);
@@ -82,46 +71,45 @@ function anime() {
       }
     }
   }
-  hup.draw();
   ennemis[0].draw();
-  ennemis[0].deplacement1();
+  hup.drawHup();
   deplacementHup(hup);
-    if(moveg == true){
-        hup.vg =32;
-    }
-    else{
-        hup.vg =0;
-    }
-    if(moved == true){
-        hup.vd =32;
-    }
-    else{
-        hup.vd =0;
-    }
-    if(moveb == true){
-        hup.vb =32;
-    }
-    else{
-        hup.vb =0;
-    }
-    if(moveh == true){
-        hup.vh =32;
-    }
-    else{
-        hup.vh =0;
-    }
-  // On demande une nouvelle frame d'animation
+  ennemis[0].deplacement();
+  if(moveg == true){
+      hup.vg =32;
+  }
+  else{
+      hup.vg =0;
+  }
+  if(moved == true){
+      hup.vd =32;
+  }
+  else{
+      hup.vd =0;
+  }
+  if(moveb == true){
+      hup.vb =32;
+  }
+  else{
+      hup.vb =0;
+  }
+  if(moveh == true){
+      hup.vh =32;
+  }
+  else{
+      hup.vh =0;
+  }
   window.requestAnimationFrame(anime);
 
 }
 
 function init() {
-  
+
   canvas = document.querySelector("#myCanvas");
   ctx = canvas.getContext("2d");
-  loadMap(map1); // permet de charger la première map dès le début. En paramètre, prends la map que l'on veut charger 
+  loadMap(map1); // permet de charger la première map dès le début. En paramètre, prends la map que l'on veut charger
   hup = new hup((canvas.width/2)-32,(canvas.height/2)-32);
-  ennemis.push(new ennemi1(128,128));
+  ennemis.push(new ennemi1(128,160));
   canvas.onmousedown = (event) => {
     processMouseMouve(event);
     let x = Math.floor(mousePos.x/taille);
@@ -143,7 +131,7 @@ function init() {
     }
   }
    anime();
-   
+
    }
 
 /* -----------------INFOS POUR PLUS TARD -------------------------------------
