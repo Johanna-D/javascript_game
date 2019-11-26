@@ -11,10 +11,11 @@ se déplacer de map en map
 
 // "nom de la map actuelle", "gauche","gauche string","droite","droite string","haut","haut string","bas","bas string"
 
-var maps = [["map1",map1,"map1",map11,"map11",map1,"map1",map1,"map1"],
+var maps = [["map1",map1,"map1",map11,"map11",mapGrotteStart,"mapGrotteStart",map1,"map1"],
+["mapGrotteStart",mapGrotteStart,"mapGrotteStart",mapGrotteStart,"mapGrotteStart",mapGrotteStart,"mapGrotteStart",map1,"map1"],
 ["map11",map1,"map1",map12,"map12",map11,"map11",map11,"map11"],
 ["map12",map11,"map11",map13,"map13",map12,"map12",map12,"map12"],
-["map13",map12,"map12",map14,"map14",map13,"map11",map13,"map13"],
+["map13",map12,"map12",map14,"map14",map13,"map13",map13,"map13"],
 ["map14",map13,"map13",map14,"map14",map14,"map14",map14,"map14"]];
 
 
@@ -96,7 +97,7 @@ function loadMap(mapToLoad){
     }
     /*------------ POUR ALLER EN HAUT -------*/
 
-    if (hup.y <= 0){
+    if (hup.y < 0){
       for(var i=0; i<maps.length; i++){
         if(maps[i][0] == map[24]){
           if(maps[i][6]==maps[i][0]){
@@ -104,7 +105,7 @@ function loadMap(mapToLoad){
           }
           else{
           loadMap(maps[i][5]);
-          hup.y = 540;
+          hup.y = 544;
           break;
           
           }
@@ -116,12 +117,13 @@ function loadMap(mapToLoad){
     /*-------- POUR ALLER EN BAS --------*/
 
     if (hup.y >= 576){
+      console.log("test");
       
       for(var i=0; i<maps.length; i++){
         
         if(maps[i][0] == map[24]){
           if(maps[i][8]==maps[i][0]){
-            hup.y = 576;
+            hup.y = 544;
           }
           else{
           loadMap(maps[i][7]);
