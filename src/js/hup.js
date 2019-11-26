@@ -35,4 +35,6 @@ function deplacementHup(hup){
       }
 
   }
+
+  
   }
