@@ -3,8 +3,9 @@
 
 /* INSTRUCTIONS
 -> Actuellement, la map numéro 1 est sauvegardée en json dans la variable sauvegarde
--> Si plusieurs map, on enregistrerait toutes les maps dans un tableau maps (cf ligne en commentaire)
--> Pour l'instant on reste sur une seule map, qu'on affiche en cliquant sur Charger la map
+-> Les différentes maps sont enregistrées dans un tableau
+-> Quand on enregistre une map dans le tableau, on enregistre aussi celles qui l'entourent afin de pouvoir
+se déplacer de map en map
 
 */
 
