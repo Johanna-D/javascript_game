@@ -9,15 +9,6 @@ let d2 = false;
 var ennemis = [];
 var newElement;
 
-/* pour la sauvegarde des maps, à ne pas toucher !! */
-
-//var map1;
-var solMap = new sol();
-var eauMap = new eau();
-var herbeMap = new herbe();
-var arbreMap = new arbre();
-var rocheMap = new roche();
-/* fin variables pour sauvegarde des maps */
 
 var taille = 32
 var map = new Array(25);
@@ -68,6 +59,19 @@ function anime() {
         map[a][b].draw();
       }
       if(map[a][b] instanceof herbe){
+        map[a][b].draw();
+      }
+      if(map[a][b] instanceof fleur){
+        map[a][b].draw();
+      }
+      if(map[a][b] instanceof neige){
+        map[a][b].draw();
+      }
+      if(map[a][b] instanceof eauProfonde){
+        map[a][b].draw();
+        hup.collisiondecor(map[a][b]);
+      }
+      if(map[a][b] instanceof solRoche){
         map[a][b].draw();
       }
     }
@@ -131,6 +135,18 @@ function init() {
     }
     if(newElement == "sol"){
       map[x][y] = new sol(x*taille,y*taille);
+    }
+    if(newElement == "solRoche"){
+      map[x][y] = new solRoche(x*taille,y*taille);
+    }
+    if(newElement == "eauProfonde"){
+      map[x][y] = new eauProfonde(x*taille,y*taille);
+    }
+    if(newElement == "neige"){
+      map[x][y] = new neige(x*taille,y*taille);
+    }
+    if(newElement == "fleur"){
+      map[x][y] = new fleur(x*taille,y*taille);
     }
   }
    anime();

@@ -9,6 +9,17 @@ se déplacer de map en map
 
 */
 
+
+var solMap = new sol();
+var eauMap = new eau();
+var herbeMap = new herbe();
+var arbreMap = new arbre();
+var rocheMap = new roche();
+var solRocheMap = new solRoche();
+var eauProfondeMap = new eauProfonde();
+var neigeMap = new neige();
+var fleurMap = new fleur();
+
 // "nom de la map actuelle", "gauche","gauche string","droite","droite string","haut","haut string","bas","bas string"
 
 var maps = [["map1",map1,"map1",map11,"map11",mapGrotteStart,"mapGrotteStart",map1,"map1"],
@@ -42,6 +53,18 @@ function loadMap(mapToLoad){
        }
        else if(mapToLoad[i][j].couleur == solMap.couleur){
         map[i][j] = new sol(i*taille,j*taille);
+       }
+       else if(mapToLoad[i][j].couleur == solRocheMap.couleur){
+        map[i][j] = new solRoche(i*taille,j*taille);
+       }
+       else if(mapToLoad[i][j].couleur == eauProfondeMap.couleur){
+        map[i][j] = new eauProfonde(i*taille,j*taille);
+       }
+       else if(mapToLoad[i][j].couleur == neigeMap.couleur){
+        map[i][j] = new neige(i*taille,j*taille);
+       }
+       else if(mapToLoad[i][j].couleur == fleurMap.couleur){
+        map[i][j] = new fleur(i*taille,j*taille);
        }
        
       }

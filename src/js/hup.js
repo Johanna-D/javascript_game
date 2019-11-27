@@ -27,8 +27,8 @@ class hup extends Personnage{
         ctx.fillStyle = 'brown';
         ctx.fillRect(this.x+2, this.y+8, 6, 6);
         ctx.fillStyle = 'yellow';
-        ctx.fillRect(this.x, this.y+14, 10, 2);
-        ctx.restore();
+            ctx.fillRect(this.x, this.y+14, 10, 2);
+    ctx.restore();
       }
       else if(this.angle==180){
         ctx.save();
