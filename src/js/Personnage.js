@@ -8,17 +8,31 @@ class Personnage {
     this.vh = 32;
     this.vb = 32;
   }
-  collisiondecor(map) {
-    
-    if ( this.x==map.x+map.taille && (this.y >=  map.y-8 && this.y<= map.y+8))
-        moveg = false;
-    if ( this.x==map.x-map.taille && (this.y >=  map.y-8 && this.y<= map.y+8))
-        moved = false;
-    if( this.y==map.y-map.taille && (this.x >=  map.x-8 && this.x<= map.x+8))
-        moveb = false;
-    if( this.y==map.y+map.taille && (this.x >=  map.x-8 && this.x<= map.x+8))
-        moveh = false;
+  collisionDecorEnnemisD(){
+    if(map[Math.floor(this.x/32)+1][Math.floor(this.y/32)] instanceof roche || map[Math.floor(this.x/32)+1][Math.floor(this.y/32)] instanceof eau || map[Math.floor(this.x/32)+1][Math.floor(this.y/32)] instanceof eauProfonde ||map[Math.floor(this.x/32)+1][Math.floor(this.y/32)] instanceof arbre){
+      return false;
+    }
+    else{return true;}
   }
+  collisionDecorEnnemisG(){
+    if(map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof roche || map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof eau || map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof eauProfonde ||map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof arbre){
+      return false;
+    }
+    else{return true;}
+  }
+  collisionDecorEnnemisB(){
+    if(map[Math.floor(this.x/32)][Math.floor(this.y/32)+1] instanceof roche || map[Math.floor(this.x/32)][Math.floor(this.y/32)+1] instanceof eau || map[Math.floor(this.x/32)][Math.floor(this.y/32)+1] instanceof eauProfonde ||map[Math.floor(this.x/32)][Math.floor(this.y/32)+1] instanceof arbre){
+      return false;
+    }
+    else{return true;}
+  }
+  collisionDecorEnnemisH(){
+    if(map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof roche || map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof eau || map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof eauProfonde ||map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof arbre){
+      return false;
+    }
+    else{return true;}
+  }
+
   draw() {
     ctx.save();
     ctx.fillStyle = this.couleur;

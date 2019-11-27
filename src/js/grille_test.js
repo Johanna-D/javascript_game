@@ -49,11 +49,11 @@ function anime() {
       }
       if(map[a][b] instanceof roche){
         map[a][b].draw();
-        hup.collisiondecor(map[a][b]);
+        hup.collisionDecorHup(map[a][b]);
       }
       if(map[a][b] instanceof arbre){
         map[a][b].draw();
-        hup.collisiondecor(map[a][b]);
+        hup.collisionDecorHup(map[a][b]);
       }
       if(map[a][b] instanceof eau){
         map[a][b].draw();
@@ -79,6 +79,7 @@ function anime() {
   ennemis[0].draw();
   hup.drawHup();
   deplacementHup(hup);
+  hup.collisionEnnemisHup(ennemis,hup);
   changeMap();
   ennemis[0].deplacement();
   if(moveg == true){
@@ -116,7 +117,7 @@ function init() {
 
   loadMap(map1); // permet de charger la première map dès le début. En paramètre, prends la map que l'on veut charger
   hup = new hup((canvas.width/2)-32,(canvas.height/2)-32);
-  ennemis.push(new ennemi1(128,160));
+  ennemis.push(new poulpe(128,160));
   canvas.onmousedown = (event) => {
     processMouseMouve(event);
     let x = Math.floor(mousePos.x/taille);
