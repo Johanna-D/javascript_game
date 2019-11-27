@@ -67,25 +67,19 @@ class hup extends Personnage{
       if( this.y==map.y+map.taille && (this.x >=  map.x-8 && this.x<= map.x+8))
           moveh = false;
     }
-    collisionEnnemisHup(ennemi,hup){
+    collisionEnnemisHup(ennemi){
       ennemis.forEach( ennemi => {
       if ( this.x==ennemi.x && this.y ==ennemi.y){
-          console.log("Degat");
-          let x =setInterval("hup.couleurPerso = 'red'", 50);
-          let y =setInterval("hup.couleurPerso = 'black'", 100);
-          let b = setTimeout(clearInterval(x),3000);
-          let a = setTimeout(clearInterval(y),3000);
-
+          this.red =setInterval("hup.couleurPerso = 'red'", 50);
+          this.black =setInterval("hup.couleurPerso = 'black'", 100);
+          setTimeout("clearInterval(hup.red)",901);
+          setTimeout("clearInterval(hup.black)",901);
+          setTimeout("hup.vie = hup.vie - 1",901);
         }
     })
   }
 }
-function couleurRouge(hup) {
-  hup.couleurPerso = 'red';
-}
-function couleurNoire(hup) {
-  hup.couleurPerso = 'black';
-}
+
 function deplacementHup(hup){
     window.onkeydown = function(e) {
       var key = e.keyCode || e.which;

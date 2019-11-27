@@ -38,6 +38,7 @@ function ajoute(element){
 
 function anime() {
   ctx.clearRect(1,1, canvas.width, canvas.height);
+  console.log(hup.vie);
   moveg = true;
   moved = true;
   moveh = true;
