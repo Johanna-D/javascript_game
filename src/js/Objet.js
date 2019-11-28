@@ -13,12 +13,13 @@ class Objet{
     }
     collisionObjetHup(hup){
         if (hup.x == this.x && hup.y == this.y && this.etat == true){
-            this.etat = false;
             if (hup.vie < 3 && this.type == "coeur"){
                 hup.vie += 0.5;
+                this.etat = false;
             }
             if(this.type == "clef"){
                 hup.clefs += 1;
+                this.etat = false;
             }
         }
     }
