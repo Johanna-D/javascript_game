@@ -2,7 +2,6 @@ class poulpe extends Personnage{
     couleur = 'red';
     mouvx = this.x;
     mouvy = this.y;
-    value = this.vg/32;
     vie = 3;
 
     deplacement(){

@@ -2,9 +2,10 @@ class hup extends Personnage{
     couleurPerso = 'black';
     angle = 0;
     vie = 3;
-    invinsibilite = 0;
+    invinsibilite = false;
     red = 'red';
     black = 'black';
+    clefs = 0;
     drawHup(){
       if(this.angle == 0){
         ctx.save();
@@ -69,14 +70,14 @@ class hup extends Personnage{
     }
     collisionEnnemisHup(ennemis){
       ennemis.forEach( ennemi => {
-      if ((this.x > ennemi.x-taille && this.x < ennemi.x+taille && this.y>ennemi.y-taille && this.y < ennemi.y+taille ) && this.invinsibilite == 0){
+      if ((this.x > ennemi.x-taille && this.x < ennemi.x+taille && this.y>ennemi.y-taille && this.y < ennemi.y+taille ) && this.invinsibilite == false){
           this.red =setInterval("hup.couleurPerso = 'red'", 50);
           this.black =setInterval("hup.couleurPerso = 'black'", 100);
           setTimeout("clearInterval(hup.red)",1201);
           setTimeout("clearInterval(hup.black)",1201);
-          this.invinsibilite = 1;
+          this.invinsibilite = true;
           this.vie = this.vie - 1;
-          setTimeout("hup.invinsibilite = 0",1201);
+          setTimeout("hup.invinsibilite = false",1201);
         }
     })
   }

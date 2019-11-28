@@ -77,13 +77,16 @@ function anime() {
       }
     }
   }
+  clef.drawObjet();
+  clef.collisionObjetHup(hup);
+  coeur.drawObjet();
+  coeur.collisionObjetHup(hup);
   ennemis[0].draw();
   hup.drawHup();
   deplacementHup(hup);
   hup.collisionEnnemisHup(ennemis);
   hup.gameover();
   changeMap();
-  //ennemis[0].deplacement();
   if(moveg == true){
       hup.vg =32;
   }
@@ -120,6 +123,8 @@ function init() {
   loadMap(map1); // permet de charger la première map dès le début. En paramètre, prends la map que l'on veut charger
   hup = new hup((canvas.width/2)-32,(canvas.height/2)-32);
   ennemis.push(new poulpe(128,160));
+  clef = new clef(12*32,32*15);
+  coeur = new coeur(10*32,32*13);
   canvas.onmousedown = (event) => {
     processMouseMouve(event);
     let x = Math.floor(mousePos.x/taille);
