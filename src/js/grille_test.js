@@ -39,7 +39,7 @@ function ajoute(element){
 
 function anime() {
   ctx.clearRect(1,1, canvas.width, canvas.height);
-  console.log(hup.vie);
+  //console.log(hup.vie);
   moveg = true;
   moved = true;
   moveh = true;
@@ -86,9 +86,13 @@ function anime() {
   clef1.collisionObjetHup(hup);
   coeur.drawObjet();
   coeur.collisionObjetHup(hup);
-  ennemis[0].draw();
+  ennemis.forEach( ennemi =>{
+    ennemi.draw();
+    ennemi.deplacement();
+    ennemi.mortEnnemi(ennemis);
+  })
   hup.drawHup();
-  deplacementHup(hup);
+  deplacementHup(hup,ennemis);
   hup.collisionEnnemisHup(ennemis);
   hup.gameover();
   changeMap();

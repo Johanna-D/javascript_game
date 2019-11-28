@@ -7,6 +7,7 @@ class Personnage {
     this.vd = 32;
     this.vh = 32;
     this.vb = 32;
+    this.red = 'red';
   }
   collisionDecorEnnemisD(){
     if(map[Math.floor(this.x/32)+1][Math.floor(this.y/32)] instanceof roche || map[Math.floor(this.x/32)+1][Math.floor(this.y/32)] instanceof eau || map[Math.floor(this.x/32)+1][Math.floor(this.y/32)] instanceof eauProfonde ||map[Math.floor(this.x/32)+1][Math.floor(this.y/32)] instanceof arbre){
@@ -34,10 +35,15 @@ class Personnage {
   }
 
   draw() {
-    ctx.save();
-    ctx.fillStyle = this.couleur;
-    ctx.fillRect(this.x, this.y, this.taille, this.taille);
-    ctx.restore();
+      ctx.save();
+      ctx.fillStyle = this.couleur;
+      ctx.fillRect(this.x, this.y, this.taille, this.taille);
+      ctx.restore();
+  }
+  mortEnnemi(ennemis){
+    if(this.vie <= 0){
+      ennemis.splice(this.index,1);
+    }
   }
 }
 

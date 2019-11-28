@@ -3,7 +3,6 @@ class hup extends Personnage{
     angle = 0;
     vie = 3;
     invinsibilite = false;
-    red = 'red';
     black = 'black';
     clefs = 0;
     drawHup(){
@@ -21,6 +20,7 @@ class hup extends Personnage{
       }
       else if(this.angle == 90)
       {
+        console.log("90");
         ctx.save();
         ctx.fillStyle = this.couleurPerso;
         ctx.fillRect(this.x, this.y, this.taille, this.taille/2);
@@ -33,6 +33,7 @@ class hup extends Personnage{
         ctx.restore();
       }
       else if(this.angle==180){
+        console.log("180");
         ctx.save();
         ctx.fillStyle = this.couleurPerso;
         ctx.fillRect(this.x, this.y, this.taille/2, this.taille);
@@ -45,6 +46,7 @@ class hup extends Personnage{
         ctx.restore();
       }
       else if(this.angle == 360){
+        console.log("360");
         ctx.save();
         ctx.fillStyle = this.couleurPerso;
         ctx.fillRect(this.x, this.y+16, this.taille, this.taille/2);
@@ -81,27 +83,47 @@ class hup extends Personnage{
         }
     })
   }
-  gameover(){
-    if(this.vie <=0){
-      this.x = (canvas.width/2)-32;
-      this.y = (canvas.height/2)-32;
-      loadMap(map1);
-      clearInterval(this.red);
-      clearInterval(this.black);
-      hup.invinsibilite = 0;
-      this.vie = 3;
-    }
+    gameover(){
+      if(this.vie <=0){
+        this.x = (canvas.width/2)-32;
+        this.y = (canvas.height/2)-32;
+        loadMap(map1);
+        clearInterval(this.red);
+        clearInterval(this.black);
+        hup.invinsibilite = 0;
+        this.vie = 3;
+      }
   }
-  //attaqueHup(ennemis){
-    //ennemis.forEach( ennemi => {
-  //}
 }
-
-function deplacementHup(hup){
+function attaqueHup(hup,ennemis){
+    ennemis.forEach( ennemi => {
+      if(hup.angle == 0){
+        if(hup.x-taille > ennemi.x-taille && hup.x-taille < ennemi.x+taille && hup.y>ennemi.y-taille && hup.y < ennemi.y+taille){
+          ennemi.vie -= 1;
+        }
+      }
+      if(hup.angle == 180){
+        if(hup.x+taille > ennemi.x-taille && hup.x+taille < ennemi.x+taille && hup.y>ennemi.y-taille && hup.y < ennemi.y+taille){
+          ennemi.vie -= 1;
+        }
+      }
+      if(hup.angle == 90){
+        if(hup.x > ennemi.x-taille && hup.x < ennemi.x+taille && hup.y+taille>ennemi.y-taille && hup.y+taille < ennemi.y+taille){
+          ennemi.vie -= 1;
+        }
+      }
+      if(hup.angle == 360){
+        if(hup.x > ennemi.x-taille && hup.x < ennemi.x+taille && hup.y-taille > ennemi.y-taille && hup.y-taille < ennemi.y+taille){
+          ennemi.vie -= 1;
+        }
+      }
+    }) 
+}
+function deplacementHup(hup,ennemis){
     window.onkeydown = function(e) {
       var key = e.keyCode || e.which;
       switch (key) {
-          case 37:
+        case 37:
           //-Move left
         hup.x -= hup.vg;
         hup.angle = 0;
@@ -121,6 +143,8 @@ function deplacementHup(hup){
           hup.y += hup.vb;
           hup.angle = 90;
           break;
+      case 32:
+          attaqueHup(hup,ennemis)
       default:
           break;
       }
