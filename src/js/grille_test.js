@@ -70,7 +70,7 @@ function anime() {
       }
       if(map[a][b] instanceof eauProfonde){
         map[a][b].draw();
-        hup.collisiondecor(map[a][b]);
+        hup.collisionDecorHup(map[a][b]);
       }
       if(map[a][b] instanceof solRoche){
         map[a][b].draw();
@@ -80,9 +80,10 @@ function anime() {
   ennemis[0].draw();
   hup.drawHup();
   deplacementHup(hup);
-  hup.collisionEnnemisHup(ennemis,hup);
+  hup.collisionEnnemisHup(ennemis);
+  hup.gameover();
   changeMap();
-  ennemis[0].deplacement();
+  //ennemis[0].deplacement();
   if(moveg == true){
       hup.vg =32;
   }

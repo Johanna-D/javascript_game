@@ -2,7 +2,7 @@ class hup extends Personnage{
     couleurPerso = 'black';
     angle = 0;
     vie = 3;
-    cpt = 1;
+    invinsibilite = 0;
     red = 'red';
     black = 'black';
     drawHup(){
@@ -28,8 +28,8 @@ class hup extends Personnage{
         ctx.fillStyle = 'brown';
         ctx.fillRect(this.x+2, this.y+8, 6, 6);
         ctx.fillStyle = 'yellow';
-            ctx.fillRect(this.x, this.y+14, 10, 2);
-    ctx.restore();
+        ctx.fillRect(this.x, this.y+14, 10, 2);
+        ctx.restore();
       }
       else if(this.angle==180){
         ctx.save();
@@ -67,17 +67,33 @@ class hup extends Personnage{
       if( this.y==map.y+map.taille && (this.x >=  map.x-8 && this.x<= map.x+8))
           moveh = false;
     }
-    collisionEnnemisHup(ennemi){
+    collisionEnnemisHup(ennemis){
       ennemis.forEach( ennemi => {
-      if ( this.x==ennemi.x && this.y ==ennemi.y){
+      if ((this.x > ennemi.x-taille && this.x < ennemi.x+taille && this.y>ennemi.y-taille && this.y < ennemi.y+taille ) && this.invinsibilite == 0){
           this.red =setInterval("hup.couleurPerso = 'red'", 50);
           this.black =setInterval("hup.couleurPerso = 'black'", 100);
-          setTimeout("clearInterval(hup.red)",901);
-          setTimeout("clearInterval(hup.black)",901);
-          setTimeout("hup.vie = hup.vie - 1",901);
+          setTimeout("clearInterval(hup.red)",1201);
+          setTimeout("clearInterval(hup.black)",1201);
+          this.invinsibilite = 1;
+          this.vie = this.vie - 1;
+          setTimeout("hup.invinsibilite = 0",1201);
         }
     })
   }
+  gameover(){
+    if(this.vie <=0){
+      this.x = (canvas.width/2)-32;
+      this.y = (canvas.height/2)-32;
+      loadMap(map1);
+      clearInterval(this.red);
+      clearInterval(this.black);
+      hup.invinsibilite = 0;
+      this.vie = 3;
+    }
+  }
+  //attaqueHup(ennemis){
+    //ennemis.forEach( ennemi => {
+  //}
 }
 
 function deplacementHup(hup){
