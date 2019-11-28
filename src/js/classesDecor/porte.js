@@ -2,9 +2,9 @@ class porte extends Objet {
     couleur = "#610303";
 
     ouvrirPorte(hup){
-        if(hup.clefs == 3 && this.etat ==true){
+        if(hup.clefs >= 1 && this.etat ==true){
             this.etat = false;
-            hup.clefs -= 3;
+            hup.clefs -= 1;
             portes = [];
         }
     }
