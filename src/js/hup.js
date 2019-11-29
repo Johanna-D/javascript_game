@@ -177,13 +177,13 @@ function attaqueHup(hup,ennemis){
         if(hup.angle == 0){
           if(hup.x-taille > ennemis[i].x-taille && hup.x-taille < ennemis[i].x+taille && hup.y>ennemis[i].y-taille && hup.y < ennemis[i].y+taille && ennemis[i].invinsibilite == false){
             ennemis[i].vie -= 1;
-            if(ennemis[i].collisionDecorEnnemisG()){
+            if(ennemis[i].collisionDecorEnnemisAttaqueG()){
               ennemis[i].x -=32;
-              cpt=true;
+              ennemis[i].cpt=true;
             }
-            else if(cpt == true ) {
+            else if(ennemis[i].cpt == true ) {
               ennemis[i].x -=(ennemis[i].x%32);
-              cpt=false;
+              ennemis[i].cpt=false;
             }
             if(ennemis[i].vie >0){
               ennemis[i].red = setInterval("ennemis[hup.ennemiIndex].couleur = 'black'", 50);
@@ -198,13 +198,13 @@ function attaqueHup(hup,ennemis){
       if(hup.angle == 180){
         if(hup.x+taille > ennemis[i].x-taille && hup.x+taille < ennemis[i].x+taille && hup.y>ennemis[i].y-taille && hup.y < ennemis[i].y+taille && ennemis[i].invinsibilite == false){
           ennemis[i].vie -= 1;
-          if(ennemis[i].collisionDecorEnnemisD()){
+          if(ennemis[i].collisionDecorEnnemisAttaqueD()){
             ennemis[i].x +=32;
-            cpt=true;
+            ennemis[i].cpt=true;
           }
-          else if(cpt == true ) {
-            ennemis[i].x +=(32-ennemis[i].x%32);
-            cpt=false;
+          else if(ennemis[i].cpt == true ) {
+            ennemis[i].x +=((32-ennemis[i].x%32)%32);
+            ennemis[i].cpt=false;
           }
           if(ennemis[i].vie >0){
             ennemis[i].red = setInterval("ennemis[hup.ennemiIndex].couleur = 'black'", 50);
@@ -219,11 +219,13 @@ function attaqueHup(hup,ennemis){
       if(hup.angle == 90){
         if(hup.x > ennemis[i].x-taille && hup.x < ennemis[i].x+taille && hup.y+taille>ennemis[i].y-taille && hup.y+taille < ennemis[i].y+taille && ennemis[i].invinsibilite == false){
           ennemis[i].vie -= 1;
-          if(ennemis[i].collisionDecorEnnemisB()){
+          if(ennemis[i].collisionDecorEnnemisAttaqueB()){
             ennemis[i].y +=32;
+            ennemis[i].cpt=true;
           }
-          else if(ennemis[i].collisionDecorEnnemisBS()) {
-            ennemis[i].y +=(32-ennemis[i].y%32);
+          else if(ennemis[i].cpt == true ) {
+            ennemis[i].y +=((32-ennemis[i].y%32)%32);
+            ennemis[i].cpt=false;
           }
           if(ennemis[i].vie >0){
             ennemis[i].red = setInterval("ennemis[hup.ennemiIndex].couleur = 'black'", 50);
@@ -238,11 +240,13 @@ function attaqueHup(hup,ennemis){
       if(hup.angle == 360){
         if(hup.x > ennemis[i].x-taille && hup.x < ennemis[i].x+taille && hup.y-taille > ennemis[i].y-taille && hup.y-taille < ennemis[i].y+taille && ennemis[i].invinsibilite == false){
           ennemis[i].vie -= 1;
-          if(ennemis[i].collisionDecorEnnemisH()){
+          if(ennemis[i].collisionDecorEnnemisAttaqueH()){
             ennemis[i].y -=32;
+            ennemis[i].cpt=true;
           }
-          else if(ennemis[i].collisionDecorEnnemisHS()) {
+          else if(ennemis[i].cpt == true ) {
             ennemis[i].y -=(ennemis[i].y%32);
+            ennemis[i].cpt=false;
           }
           if(ennemis[i].vie >0){
             ennemis[i].red = setInterval("ennemis[hup.ennemiIndex].couleur = 'black'", 50);

@@ -88,7 +88,7 @@ function anime() {
   coeur.collisionObjetHup(hup);
   ennemis.forEach( ennemi =>{
     ennemi.draw();
-    //ennemi.deplacement();
+    ennemi.deplacement();
     ennemi.mortEnnemi(ennemis);
   })
   hup.drawHup();
@@ -134,7 +134,7 @@ function init() {
 
   loadMap(map1); // permet de charger la première map dès le début. En paramètre, prends la map que l'on veut charger
   hup = new hup((canvas.width/2)-32,(canvas.height/2)-32);
-  ennemis.push(new poulpe(128+32*1-15,160-15));
+  ennemis.push(new poulpe(128,160));
   clef1 = new clef(12*32,32*15);
   coeur = new coeur(10*32,32*13);
   portes.push(new porte(10*32,0));
