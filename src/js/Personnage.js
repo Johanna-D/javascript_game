@@ -9,6 +9,7 @@ class Personnage {
     this.vb = 32;
     this.red = 'red';
     this.invinsibilite = false;
+    this.angle = 0;
     this.cpt = true;
   }
   collisionDecorEnnemisAttaqueD(){

@@ -37,6 +37,12 @@ function ajoute(element){
   newElement = element;
 }
 
+function tirBalle(ennemi){
+  if((Math.random()*100)<=1){
+    balle = new ballePoulpe(ennemi.x,ennemi.y,ennemi.angle);
+    ennemi.tir = 1;
+}
+}
 function anime() {
   ctx.clearRect(1,1, canvas.width, canvas.height);
   //console.log(hup.vie);
@@ -89,6 +95,12 @@ function anime() {
   ennemis.forEach( ennemi =>{
     ennemi.draw();
     ennemi.deplacement();
+    if(ennemi.tir ==0){
+      tirBalle(ennemi);
+    }
+    if(ennemi.tir ==1){
+      balle.drawTir();
+    }
     ennemi.mortEnnemi(ennemis);
   })
   hup.drawHup();

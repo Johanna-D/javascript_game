@@ -1,6 +1,5 @@
 class hup extends Personnage{
     couleurPerso = 'black';
-    angle = 0;
     vie = 3;
     black = 'black';
     clefs = 0;
