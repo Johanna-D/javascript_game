@@ -159,7 +159,7 @@ class hup extends Personnage{
       if(this.vie <=0){
         this.x = (canvas.width/2)-32;
         this.y = (canvas.height/2)-32;
-        loadMap(map1);
+        loadMap(C1);
         clearInterval(this.red);
         clearInterval(this.black);
         hup.invinsibilite = 0;

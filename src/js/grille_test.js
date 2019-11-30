@@ -84,14 +84,14 @@ function anime() {
       }
     }
   }
-  portes.forEach( porte =>{
+  /*portes.forEach( porte =>{
     porte.drawObjet();
     porte.collisionPorteHup(hup);
   })
   clef1.drawObjet();
   clef1.collisionObjetHup(hup);
   coeur.drawObjet();
-  coeur.collisionObjetHup(hup);
+  coeur.collisionObjetHup(hup);*/
   ennemis.forEach( ennemi =>{
     ennemi.draw();
     ennemi.deplacement();
@@ -147,12 +147,12 @@ function init() {
   loadMap(C1); // permet de charger la première map dès le début. En paramètre, prends la map que l'on veut charger
   hup = new hup((canvas.width/2)-32,(canvas.height/2)-32);
   ennemis.push(new poulpe(128,160));
-  clef1 = new clef(12*32,32*15);
+  /*clef1 = new clef(12*32,32*15);
   coeur = new coeur(10*32,32*13);
   portes.push(new porte(10*32,0));
   portes.push(new porte(11*32,0));
   portes.push(new porte(12*32,0));
-  portes.push(new porte(13*32,0));
+  portes.push(new porte(13*32,0));*/
   canvas.onmousedown = (event) => {
     processMouseMouve(event);
     let x = Math.floor(mousePos.x/taille);
