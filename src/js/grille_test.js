@@ -144,7 +144,7 @@ function init() {
   canvas = document.querySelector("#myCanvas");
   ctx = canvas.getContext("2d");
 
-  loadMap(map1); // permet de charger la première map dès le début. En paramètre, prends la map que l'on veut charger
+  loadMap(C1); // permet de charger la première map dès le début. En paramètre, prends la map que l'on veut charger
   hup = new hup((canvas.width/2)-32,(canvas.height/2)-32);
   ennemis.push(new poulpe(128,160));
   clef1 = new clef(12*32,32*15);

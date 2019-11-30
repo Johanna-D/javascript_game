@@ -22,12 +22,31 @@ var fleurMap = new fleur();
 
 // "nom de la map actuelle", "gauche","gauche string","droite","droite string","haut","haut string","bas","bas string"
 
-var maps = [["map1",map1,"map1",map11,"map11",mapGrotteStart,"mapGrotteStart",map1,"map1"],
-["mapGrotteStart",mapGrotteStart,"mapGrotteStart",mapGrotteStart,"mapGrotteStart",mapGrotteStart,"mapGrotteStart",map1,"map1"],
-["map11",map1,"map1",map12,"map12",map11,"map11",map11,"map11"],
-["map12",map11,"map11",map13,"map13",map12,"map12",map12,"map12"],
-["map13",map12,"map12",map14,"map14",map13,"map13",map13,"map13"],
-["map14",map13,"map13",map14,"map14",map14,"map14",map14,"map14"]];
+
+var maps = [
+// -------MAPS ANNEXES ---------- //
+["C1sword",C1sword,"C1sword",C1sword,"C1sword",C1,"C1",C1sword,"C1sword"],
+["I1shield",I1shield,"I1shield",I1shield,"I1shield",I1,"I1",I1shield,"I1shield"],
+// -------LIGNE 1 --------------- //
+["C1",C1,"C1",D1,"D1",C1,"C1",C1sword,"C1sword"],
+["D1",C1,"C1",E1,"E1",D1,"D1",D1,"D1"],
+["E1",D1,"D1",F1,"F1",E1,"E1",E1,"E1"],
+["F1",E1,"E1",G1,"G1",G1,"G1",F1,"F1"],
+["G1",F1,"F1",H1,"H1",G1,"G1",G1,"G1"],
+["H1",G1,"G1",I1,"I1",H2,"H2",H1,"H1"],
+["I1",H1,"H1",J1,"J1",I2,"I2",I1shield,"I1shield"],
+["J1",I1,"I1",K1,"K1",J2,"J2",J1,"J1"],
+["K1",J1,"J1",L1,"L1",K2,"K2",K1,"K1"],
+["L1",K1,"K1",L1,"L1",L2,"L2",L1,"L1"],
+["M1",M1,"M1",M1,"M1",M2,"M2",M1,"M1"],
+// -------LIGNE 2 --------------- //
+["H2",H2,"H2",I2,"I2",H2,"H2",H1,"H1"],
+["I2",H2,"H2",J2,"J2",I2,"I2",I1,"I1"],
+["J2",I2,"I2",J2,"J2",J2,"J2",J1,"J1"],
+["K2",J2,"J2",L2,"L2",K2,"K2",K1,"K1"],
+["L2",K2,"K2",L2,"L2",L2,"L2",L1,"L1"],
+["M2",M2,"M2",M2,"M2",M2,"M2",M1,"M1"],
+];
 
 
 function loadMap(mapToLoad){
