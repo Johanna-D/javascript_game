@@ -2,8 +2,8 @@
 // ----- FONCTIONS DE SAUVEGARDE DE LA MAP ---------- //
 
 /* INSTRUCTIONS
--> Actuellement, la map numéro 1 est sauvegardée en json dans la variable sauvegarde
--> Les différentes maps sont enregistrées dans un tableau
+-> Les maps sont en JSON dans sauvegardeMaps.js
+-> Les différentes maps sont enregistrées dans un tableau ici
 -> Quand on enregistre une map dans le tableau, on enregistre aussi celles qui l'entourent afin de pouvoir
 se déplacer de map en map
 
@@ -27,6 +27,7 @@ var maps = [
 // -------MAPS ANNEXES ---------- //
 ["C1sword",C1sword,"C1sword",C1sword,"C1sword",C1,"C1",C1sword,"C1sword"],
 ["I1shield",I1shield,"I1shield",I1shield,"I1shield",I1,"I1",I1shield,"I1shield"],
+["A2key",A2key,"A2key",A2,"A2",A2key,"A2key",A2key,"A2key"],
 // -------LIGNE 1 --------------- //
 ["C1",C1,"C1",D1,"D1",C1,"C1",C1sword,"C1sword"],
 ["D1",C1,"C1",E1,"E1",D1,"D1",D1,"D1"],
@@ -40,24 +41,40 @@ var maps = [
 ["L1",K1,"K1",L1,"L1",L2,"L2",L1,"L1"],
 ["M1",M1,"M1",M1,"M1",M2,"M2",M1,"M1"],
 // -------LIGNE 2 --------------- //
-["C2",C2,"C2",D2,"D2",C2,"C2",C1,"C1"],
-["D2",C2,"C2",E2,"E2",D2,"D2",D1,"D1"],
-["E2",D2,"D2",F2,"F2",E2,"E2",E1,"E1"],
-["F2",E2,"E2",G2,"G2",F2,"F2",F1,"F1"],
-["G2",F2,"F2",H2,"H2",G2,"G2",G1,"G1"],
-["H2",G2,"G2",I2,"I2",H2,"H2",H1,"H1"],
-["I2",H2,"H2",J2,"J2",I2,"I2",I1,"I1"],
+["A2",A2key,"A2key",B2,"B2",A2,"A2",A2,"A2"],
+["B2",A2,"A2",C2,"C2",B3,"B3",B2,"B2"],
+["C2",B2,"B2",D2,"D2",C3,"C3",C1,"C1"],
+["D2",C2,"C2",E2,"E2",D3,"D3",D1,"D1"],
+["E2",D2,"D2",F2,"F2",E3,"E3",E1,"E1"],
+["F2",E2,"E2",G2,"G2",F3,"F3",F1,"F1"],
+["G2",F2,"F2",H2,"H2",G3,"G3",G1,"G1"],
+["H2",G2,"G2",I2,"I2",H3,"H3",H1,"H1"],
+["I2",H2,"H2",J2,"J2",I3,"I3",I1,"I1"],
 ["J2",I2,"I2",J2,"J2",J2,"J2",J1,"J1"],
-["K2",J2,"J2",L2,"L2",K2,"K2",K1,"K1"],
-["L2",K2,"K2",L2,"L2",L2,"L2",L1,"L1"],
+["K2",J2,"J2",L2,"L2",K3,"K3",K1,"K1"],
+["L2",K2,"K2",L2,"L2",L3,"L3",L1,"L1"],
 ["M2",M2,"M2",M2,"M2",M2,"M2",M1,"M1"],
 // -------LIGNE 3 --------------- //
+["B3",B3,"B3",C3,"C3",B4,"B4",B2,"B2"],
+["C3",B3,"B3",D3,"D3",C4,"C4",C2,"C2"],
+["D3",C3,"C3",E3,"E3",D4,"D4",D2,"D2"],
+["E3",D3,"D3",F3,"F3",E3,"E3",E2,"E2"],
+["F3",E3,"E3",G3,"G3",F3,"F3",F2,"F2"],
+["G3",F3,"F3",H3,"H3",G3,"G3",G2,"G2"],
+["H3",G3,"G3",I3,"I3",H3,"H3",H2,"H2"],
+["I3",H3,"H3",J3,"J3",I3,"I3",I2,"I2"],
+["J3",I3,"I3",K3,"K3",J3,"J3",J2,"J2"],
+["K3",J3,"J3",L3,"L3",K3,"K3",K2,"K2"],
+["L3",K3,"K3",L3,"L3",L3,"L3",L2,"L2"],
+// -------LIGNE 4 --------------- //
+["B4",B4,"B4",C4,"C4",B4,"B4",B3,"B3"],
+["C4",B4,"B4",D4,"D4",C4,"C4",C3,"C3"],
+["D4",C4,"C4",D4,"D4",D4,"D4",D3,"D3"],
 ];
 
 
 function loadMap(mapToLoad){
-    
-    //maps.push(sauvegarde); A UTILISER SI PLUSIEURS MAPS
+  
 
     for (var i = 0; i < 24; i++)
     {
