@@ -100,6 +100,7 @@ function anime() {
     }
     if(ennemi.tir ==1){
       balle.drawTir();
+      balle.moveTir(ennemi,hup);
     }
     ennemi.mortEnnemi(ennemis);
   })
