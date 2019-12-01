@@ -3,7 +3,7 @@ class poulpe extends Personnage{
     mouvx = this.x;
     mouvy = this.y;
     black = 'black';
-    vie = 20 ;
+    vie = 3;
     tir = 0;
     deplacement(){
       if(this.x < (this.mouvx + (8*32)) && d1 == true && this.collisionDecorEnnemisD()){
