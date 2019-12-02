@@ -82,11 +82,11 @@ var maps = [
 
 
 function loadMap(mapToLoad){
-  
+
 
     for (var i = 0; i < 24; i++)
     {
-      
+
       for(var j = 0; j < 18; j++)
      {
        if (mapToLoad[i][j].couleur == eauMap.couleur){
@@ -116,21 +116,25 @@ function loadMap(mapToLoad){
        else if(mapToLoad[i][j].couleur == fleurMap.couleur){
         map[i][j] = new fleur(i*taille,j*taille);
        }
-       
+
       }
 
-      
+
     }
     map[24]= mapToLoad[24][0];
-
-    
-    
+    map[25]=mapToLoad[25];
+    if(map[25] != null){
+    for(i = 0;i < map[25].length ;i=i+3){
+      if(map[25][i] == "poulpe"){
+        ennemis.push(new poulpe(map[25][i+1],(map[25][i+2])));
+      }
+    }
   }
+}
 
   function changeMap(){
-    
-    /* ----- POUR ALLER A DROITE --------*/
 
+    /* ----- POUR ALLER A DROITE --------*/
     if (hup.x >= 768){
       for(var i=0; i<maps.length; i++){
         if(maps[i][0] == map[24]){
@@ -138,12 +142,13 @@ function loadMap(mapToLoad){
             hup.x = 736;
           }
           else{
+          ennemis = []
           loadMap(maps[i][3]);
           hup.x = 0;
           break;
-          
+
           }
-          
+
         }
       }
     }
@@ -151,20 +156,21 @@ function loadMap(mapToLoad){
     /*---------- POUR ALLER À GAUCHE ---------*/
 
     if (hup.x < 0){
-      
+
       for(var i=0; i<maps.length; i++){
-        
+
         if(maps[i][0] == map[24]){
           if(maps[i][2]==maps[i][0]){
             hup.x = 0;
           }
           else{
+          ennemis = []
           loadMap(maps[i][1]);
           hup.x = 736;
           break;
-          
+
           }
-          
+
         }
       }
     }
@@ -177,12 +183,13 @@ function loadMap(mapToLoad){
             hup.y = 0;
           }
           else{
+          ennemis = []
           loadMap(maps[i][5]);
           hup.y = 544;
           break;
-          
+
           }
-          
+
         }
       }
     }
@@ -191,24 +198,25 @@ function loadMap(mapToLoad){
 
     if (hup.y >= 576){
       console.log("test");
-      
+
       for(var i=0; i<maps.length; i++){
-        
+
         if(maps[i][0] == map[24]){
           if(maps[i][8]==maps[i][0]){
             hup.y = 544;
           }
           else{
+          ennemis = []
           loadMap(maps[i][7]);
           hup.y = 0;
           break;
-          
+
           }
-          
+
         }
       }
     }
   }
 
-  
+
   // ----- FIN FONCTIONS SAUVEGARDE ----------//

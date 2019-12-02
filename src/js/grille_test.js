@@ -4,15 +4,13 @@ let moved = true;
 let moveg = true;
 let moveb = true;
 let moveh = true;
-let d1 = true;
-let d2 = false;
 var ennemis = [];
 var portes=[];
 var newElement;
 
 
 var taille = 32
-var map = new Array(25);
+var map = new Array(26);
 
 for (var i = 0; i < 24; i++)
 {
@@ -92,18 +90,18 @@ function anime() {
   clef1.collisionObjetHup(hup);
   coeur.drawObjet();
   coeur.collisionObjetHup(hup);*/
-  ennemis.forEach( ennemi =>{
-    ennemi.draw();
-    ennemi.deplacement();
-    if(ennemi.tir ==0){
-      tirBalle(ennemi);
+    for(i = 0;i< ennemis.length;i++){
+    ennemis[i].draw();
+    ennemis[i].deplacement();
+    if(ennemis[i].tir ==0){
+      tirBalle(ennemis[i]);
     }
-    if(ennemi.tir ==1){
+    if(ennemis[i].tir ==1){
       balle.drawTir();
-      balle.moveTir(ennemi,hup);
+      balle.moveTir(ennemis[i],hup);
     }
-    ennemi.mortEnnemi(ennemis);
-  })
+    ennemis[i].mortEnnemi(ennemis);
+  }
   hup.drawHup();
   if(hup.Epee ==1){
     hup.drawHupEpee(hup.EpeeChiffre);
@@ -144,16 +142,15 @@ function init() {
 
   canvas = document.querySelector("#myCanvas");
   ctx = canvas.getContext("2d");
-
   loadMap(C1); // permet de charger la première map dès le début. En paramètre, prends la map que l'on veut charger
   hup = new hup((canvas.width/2)-32,(canvas.height/2)-32);
-  ennemis.push(new poulpe(128,160));
   /*clef1 = new clef(12*32,32*15);
   coeur = new coeur(10*32,32*13);
   portes.push(new porte(10*32,0));
   portes.push(new porte(11*32,0));
   portes.push(new porte(12*32,0));
   portes.push(new porte(13*32,0));*/
+
   canvas.onmousedown = (event) => {
     processMouseMouve(event);
     let x = Math.floor(mousePos.x/taille);
