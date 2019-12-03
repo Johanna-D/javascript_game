@@ -65,7 +65,7 @@ class ballePoulpe{
   //Hitbox hup demi rectangle
   collisionTirHup(ennemi,hup){
       if(hup.angle == 0){
-        if(hup.x <= (this.x-7) && hup.x+16 > (this.x+7)+taille && hup.y>(this.y-7)-taille && hup.y < (this.y+7)+taille && hup.invinsibilite == false){
+        if(hup.x <= (this.x-7) && hup.x+16 > (this.x+7)+taille && hup.y>(this.y)-taille && hup.y < (this.y)+taille && hup.invinsibilite == false){
           hup.red =setInterval("hup.couleurPerso = 'red'", 50);
           hup.black =setInterval("hup.couleurPerso = 'black'", 100);
           setTimeout("clearInterval(hup.red)",1201);
@@ -79,7 +79,7 @@ class ballePoulpe{
         else{return true;}
       }
       if(hup.angle == 180){
-        if(hup.x-16 > (this.x-8)-taille && hup.x < (this.x+8)+taille && hup.y>(this.y-8)-taille && hup.y < (this.y+8)+taille && hup.invinsibilite == false){
+        if(hup.x-16 > (this.x-8)-taille && hup.x < (this.x+8)+taille && hup.y>(this.y)-taille && hup.y < (this.y)+taille && hup.invinsibilite == false){
           hup.red =setInterval("hup.couleurPerso = 'red'", 50);
           hup.black =setInterval("hup.couleurPerso = 'black'", 100);
           setTimeout("clearInterval(hup.red)",1201);
@@ -93,7 +93,7 @@ class ballePoulpe{
         else{return true;}
       }
       if(hup.angle == 90){
-        if(hup.x > (this.x-8)-taille && hup.x < (this.x+8)+taille && hup.y-16>(this.y-8)-taille && hup.y < (this.y+8)+taille && hup.invinsibilite == false){
+        if(hup.x > (this.x-8)-taille && hup.x < (this.x+8)+taille && hup.y-16>(this.y)-taille && hup.y < (this.y)+taille && hup.invinsibilite == false){
           hup.red =setInterval("hup.couleurPerso = 'red'", 50);
           hup.black =setInterval("hup.couleurPerso = 'black'", 100);
           setTimeout("clearInterval(hup.red)",1201);
@@ -107,7 +107,7 @@ class ballePoulpe{
         else{return true;}
       }
       if(hup.angle == 360){
-        if(hup.x > (this.x-8)-taille && hup.x < (this.x+8)+taille && hup.y > (this.y-8)-taille && hup.y+16 < (this.y+8)+taille && hup.invinsibilite == false){
+        if(hup.x > (this.x-8)-taille && hup.x < (this.x+8)+taille && hup.y > (this.y)-taille && hup.y+16 < (this.y)+taille && hup.invinsibilite == false){
           hup.red =setInterval("hup.couleurPerso = 'red'", 50);
           hup.black =setInterval("hup.couleurPerso = 'black'", 100);
           setTimeout("clearInterval(hup.red)",1201);
