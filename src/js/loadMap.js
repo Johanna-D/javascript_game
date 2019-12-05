@@ -19,6 +19,7 @@ var solRocheMap = new solRoche();
 var eauProfondeMap = new eauProfonde();
 var neigeMap = new neige();
 var fleurMap = new fleur();
+var boisMap = new bois();
 
 // "nom de la map actuelle", "gauche","gauche string","droite","droite string","haut","haut string","bas","bas string"
 
@@ -114,6 +115,8 @@ var maps = [
 ["F7",E7,"E7",F7,"F7",F7,"F7",F6,"F6"],
 ["K7",K7,"K7",L7,"L7",K8,"K8",K6,"K6"],
 ["L7",K7,"K7",L7,"L7",L8,"L8",L6,"L6"],
+["M7",L7,"L7",N7,"N7",M7,"M7",M7,"M7"],
+["N7",M7,"M7",N7,"N7",N7,"N7",N7,"N7"],
 // -------LIGNE 8 --------------- //
 ["B8",B8,"B8",C8,"C8",B8,"B8",B7,"B7"],
 ["C8",B8,"B8",D8,"D8",C8,"C8",C7,"C7"],
@@ -159,6 +162,9 @@ function loadMap(mapToLoad){
        }
        else if(mapToLoad[i][j].couleur == fleurMap.couleur){
         map[i][j] = new fleur(i*taille,j*taille);
+       }
+       else if(mapToLoad[i][j].couleur == boisMap.couleur){
+        map[i][j] = new bois(i*taille,j*taille);
        }
 
       }

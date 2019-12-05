@@ -53,6 +53,9 @@ function anime() {
       if(map[a][b] instanceof sol){
         map[a][b].draw();
       }
+      if(map[a][b] instanceof bois){
+        map[a][b].draw();
+      }
       if(map[a][b] instanceof roche){
         map[a][b].draw();
         hup.collisionDecorHup(map[a][b]);
@@ -182,6 +185,9 @@ function init() {
     }
     if(newElement == "fleur"){
       map[x][y] = new fleur(x*taille,y*taille);
+    }
+    if(newElement == "bois"){
+      map[x][y] = new bois(x*taille,y*taille);
     }
   }
    anime();
