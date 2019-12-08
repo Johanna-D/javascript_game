@@ -20,6 +20,7 @@ var eauProfondeMap = new eauProfonde();
 var neigeMap = new neige();
 var fleurMap = new fleur();
 var boisMap = new bois();
+var gameoverMap = new gameover();
 
 // "nom de la map actuelle", "gauche","gauche string","droite","droite string","haut","haut string","bas","bas string"
 
@@ -165,6 +166,9 @@ function loadMap(mapToLoad){
        }
        else if(mapToLoad[i][j].couleur == boisMap.couleur){
         map[i][j] = new bois(i*taille,j*taille);
+       }
+       else if(mapToLoad[i][j].couleur == gameoverMap.couleur){
+        map[i][j] = new gameover(i*taille,j*taille);
        }
 
       }

@@ -160,14 +160,20 @@ class hup extends Personnage{
         this.x = (canvas.width/2)-32;
         this.y = (canvas.height/2)-32;
         ennemis =[]
-        loadMap(C1);
+        loadMap(gameOver);
+        setTimeout("loadMap(C1)",2000);
+        //loadMap(C1);
         clearInterval(this.red);
         clearInterval(this.black);
         hup.invinsibilite = 0;
         this.vie = 3;
       }
   }
+ 
 }
+  
+
+
 function attaqueHup(hup,ennemis){
     if(hup.Epee == 1){
       hup.EpeeChiffre = 16;

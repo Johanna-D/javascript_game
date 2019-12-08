@@ -83,6 +83,9 @@ function anime() {
       if(map[a][b] instanceof solRoche){
         map[a][b].draw();
       }
+      if(map[a][b] instanceof gameover){
+        map[a][b].draw();
+      }
     }
   }
   /*portes.forEach( porte =>{
@@ -188,6 +191,9 @@ function init() {
     }
     if(newElement == "bois"){
       map[x][y] = new bois(x*taille,y*taille);
+    }
+    if(newElement == "gameover"){
+      map[x][y] = new gameover(x*taille,y*taille);
     }
   }
    anime();
