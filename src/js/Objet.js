@@ -43,6 +43,43 @@ class Objet{
             
             
         }
+        else if (this.couleur == "#fc056c"){
+            var image = new Image();
+            image.src = 'js/classesDecor/flower1.png';
+            ctx.fillRect(this.x,this.y,this.taille,this.taille);
+            ctx.drawImage(image, this.x, this.y,32,32);
+           /* test pour du random mais clignote
+           
+           var randF = Math.round(Math.random()*4);
+            if (randF==0){
+                var image = new Image();
+            image.src = 'js/classesDecor/flower1.png';
+            ctx.fillRect(this.x,this.y,this.taille,this.taille);
+            ctx.drawImage(image, this.x, this.y,32,32);
+            }
+            else if (randF==1){
+                var image = new Image();
+            image.src = 'js/classesDecor/flower2.png';
+            ctx.fillRect(this.x,this.y,this.taille,this.taille);
+            ctx.drawImage(image, this.x, this.y,32,32);
+            }
+            else if (randF==2){
+                var image = new Image();
+            image.src = 'js/classesDecor/flower3.png';
+            ctx.fillRect(this.x,this.y,this.taille,this.taille);
+            ctx.drawImage(image, this.x, this.y,32,32);
+            }
+            else if (randF==3){
+                var image = new Image();
+            image.src = 'js/classesDecor/flower4.png';
+            ctx.fillRect(this.x,this.y,this.taille,this.taille);
+            ctx.drawImage(image, this.x, this.y,32,32);
+            }*/
+            
+            
+            
+            
+        }
         else if (this.couleur == "#655b5b"){
             if (map[24]=="C1sword" || map[24]=="C3" || map[24]=="C4"|| map[24]=="D4"|| map[24]=="B4"|| map[24]=="B3"|| map[24]=="B2"|| map[24]=="A2"|| map[24]=="A2key" || map[24]=="F7"|| map[24]=="E8"|| map[24]=="E7"|| map[24]=="E6"|| map[24]=="D8"|| map[24]=="D7"|| map[24]=="D6"|| map[24]=="C6"|| map[24]=="C7"|| map[24]=="C8"|| map[24]=="C5"|| map[24]=="B5"|| map[24]=="A5"|| map[24]=="A6"|| map[24]=="A7"|| map[24]=="B7"|| map[24]=="B8"){
                 ctx.fillStyle = "#adadad";
