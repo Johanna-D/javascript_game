@@ -179,8 +179,11 @@ function loadMap(mapToLoad){
     map[25]=mapToLoad[25];
     if(map[25] != null){
     for(i = 0;i < map[25].length ;i=i+3){
-      if(map[25][i] == "poulpe"){
-        ennemis.push(new poulpe(map[25][i+1],(map[25][i+2])));
+      if(map[25][i] == "poulpeR"){
+        ennemis.push(new poulpeR(map[25][i+1],(map[25][i+2])));
+      }
+      if(map[25][i] == "poulpeB"){
+        ennemis.push(new poulpeB(map[25][i+1],(map[25][i+2])));
       }
     }
   }
@@ -197,6 +200,7 @@ function loadMap(mapToLoad){
           }
           else{
           ennemis = []
+          balles = []
           loadMap(maps[i][3]);
           hup.x = 0;
           break;
@@ -219,6 +223,7 @@ function loadMap(mapToLoad){
           }
           else{
           ennemis = []
+          balles = []
           loadMap(maps[i][1]);
           hup.x = 736;
           break;
@@ -238,6 +243,7 @@ function loadMap(mapToLoad){
           }
           else{
           ennemis = []
+          balles = []
           loadMap(maps[i][5]);
           hup.y = 544;
           break;
@@ -261,6 +267,7 @@ function loadMap(mapToLoad){
           }
           else{
           ennemis = []
+          balles = []
           loadMap(maps[i][7]);
           hup.y = 0;
           break;

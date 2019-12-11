@@ -6,6 +6,7 @@ let moveb = true;
 let moveh = true;
 var ennemis = [];
 var portes=[];
+var balles=[];
 var newElement;
 
 
@@ -36,14 +37,13 @@ function ajoute(element){
 }
 
 function tirBalle(ennemi){
-  if((Math.random()*100)<=1){
-    balle = new ballePoulpe(ennemi.x,ennemi.y,ennemi.angle);
+  if((Math.random()*100)<=5){
+    balles.push(new ballePoulpe(ennemi.x,ennemi.y,ennemi.angle));
     ennemi.tir = 1;
 }
 }
 function anime() {
   ctx.clearRect(1,1, canvas.width, canvas.height);
-  //console.log(hup.vie);
   moveg = true;
   moved = true;
   moveh = true;
@@ -102,9 +102,11 @@ function anime() {
     if(ennemis[i].tir ==0){
       tirBalle(ennemis[i]);
     }
-    if(ennemis[i].tir ==1){
-      balle.drawTir();
-      balle.moveTir(ennemis[i],hup);
+    if(balles != null){
+      for(j = 0;j< balles.length;j++){
+      balles[j].drawTir();
+      balles[j].moveTir(ennemis[i],hup,balles);
+      }
     }
     ennemis[i].mortEnnemi(ennemis);
   }
@@ -148,9 +150,8 @@ function init() {
 
   canvas = document.querySelector("#myCanvas");
   ctx = canvas.getContext("2d");
-  loadMap(C1); // permet de charger la première map dès le début. En paramètre, prends la map que l'on veut charger
+  loadMap(E3); // permet de charger la première map dès le début. En paramètre, prends la map que l'on veut charger
   hup = new hup((canvas.width/2)-32,(canvas.height/2)-32);
-  ennemis.push(new poulpe(128,160));
   /*clef1 = new clef(12*32,32*15);
   coeur = new coeur(10*32,32*13);
   portes.push(new porte(10*32,0));
