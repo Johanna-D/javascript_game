@@ -1,10 +1,9 @@
-class poulpeR extends poulpe{
-
-    constructor(x,y){
-        super(x,y);
-        this.couleur = 'red';
-        this.vie = 3;
-        this.couleurdegat = 'red';
-        this.tirmax= 1;
-    }
+class poulpeR extends Personnage{
+    couleur = 'red';
+    vie = 3;
+    couleurdegat = 'red';
+    tirmax= 1;
+    vitesse = 1;
+    tir = 0;
+    balles= [];
 }

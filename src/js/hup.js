@@ -1,4 +1,8 @@
 class hup extends Personnage{
+    vg = 32;
+    vd = 32;
+    vh = 32;
+    vb = 32;
     couleurPerso = 'black';
     vie = 3;
     black = 'black';
