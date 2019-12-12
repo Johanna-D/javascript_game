@@ -1,5 +1,10 @@
 class poulpeR extends poulpe{
-    couleur = 'red';
-    vie = 3;
-    couleurdegat = 'red';
+
+    constructor(x,y){
+        super(x,y);
+        this.couleur = 'red';
+        this.vie = 3;
+        this.couleurdegat = 'red';
+        this.tirmax= 1;
+    }
 }

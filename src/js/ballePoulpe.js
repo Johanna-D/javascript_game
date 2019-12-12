@@ -35,32 +35,40 @@ class ballePoulpe{
   collisionTirDecor(ennemi,balles){
     if(this.angle == 180){
       if(map[Math.floor((this.x+8)/32)+1][Math.floor(this.y/32)] instanceof roche || map[Math.floor((this.x+8)/32)+1][Math.floor(this.y/32)] instanceof eau || map[Math.floor((this.x+8)/32)+1][Math.floor(this.y/32)] instanceof eauProfonde ||map[Math.floor((this.x+8)/32)+1][Math.floor(this.y/32)] instanceof arbre || this.x >canvas.width-40){
-        ennemi.tir = 0;
-        balles.splice(balles.indexOf(this),1);
+        if(ennemi.tir >0){
+          ennemi.tir -= 1;
+        }
+        ennemi.balles.splice(balles.indexOf(this),1);
         return false;
       }
       else{return true;}
     }
     if(this.angle == 0){
-      if(map[Math.ceil((this.x-8)/32)-1][Math.ceil(this.y/32)] instanceof roche || map[Math.ceil((this.x-8)/32)-1][Math.ceil(this.y/32)] instanceof eau || map[Math.ceil((this.x-8)/32)-1][Math.ceil(this.y/32)] instanceof eauProfonde ||map[Math.ceil((this.x-8)/32)-1][Math.ceil(this.y/32)] instanceof arbre || this.x <11){
-        ennemi.tir = 0;
-        balles.splice(balles.indexOf(this),1);
+      if(map[Math.ceil((this.x-8)/32)-1][Math.ceil(this.y/32)] instanceof roche || map[Math.ceil((this.x-8)/32)-1][Math.ceil(this.y/32)] instanceof eau || map[Math.ceil((this.x-8)/32)-1][Math.ceil(this.y/32)] instanceof eauProfonde ||map[Math.ceil((this.x-8)/32)-1][Math.ceil(this.y/32)] instanceof arbre || this.x <=12){
+        if(ennemi.tir >0){
+          ennemi.tir -= 1;
+        }
+        ennemi.balles.splice(balles.indexOf(this),1);
         return false;
       }
       else{return true;}
     }
     if(this.angle == 90){
       if(map[Math.floor(this.x/32)][Math.floor((this.y+8)/32)+1] instanceof roche || map[Math.floor(this.x/32)][Math.floor((this.y+8)/32)+1] instanceof eau || map[Math.floor(this.x/32)][Math.floor((this.y+8)/32)+1] instanceof eauProfonde ||map[Math.floor(this.x/32)][Math.floor((this.y+8)/32)+1] instanceof arbre || this.y >=canvas.height-40){
-        ennemi.tir = 0;
-        balles.splice(balles.indexOf(this),1);
+        if(ennemi.tir >0){
+          ennemi.tir -= 1;
+        }
+        ennemi.balles.splice(balles.indexOf(this),1);
         return false;
       }
       else{return true;}
     }
     if(this.angle == 360){
       if(map[Math.ceil(this.x/32)][Math.ceil((this.y-8)/32)-1] instanceof roche || map[Math.ceil(this.x/32)][Math.ceil((this.y-8)/32)-1] instanceof eau || map[Math.ceil(this.x/32)][Math.ceil((this.y-8)/32)-1] instanceof eauProfonde ||map[Math.ceil(this.x/32)][Math.ceil((this.y-8)/32)-1] instanceof arbre || this.y <9){
-        ennemi.tir = 0;
-        balles.splice(balles.indexOf(this),1);
+        if(ennemi.tir >0){
+          ennemi.tir -= 1;
+        }
+        ennemi.balles.splice(balles.indexOf(this),1);
         return false;
       }
       else{return true;}
@@ -77,8 +85,10 @@ class ballePoulpe{
           hup.invinsibilite = true;
           hup.vie = hup.vie - 1;
           setTimeout("hup.invinsibilite = false",1201);
-          ennemi.tir =0;
-          balles.splice(balles.indexOf(this),1);
+          if(ennemi.tir >0){
+            ennemi.tir -= 1;
+          }
+          ennemi.balles.splice(balles.indexOf(this),1);
           return false;
         }
         else{return true;}
@@ -92,8 +102,10 @@ class ballePoulpe{
           hup.invinsibilite = true;
           hup.vie = hup.vie - 1;
           setTimeout("hup.invinsibilite = false",1201);
-          ennemi.tir =0;
-          balles.splice(balles.indexOf(this),1);
+          if(ennemi.tir >0){
+            ennemi.tir -= 1;
+          }
+          ennemi.balles.splice(balles.indexOf(this),1);
           return false;
         }
         else{return true;}
@@ -107,8 +119,10 @@ class ballePoulpe{
           hup.invinsibilite = true;
           hup.vie = hup.vie - 1;
           setTimeout("hup.invinsibilite = false",1201);
-          ennemi.tir =0;
-          balles.splice(balles.indexOf(this),1);
+          if(ennemi.tir >0){
+            ennemi.tir -= 1;
+          }
+          ennemi.balles.splice(balles.indexOf(this),1);
           return false;
         }
         else{return true;}
@@ -122,25 +136,27 @@ class ballePoulpe{
           hup.invinsibilite = true;
           hup.vie = hup.vie - 1;
           setTimeout("hup.invinsibilite = false",1201);
-          ennemi.tir =0;
-          balles.splice(balles.indexOf(this),1);
+          if(ennemi.tir >0){
+            ennemi.tir -= 1;
+          }
+          ennemi.balles.splice(balles.indexOf(this),1);
           return false;
         }
         else{return true;}
       }
     }
-  moveTir(ennemi,hup){
+  moveTir(ennemi,hup,balles){
     if(this.angle == 180 && this.collisionTirDecor(ennemi,balles) && this.collisionTirHup(ennemi,hup,balles)){
-      this.x += 2;
+      this.x += 4;
        }
     if(this.angle == 0 && this.collisionTirDecor(ennemi,balles) && this.collisionTirHup(ennemi,hup,balles)){
-      this.x -= 2;
+      this.x -= 4;
     }
     if(this.angle == 90 && this.collisionTirDecor(ennemi,balles) && this.collisionTirHup(ennemi,hup,balles)){
-      this.y += 2;
+      this.y += 4;
     }
     if(this.angle == 360 && this.collisionTirDecor(ennemi,balles) && this.collisionTirHup(ennemi,hup,balles)){
-      this.y -= 2;
+      this.y -= 4;
     }
   }
 }

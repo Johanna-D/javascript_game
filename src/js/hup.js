@@ -180,10 +180,10 @@ function attaqueHup(hup,ennemis){
       hup.EpeeChiffre = 16;
       setTimeout("hup.EpeeChiffre = 0",10);
       ennemis.forEach(ennemi => {
-        hup.ennemiIndex = ennemis.indexOf(ennemi);
         if(ennemi.invinsibilite == false){
         if(hup.angle == 0){
           if(hup.x-taille > ennemi.x-taille && hup.x-taille < ennemi.x+taille && hup.y>ennemi.y-taille && hup.y < ennemi.y+taille){
+            hup.ennemiIndex = ennemis.indexOf(ennemi);
             ennemi.vie -= 1;
             if(ennemi.vie >0){
               if(ennemi.collisionDecorEnnemisAttaqueG()){
@@ -194,17 +194,18 @@ function attaqueHup(hup,ennemis){
                 ennemi.x -=(ennemi.x%32);
                 ennemi.cpt=false;
               }
-              ennemi.couleur = setInterval("ennemis[hup.ennemiIndex].couleur = ennemis[hup.ennemiIndex].couleurdegat", 50);
-              ennemi.black = setInterval("ennemis[hup.ennemiIndex].couleur = 'black'", 100);
-              setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleur)",601);
+              ennemi.black = setInterval("ennemis[hup.ennemiIndex].couleur = 'black'", 50);
+              ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].couleur = ennemis[hup.ennemiIndex].couleurdegat", 100);
               setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
-              ennemi.invinsibilite = true;
+              setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
               setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+              ennemi.invinsibilite = true;
             }
         }
       }
       if(hup.angle == 180){
         if(hup.x+taille > ennemi.x-taille && hup.x+taille < ennemi.x+taille && hup.y>ennemi.y-taille && hup.y < ennemi.y+taille){
+          hup.ennemiIndex = ennemis.indexOf(ennemi);
           ennemi.vie -= 1;
           if(ennemi.vie >0){
             if(ennemi.collisionDecorEnnemisAttaqueD()){
@@ -215,10 +216,10 @@ function attaqueHup(hup,ennemis){
               ennemi.x +=((32-ennemi.x%32)%32);
               ennemi.cpt=false;
             }
-            ennemi.couleur = setInterval("ennemis[hup.ennemiIndex].couleur = ennemis[hup.ennemiIndex].couleurdegat", 50);
-            ennemi.black = setInterval("ennemis[hup.ennemiIndex].couleur = 'black'", 100);
-            setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleur)",601);
+            ennemi.black = setInterval("ennemis[hup.ennemiIndex].couleur = 'black'", 50);
+            ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].couleur = ennemis[hup.ennemiIndex].couleurdegat", 100);
             setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+            setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
             ennemi.invinsibilite = true;
             setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
             }
@@ -226,6 +227,7 @@ function attaqueHup(hup,ennemis){
       }
       if(hup.angle == 90){
         if(hup.x > ennemi.x-taille && hup.x < ennemi.x+taille && hup.y+taille>ennemi.y-taille && hup.y+taille < ennemi.y+taille){
+          hup.ennemiIndex = ennemis.indexOf(ennemi);
           ennemi.vie -= 1;
           if(ennemi.vie >0){
             if(ennemi.collisionDecorEnnemisAttaqueB()){
@@ -236,10 +238,10 @@ function attaqueHup(hup,ennemis){
               ennemi.y +=((32-ennemi.y%32)%32);
               ennemi.cpt=false;
             }
-            ennemi.couleur = setInterval("ennemis[hup.ennemiIndex].couleur = ennemis[hup.ennemiIndex].couleurdegat", 50);
-            ennemi.black = setInterval("ennemis[hup.ennemiIndex].couleur = 'black'", 100);
+            ennemi.black = setInterval("ennemis[hup.ennemiIndex].couleur = 'black'", 50);
+            ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].couleur = ennemis[hup.ennemiIndex].couleurdegat", 100);
             setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
-            setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleur)",601);
+            setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
             ennemi.invinsibilite = true;
             setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
             }
@@ -247,6 +249,7 @@ function attaqueHup(hup,ennemis){
       }
       if(hup.angle == 360){
         if(hup.x > ennemi.x-taille && hup.x < ennemi.x+taille && hup.y-taille > ennemi.y-taille && hup.y-taille < ennemi.y+taille){
+          hup.ennemiIndex = ennemis.indexOf(ennemi);
           ennemi.vie -= 1;
           if(ennemi.vie >0){
             if(ennemi.collisionDecorEnnemisAttaqueH()){
@@ -257,10 +260,10 @@ function attaqueHup(hup,ennemis){
               ennemi.y -=(ennemi.y%32);
               ennemi.cpt=false;
             }
-            ennemi.couleur = setInterval("ennemis[hup.ennemiIndex].couleur = ennemis[hup.ennemiIndex].couleurdegat",50);
-            ennemi.black = setInterval("ennemis[hup.ennemiIndex].couleur = 'black'", 100);
-            setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleur)",601);
+            ennemi.black = setInterval("ennemis[hup.ennemiIndex].couleur = 'black'", 50);
+            ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].couleur = ennemis[hup.ennemiIndex].couleurdegat",100);
             setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+            setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
             ennemi.invinsibilite = true;
             setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
             }

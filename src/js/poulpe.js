@@ -1,11 +1,16 @@
 class poulpe extends Personnage{
-    mouvx = this.x;
-    mouvy = this.y;
-    black = 'black';
-    tir = 0;
-    d1 = true;
-    d2 = false;
-    vitesse = 1;
+  constructor(x,y){
+    super(x,y);
+    this.mouvx = this.x;
+    this.mouvy = this.y;
+    this.black = 'black';
+    this.couleurtemp;
+    this.tir = 0;
+    this.d1 = true;
+    this.d2 = false;
+    this.vitesse = 1;
+    this.balles= [];
+  }
     deplacement(){
       if(this.x < (this.mouvx + (8*32)) && this.d1 == true && this.collisionDecorEnnemisD()){
         this.angle = 180;

@@ -6,7 +6,6 @@ let moveb = true;
 let moveh = true;
 var ennemis = [];
 var portes=[];
-var balles=[];
 var newElement;
 
 
@@ -37,10 +36,12 @@ function ajoute(element){
 }
 
 function tirBalle(ennemi){
-  if((Math.random()*100)<=5){
-    balles.push(new ballePoulpe(ennemi.x,ennemi.y,ennemi.angle));
-    ennemi.tir = 1;
-}
+  if(ennemi.tir < ennemi.tirmax){
+    if((Math.random()*100)<=6){
+     ennemi.tir = ennemi.tir + 1;
+      ennemi.balles.push(new ballePoulpe(ennemi.x,ennemi.y,ennemi.angle));
+    }
+  }
 }
 function anime() {
   ctx.clearRect(1,1, canvas.width, canvas.height);
@@ -97,15 +98,17 @@ function anime() {
   coeur.drawObjet();
   coeur.collisionObjetHup(hup);*/
     for(i = 0;i< ennemis.length;i++){
+    Index = i;
     ennemis[i].draw();
     ennemis[i].deplacement();
-    if(ennemis[i].tir ==0){
-      tirBalle(ennemis[i]);
-    }
-    if(balles != null){
-      for(j = 0;j< balles.length;j++){
-      balles[j].drawTir();
-      balles[j].moveTir(ennemis[i],hup,balles);
+    console.log("tir avant "+ennemis[i]+": "+ennemis[i].tir);
+    tirBalle(ennemis[i]);
+    console.log("tir : "+ennemis[i].tir)
+    console.log("tirmax : "+ennemis[i].tirmax);
+    if(ennemis[i].balles != null){
+      for(j = 0;j< ennemis[i].balles.length;j++){
+      ennemis[i].balles[j].drawTir();
+      ennemis[i].balles[j].moveTir(ennemis[i],hup,ennemis[i].balles);
       }
     }
     ennemis[i].mortEnnemi(ennemis);
