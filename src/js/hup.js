@@ -160,7 +160,9 @@ class hup extends Personnage{
         this.x = (canvas.width/2)-32;
         this.y = (canvas.height/2)-32;
         ennemis =[]
-        balles = [];
+        for(i = 0; i<ennemis.length;i++){
+          ennemis[i].balles = [];
+        }
         loadMap(gameOver);
         setTimeout("loadMap(C1)",2000);
         //loadMap(C1);

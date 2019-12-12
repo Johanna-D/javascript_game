@@ -101,10 +101,7 @@ function anime() {
     Index = i;
     ennemis[i].draw();
     ennemis[i].deplacement();
-    console.log("tir avant "+ennemis[i]+": "+ennemis[i].tir);
     tirBalle(ennemis[i]);
-    console.log("tir : "+ennemis[i].tir)
-    console.log("tirmax : "+ennemis[i].tirmax);
     if(ennemis[i].balles != null){
       for(j = 0;j< ennemis[i].balles.length;j++){
       ennemis[i].balles[j].drawTir();
@@ -153,7 +150,7 @@ function init() {
 
   canvas = document.querySelector("#myCanvas");
   ctx = canvas.getContext("2d");
-  loadMap(E3); // permet de charger la première map dès le début. En paramètre, prends la map que l'on veut charger
+  loadMap(C1); // permet de charger la première map dès le début. En paramètre, prends la map que l'on veut charger
   hup = new hup((canvas.width/2)-32,(canvas.height/2)-32);
   /*clef1 = new clef(12*32,32*15);
   coeur = new coeur(10*32,32*13);
