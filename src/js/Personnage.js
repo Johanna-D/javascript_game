@@ -88,6 +88,13 @@ collisionDecorEnnemisD(){
   }
   else{return true;}
 }
+collisionDecorEnnemisBD(){
+  if(map[Math.floor(this.x/32)+1][Math.floor(this.y/32)+1] instanceof roche || map[Math.floor(this.x/32)+1][Math.floor(this.y/32)+1] instanceof eau || map[Math.floor(this.x/32)+1][Math.floor(this.y/32)+1] instanceof eauProfonde ||map[Math.floor(this.x/32)+1][Math.floor(this.y/32)+1] instanceof arbre || this.x >canvas.width-33){
+    console.log("Yeah");
+    return false;
+  }
+  else{return true;}
+}
 collisionDecorEnnemisG(){
   if(map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof roche || map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof eau || map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof eauProfonde ||map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof arbre || this.x <0){
     return false;

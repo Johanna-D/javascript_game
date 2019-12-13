@@ -62,7 +62,7 @@ class pouf extends Personnage{
                     this.x -= this.vitesse;
                 }
                 else{
-                    if(!(this.collisionDecorEnnemisB() && (this.collisionDecorEnnemisG()) )){
+                    if(!(this.collisionDecorEnnemisB() && !(this.collisionDecorEnnemisBD()) )){
                         this.x -= this.vitesse;
                         }
                 }
@@ -76,18 +76,17 @@ class pouf extends Personnage{
                 else if(this.collisionDecorEnnemisD()){
                     this.x += this.vitesse;
                 }
-                else{
-                    if(!(this.collisionDecorEnnemisB()) && (this.collisionDecorEnnemisD())){
-                    console.log("Test");
+                else if(!(this.collisionDecorEnnemisB())){
                     this.x += this.vitesse;
-                    }
-                    this.x+= 1;
                 }
+                else if(!(this.collisionDecorEnnemisBD())){
+                    this.x -= this.vitesse;
+                }
+
             }
         }
-    
-    else{
-        this.deplacement();
-    }
+        else{
+            this.deplacement();
+        }
 }
 }

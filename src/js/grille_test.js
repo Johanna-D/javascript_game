@@ -100,6 +100,7 @@ function anime() {
     for(i = 0;i< ennemis.length;i++){
     if(ennemis[i] instanceof pouf){
       ennemis[i].deplacementPouf(hup);
+      ennemis[i].collisionDecorEnnemisBD();
     }
     ennemis[i].draw();
     //ennemis[i].deplacement();
