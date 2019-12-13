@@ -99,7 +99,7 @@ function anime() {
   coeur.collisionObjetHup(hup);*/
     for(i = 0;i< ennemis.length;i++){
     if(ennemis[i] instanceof pouf){
-      ennemis[i].detectionHupHautGauche(hup);
+      ennemis[i].deplacementPouf(hup);
     }
     ennemis[i].draw();
     //ennemis[i].deplacement();
@@ -153,8 +153,8 @@ function init() {
   canvas = document.querySelector("#myCanvas");
   ctx = canvas.getContext("2d");
   loadMap(C1); // permet de charger la première map dès le début. En paramètre, prends la map que l'on veut charger
-  hup = new hup((canvas.width/2)-32,(canvas.height/2)-32);
-  ennemis.push(new pouf(10*32,8*32));
+  hup = new hup(14*32,14*32);
+  ennemis.push(new pouf(8*32,8*32));
   /*clef1 = new clef(12*32,32*15);
   coeur = new coeur(10*32,32*13);
   portes.push(new porte(10*32,0));
