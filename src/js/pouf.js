@@ -67,6 +67,7 @@ collisionDecorEnnemisPoufD(){
   else{return true;}
 }
 else if(map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)] instanceof roche || map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)] instanceof eau || map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)] instanceof eauProfonde ||map[Math.ceil(this.x/32)][Math.ceil(this.y/32)] instanceof arbre || this.x >= 736){
+  console.log("droite2");
   return false;
 }
   if(map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof roche || map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof eau || map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof eauProfonde ||map[Math.ceil(this.x/32)][Math.floor(this.y/32)] instanceof arbre || this.x >= 736){
@@ -84,8 +85,9 @@ collisionDecorEnnemisPoufH(){
   }
   else{return true;}
 }
-else if(map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)-1] instanceof roche || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)-1] instanceof eau || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)-1] instanceof eauProfonde ||map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)] instanceof arbre || this.y <  32){
+else if(map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)-1] instanceof roche || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)-1] instanceof eau || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)-1] instanceof eauProfonde ||map[Math.ceil(this.x/32)][Math.floor(this.y/32)] instanceof arbre || this.y <  32){
   console.log("haut2");
+  console.log((Math.ceil(this.x/32))+" et "+Math.floor(this.y/32))
   return false;
 }
 else if(map[Math.ceil(this.x/32)][Math.floor(this.y/32)-1] instanceof roche || map[Math.ceil(this.x/32)][Math.floor(this.y/32)-1] instanceof eau || map[Math.ceil(this.x/32)][Math.floor(this.y/32)-1] instanceof eauProfonde ||map[Math.ceil(this.x/32)][Math.floor(this.y/32)] instanceof arbre || this.y <  32){
@@ -95,30 +97,31 @@ else if(map[Math.ceil(this.x/32)][Math.floor(this.y/32)-1] instanceof roche || m
 else{return true;}
 }
     deplacementPouf(hup){
+      let collision = 0;
             if(this.detectionHupHautGauche(hup)){
                 let yh = this.y - hup.y;
                 let xh = this.x - hup.x;
-                if(yh>=xh && this.collisionDecorEnnemisH()){
+                if(yh>=xh && this.collisionDecorEnnemisH() && this.collisionDecorEnnemisHG()){
                     this.y -= this.vitesse;
                 }
-                else if(this.collisionDecorEnnemisPoufG()){
+                else if(this.collisionDecorEnnemisG()){
                     this.x -= this.vitesse;
                 }
                 }
-            if(this.detectionHupHautDroite(hup)){
-                let yh = this.y - hup.y;
-                let xh = hup.x - this.x;
-                if(yh>=xh && this.collisionDecorEnnemisH()){
-                    this.y -= this.vitesse;
+                if(this.detectionHupHautDroite(hup)){
+                    let yh = this.y - hup.y;
+                    let xh = hup.x - this.x;
+                    if(yh>=xh && this.collisionDecorEnnemisH() && this.collisionDecorEnnemisHG()){
+                        this.y -= this.vitesse;
+                    }
+                    else if(this.collisionDecorEnnemisD()){
+                        this.x += this.vitesse;
+                    }
                 }
-                else if(this.collisionDecorEnnemisPoufD()){
-                    this.x += this.vitesse;
-                }
-            }
             if(this.detectionHupBasGauche(hup)){
                 let yh = hup.y - this.y;
                 let xh = this.x - hup.x;
-                if(yh>=xh && this.collisionDecorEnnemisPoufB()){
+                if(yh>=xh && this.collisionDecorEnnemisB() && this.collisionDecorEnnemisBD()){
                     this.y += this.vitesse;
                 }
                 else if(this.collisionDecorEnnemisG()){
@@ -128,10 +131,10 @@ else{return true;}
             if(this.detectionHupBasDroite(hup)){
                 let yh = hup.y - this.y;
                 let xh = hup.x - this.x;
-                if(yh>=xh && this.collisionDecorEnnemisPoufB()){
+                if(yh>=xh && this.collisionDecorEnnemisB()){
                     this.y += this.vitesse;
                 }
-                else if(this.collisionDecorEnnemisPoufD()){
+                else if(this.collisionDecorEnnemisD()){
                     this.x += this.vitesse;
                 }
             }

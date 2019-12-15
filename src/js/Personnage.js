@@ -61,7 +61,6 @@ class Personnage {
     return false;
   }
   else if(map[Math.ceil(this.x/32)][Math.floor(this.y/32)+2] instanceof roche || map[Math.ceil(this.x/32)][Math.floor(this.y/32)+2] instanceof eau || map[Math.ceil(this.x/32)][Math.floor(this.y/32)+2] instanceof eauProfonde ||map[Math.ceil(this.x/32)][Math.floor(this.y/32)+2] instanceof arbre || this.y >= 544){
-    console.log("collision");
     return false;
   }
   else{return true;}
@@ -90,7 +89,6 @@ collisionDecorEnnemisD(){
 }
 collisionDecorEnnemisBD(){
   if(map[Math.floor(this.x/32)+1][Math.floor(this.y/32)+1] instanceof roche || map[Math.floor(this.x/32)+1][Math.floor(this.y/32)+1] instanceof eau || map[Math.floor(this.x/32)+1][Math.floor(this.y/32)+1] instanceof eauProfonde ||map[Math.floor(this.x/32)+1][Math.floor(this.y/32)+1] instanceof arbre || this.x >canvas.width-33){
-    console.log("Yeah");
     return false;
   }
   else{return true;}
@@ -112,6 +110,14 @@ collisionDecorEnnemisH(){
     return false;
   }
   else{return true;}
+}
+collisionDecorEnnemisHG(){
+  if(map[Math.ceil(this.x/32-1)][Math.ceil(this.y/32)-1] instanceof roche || map[Math.ceil(this.x/32-1)][Math.ceil(this.y/32)-1] instanceof eau || map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)-1] instanceof eauProfonde ||map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)-1] instanceof arbre || this.y <0){
+    return false;
+  }
+  else{
+    return true;
+    }
 }
   draw() {
       ctx.save();
