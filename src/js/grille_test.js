@@ -100,10 +100,11 @@ function anime() {
     for(i = 0;i< ennemis.length;i++){
     if(ennemis[i] instanceof pouf){
       ennemis[i].deplacementPouf(hup);
-      ennemis[i].collisionDecorEnnemisBD();
     }
     ennemis[i].draw();
-    //ennemis[i].deplacement();
+    if(ennemis[i] instanceof poulpeR || ennemis[i] instanceof poulpeB){
+      ennemis[i].deplacement();
+    }
     tirBalle(ennemis[i]);
     if(ennemis[i].balles != null){
       for(j = 0;j< ennemis[i].balles.length;j++){
