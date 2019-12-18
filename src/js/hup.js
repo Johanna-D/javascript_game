@@ -11,7 +11,6 @@ class hup extends Personnage{
     Epee=1;
     EpeeChiffre = 0;
     statutGameOver = false;
-    ;
     drawHup(){
       if(this.angle == 0){
         ctx.save();
@@ -121,7 +120,7 @@ class hup extends Personnage{
           setTimeout("clearInterval(hup.red)",1201);
           setTimeout("clearInterval(hup.black)",1201);
           this.invinsibilite = true;
-          this.vie = this.vie - 1;
+          this.vie = this.vie - ennemi.degatcac;
           setTimeout("hup.invinsibilite = false",1201);
         }
       }
@@ -132,7 +131,7 @@ class hup extends Personnage{
           setTimeout("clearInterval(hup.red)",1201);
           setTimeout("clearInterval(hup.black)",1201);
           this.invinsibilite = true;
-          this.vie = this.vie - 1;
+          this.vie = this.vie - ennemi.degatcac;
           setTimeout("hup.invinsibilite = false",1201);
         }
       }
@@ -143,7 +142,7 @@ class hup extends Personnage{
           setTimeout("clearInterval(hup.red)",1201);
           setTimeout("clearInterval(hup.black)",1201);
           this.invinsibilite = true;
-          this.vie = this.vie - 1;
+          this.vie = this.vie - ennemi.degatcac;
           setTimeout("hup.invinsibilite = false",1201);
         }
       }
@@ -154,7 +153,7 @@ class hup extends Personnage{
           setTimeout("clearInterval(hup.red)",1201);
           setTimeout("clearInterval(hup.black)",1201);
           this.invinsibilite = true;
-          this.vie = this.vie - 1;
+          this.vie = this.vie - ennemi.degatcac;
           setTimeout("hup.invinsibilite = false",1201);
         }
       }
@@ -162,11 +161,8 @@ class hup extends Personnage{
 }
 gameover(){
     if(this.vie <=0){
-      //loadMap(gameOver);
       gameOverScreenLoad();
-
       if (this.statutGameOver){
-        ctx.clearRect(1,1, canvas.width, canvas.height);
         loadMap(C1);
         this.x = (canvas.width/2)-32;
         this.y = (canvas.height/2)-32;
@@ -176,12 +172,53 @@ gameover(){
         }
         clearInterval(this.red);
         clearInterval(this.black);
+        this.couleurPerso = 'black';
         this.invinsibilite = 0;
         this.vie = 3;
         this.statutGameOver = false;
       }
     } }
 
+    vieHup(){
+      var coeur = new Image();
+      coeur.src = 'css/coeur.png';
+      var coeurvide = new Image();
+      coeurvide.src = 'css/coeurvide.png';
+      var demicoeur = new Image();
+      demicoeur.src = 'css/demicoeur.png';
+      
+      if(this.vie == 3){
+        ctx.drawImage(coeur, 0,576,64,64);
+        ctx.drawImage(coeur, 64,576,64,64);
+        ctx.drawImage(coeur, 124,576,64,64);
+      }
+      if(this.vie == 2.5){
+        ctx.drawImage(coeur, 0,576,64,64);
+        ctx.drawImage(coeur, 64,576,64,64);
+        ctx.drawImage(demicoeur, 124,576,64,64);
+      }
+      if(this.vie == 2){
+        ctx.drawImage(coeur, 0,576,64,64);
+        ctx.drawImage(coeur, 64,576,64,64);
+        ctx.drawImage(coeurvide, 124,576,64,64);
+      }
+      if(this.vie == 1.5){
+        ctx.drawImage(coeur, 0,576,64,64);
+        ctx.drawImage(demicoeur, 64,576,64,64);
+        ctx.drawImage(coeurvide, 124,576,64,64);
+      }
+      if(this.vie == 1){
+        ctx.drawImage(coeur, 0,576,64,64);
+        ctx.drawImage(coeurvide, 64,576,64,64);
+        ctx.drawImage(coeurvide, 124,576,64,64);
+      }
+      if(this.vie == 0.5){
+        ctx.drawImage(demicoeur, 0,576,64,64);
+        ctx.drawImage(coeurvide, 64,576,64,64);
+        ctx.drawImage(coeurvide, 124,576,64,64);
+      }
+
+    }
 }
   
 
@@ -309,9 +346,12 @@ function deplacementHup(hup,ennemis){
           hup.angle = 90;
           break;
       case 32:
+        
           attaqueHup(hup,ennemis);
       case 13:
+          if(hup.vie <=0){
           hup.statutGameOver = true;
+          }
       default:
           break;
       }

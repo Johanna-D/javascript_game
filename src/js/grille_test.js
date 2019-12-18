@@ -104,12 +104,12 @@ function anime() {
     ennemis[i].draw();
     if(ennemis[i] instanceof poulpeR || ennemis[i] instanceof poulpeB){
       ennemis[i].deplacement();
-    }
-    tirBalle(ennemis[i]);
-    if(ennemis[i].balles != null){
-      for(j = 0;j< ennemis[i].balles.length;j++){
-      ennemis[i].balles[j].drawTir();
-      ennemis[i].balles[j].moveTir(ennemis[i],hup,ennemis[i].balles);
+      tirBalle(ennemis[i]);
+      if(ennemis[i].balles != null){
+        for(j = 0;j< ennemis[i].balles.length;j++){
+        ennemis[i].balles[j].drawTir();
+        ennemis[i].balles[j].moveTir(ennemis[i],hup,ennemis[i].balles);
+        }
       }
     }
     ennemis[i].mortEnnemi(ennemis);
@@ -118,6 +118,7 @@ function anime() {
   if(hup.Epee ==1){
     hup.drawHupEpee(hup.EpeeChiffre);
   }
+  hup.vieHup();
   deplacementHup(hup,ennemis);
   hup.collisionEnnemisHup(ennemis);
   hup.gameover();
@@ -149,6 +150,8 @@ function anime() {
   window.requestAnimationFrame(anime);
 
 }
+
+
 
 function init() {
 

@@ -6,4 +6,5 @@ class poulpeB extends Personnage{
     vitesse = 2;
     tir = 0;
     balles= [];
+    degatcac = 0.5
 }
