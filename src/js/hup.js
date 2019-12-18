@@ -10,6 +10,7 @@ class hup extends Personnage{
     ennemiIndex;
     Epee=1;
     EpeeChiffre = 0;
+    statutGameOver = false;
     ;
     drawHup(){
       if(this.angle == 0){
@@ -159,24 +160,28 @@ class hup extends Personnage{
       }
   })
 }
-    gameover(){
-      if(this.vie <=0){
+gameover(){
+    if(this.vie <=0){
+      //loadMap(gameOver);
+      gameOverScreenLoad();
+
+      if (this.statutGameOver){
+        ctx.clearRect(1,1, canvas.width, canvas.height);
+        loadMap(C1);
         this.x = (canvas.width/2)-32;
         this.y = (canvas.height/2)-32;
         ennemis =[]
         for(i = 0; i<ennemis.length;i++){
-          ennemis[i].balles = [];
+             ennemis[i].balles = [];
         }
-        loadMap(gameOver);
-        setTimeout("loadMap(C1)",2000);
-        //loadMap(C1);
         clearInterval(this.red);
         clearInterval(this.black);
-        hup.invinsibilite = 0;
+        this.invinsibilite = 0;
         this.vie = 3;
+        this.statutGameOver = false;
       }
-  }
- 
+    } }
+
 }
   
 
@@ -304,7 +309,9 @@ function deplacementHup(hup,ennemis){
           hup.angle = 90;
           break;
       case 32:
-          attaqueHup(hup,ennemis)
+          attaqueHup(hup,ennemis);
+      case 13:
+          hup.statutGameOver = true;
       default:
           break;
       }

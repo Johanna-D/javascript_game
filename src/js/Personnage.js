@@ -107,12 +107,14 @@ collisionDecorEnnemisB(){
 }
 collisionDecorEnnemisH(){
   if(map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof roche || map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof eau || map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof eauProfonde ||map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof arbre || this.y <0){
+    console.log("haut");
     return false;
   }
   else{return true;}
 }
 collisionDecorEnnemisHG(){
   if(map[Math.ceil(this.x/32-1)][Math.ceil(this.y/32)-1] instanceof roche || map[Math.ceil(this.x/32-1)][Math.ceil(this.y/32)-1] instanceof eau || map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)-1] instanceof eauProfonde ||map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)-1] instanceof arbre || this.y <0){
+    console.log("hautG");
     return false;
   }
   else{

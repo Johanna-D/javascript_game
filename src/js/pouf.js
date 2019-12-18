@@ -47,12 +47,12 @@ class pouf extends Personnage{
     }
     else{return true;}
   }
-  else if(map[Math.floor(this.x/32)][Math.ceil(this.y/32)] instanceof roche || map[Math.floor(this.x/32)][Math.ceil(this.y/32)] instanceof eau || map[Math.floor(this.x/32)][Math.ceil(this.y/32)] instanceof eauProfonde ||map[Math.floor(this.x/32)][Math.ceil(this.y/32)] instanceof arbre || this.x <= 32){
+  else if(map[Math.floor(this.x/32)][Math.ceil(this.y/32)] instanceof roche || map[Math.floor(this.x/32)][Math.ceil(this.y/32)] instanceof eau || map[Math.floor(this.x/32)][Math.ceil(this.y/32)] instanceof eauProfonde ||map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof arbre || this.x <= 32){
   console.log("hey2");
       console.log(Math.floor(this.x/32)+"et"+Math.ceil(this.y/32));
     return false;
   }
-  else if(map[Math.floor(this.x/32)][Math.ceil(this.y/32)-1] instanceof roche || map[Math.floor(this.x/32)][Math.ceil(this.y/32)-1] instanceof eau || map[Math.floor(this.x/32)][Math.ceil(this.y/32)-1] instanceof eauProfonde ||map[Math.floor(this.x/32)][Math.ceil(this.y/32)-2] instanceof arbre || this.x <= 32){
+  else if(map[Math.floor(this.x/32)][Math.ceil(this.y/32)-1] instanceof roche || map[Math.floor(this.x/32)][Math.ceil(this.y/32)-1] instanceof eau || map[Math.floor(this.x/32)][Math.ceil(this.y/32)-1] instanceof eauProfonde ||map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)-1] instanceof arbre || this.x <= 32){
     console.log("hey3");
     console.log((Math.floor(this.x/32))+"et"+(Math.ceil(this.y/32)-1))
     return false;
@@ -61,16 +61,16 @@ class pouf extends Personnage{
 }
 collisionDecorEnnemisPoufD(){
   if((this.x%32 == 0) && (this.y%32 == 0)){
-  if(map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof roche || map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof eau || map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof eauProfonde ||map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof arbre || this.x >= 736){
+  if(map[Math.floor(this.x/32)+1][Math.floor(this.y/32)] instanceof roche || map[Math.floor(this.x/32)+1][Math.floor(this.y/32)] instanceof eau || map[Math.floor(this.x/32)+1][Math.floor(this.y/32)] instanceof eauProfonde ||map[Math.floor(this.x/32)+1][Math.floor(this.y/32)] instanceof arbre || this.x >= 736){
     return false;
   }
   else{return true;}
 }
-else if(map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)] instanceof roche || map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)] instanceof eau || map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)] instanceof eauProfonde ||map[Math.ceil(this.x/32)][Math.ceil(this.y/32)] instanceof arbre || this.x >= 736){
+else if(map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)] instanceof roche || map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)] instanceof eau || map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)] instanceof eauProfonde ||map[Math.floor(this.x/32)+1][Math.ceil(this.y/32)] instanceof arbre || this.x >= 736){
   console.log("droite2");
   return false;
 }
-  if(map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof roche || map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof eau || map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof eauProfonde ||map[Math.ceil(this.x/32)][Math.floor(this.y/32)] instanceof arbre || this.x >= 736){
+  if(map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof roche || map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof eau || map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof eauProfonde ||map[Math.floor(this.x/32)+1][Math.floor(this.y/32)] instanceof arbre || this.x >= 736){
   return false;
 }
 else{
@@ -85,7 +85,7 @@ collisionDecorEnnemisPoufH(){
   }
   else{return true;}
 }
-else if(map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)-1] instanceof roche || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)-1] instanceof eau || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)-1] instanceof eauProfonde ||map[Math.ceil(this.x/32)][Math.floor(this.y/32)] instanceof arbre || this.y <  32){
+else if(map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)-1] instanceof roche || map[Math.ceil(this.x/32)][Math.floor(this.y/32)+1] instanceof eau || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)-1] instanceof eauProfonde ||map[Math.ceil(this.x/32)][Math.floor(this.y/32)] instanceof arbre || this.y <  32){
   console.log("haut2");
   console.log((Math.ceil(this.x/32))+" et "+Math.floor(this.y/32))
   return false;
@@ -104,8 +104,11 @@ else{return true;}
                 if(yh>=xh && this.collisionDecorEnnemisH() && this.collisionDecorEnnemisHG()){
                     this.y -= this.vitesse;
                 }
-                else if(this.collisionDecorEnnemisG()){
+                else if(this.collisionDecorEnnemisPoufG()){
                     this.x -= this.vitesse;
+                }
+                else if (yh>=xh && this.collisionDecorEnnemisH() && !(this.collisionDecorEnnemisPoufG())){
+                  this.y -=this.vitesse;
                 }
                 }
                 if(this.detectionHupHautDroite(hup)){
@@ -114,7 +117,7 @@ else{return true;}
                     if(yh>=xh && this.collisionDecorEnnemisH() && this.collisionDecorEnnemisHG()){
                         this.y -= this.vitesse;
                     }
-                    else if(this.collisionDecorEnnemisD()){
+                    else if(this.collisionDecorEnnemisPoufD()){
                         this.x += this.vitesse;
                     }
                 }
@@ -124,7 +127,7 @@ else{return true;}
                 if(yh>=xh && this.collisionDecorEnnemisB() && this.collisionDecorEnnemisBD()){
                     this.y += this.vitesse;
                 }
-                else if(this.collisionDecorEnnemisG()){
+                else if(this.collisionDecorEnnemisPoufG()){
                     this.x -= this.vitesse;
                 }
             }
@@ -134,7 +137,7 @@ else{return true;}
                 if(yh>=xh && this.collisionDecorEnnemisB()){
                     this.y += this.vitesse;
                 }
-                else if(this.collisionDecorEnnemisD()){
+                else if(this.collisionDecorEnnemisPoufD()){
                     this.x += this.vitesse;
                 }
             }
