@@ -100,7 +100,8 @@ collisionDecorEnnemisG(){
   else{return true;}
 }
 collisionDecorEnnemisB(){
-  if(map[Math.floor(this.x/32)][Math.floor(this.y/32)+1] instanceof roche || map[Math.floor(this.x/32)][Math.floor(this.y/32)+1] instanceof eau || map[Math.floor(this.x/32)][Math.floor(this.y/32)+1] instanceof eauProfonde ||map[Math.floor(this.x/32)][Math.floor(this.y/32)+1] instanceof arbre || this.y >=canvas.height-32){
+  if(map[Math.ceil(this.x/32)][Math.floor(this.y/32)+1] instanceof roche || map[Math.ceil(this.x/32)][Math.floor(this.y/32)+1] instanceof eau || map[Math.ceil(this.x/32)][Math.floor(this.y/32)+1] instanceof eauProfonde ||map[Math.ceil(this.x/32)][Math.floor(this.y/32)+1] instanceof arbre || this.y >=canvas.height-32){
+    console.log("collision en bas");
     return false;
   }
   else{return true;}
@@ -112,8 +113,8 @@ collisionDecorEnnemisH(){
   }
   else{return true;}
 }
-collisionDecorEnnemisHG(){
-  if(map[Math.ceil(this.x/32-1)][Math.ceil(this.y/32)-1] instanceof roche || map[Math.ceil(this.x/32-1)][Math.ceil(this.y/32)-1] instanceof eau || map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)-1] instanceof eauProfonde ||map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)-1] instanceof arbre || this.y <0){
+collisionDecorEnnemisHD(){
+  if(map[Math.ceil(this.x/32+1)][Math.ceil(this.y/32)-1] instanceof roche || map[Math.ceil(this.x/32+1)][Math.ceil(this.y/32)-1] instanceof eau || map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)-1] instanceof eauProfonde ||map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)-1] instanceof arbre || this.y <0){
     console.log("hautG");
     return false;
   }

@@ -6,27 +6,27 @@ class pouf extends Personnage{
     degatcac = 1;
 
     detectionHupBasGauche(hup){
-        if(hup.y>this.y && hup.y<=this.y+5*32 && (hup.x >=  this.x-5*32 && hup.x< this.x)){
+        if(hup.y>this.y && hup.y<=this.y+5*32 && (hup.x >=  this.x-5*32 && hup.x<= this.x)){
         return true
         }
     }
     detectionHupBasDroite(hup){
-        if(hup.y>this.y && hup.y<=this.y+5*32 && (hup.x <=  this.x+5*32 && hup.x>= this.x)){
+        if(hup.y>this.y && hup.y<=this.y+5*32 && (hup.x <=  this.x+5*32 && hup.x> this.x)){
         return true
         }
     }
     detectionHupHautGauche(hup){
-        if(hup.y<=this.y && hup.y>=this.y-5*32 && (hup.x >=  this.x-5*32 && hup.x< this.x)){
+        if(hup.y<=this.y && hup.y>=this.y-5*32 && (hup.x >=  this.x-5*32 && hup.x<= this.x)){
         return true;
         }
     }
     detectionHupHautDroite(hup){
-        if(hup.y<=this.y && hup.y>=this.y-5*32 && (hup.x <=  this.x+5*32 && hup.x>= this.x)){
+        if(hup.y<=this.y && hup.y>=this.y-5*32 && (hup.x <=  this.x+5*32 && hup.x> this.x)){
         return true;
         }
     }
     collisionDecorEnnemisPoufB(){
-      if((this.x%32 == 0) && (this.y%32 == 0)){
+      if((this.x%32 == 0) || (this.y%32 == 0)){
       if(map[Math.floor(this.x/32)][Math.floor(this.y/32)+1] instanceof roche || map[Math.floor(this.x/32)][Math.floor(this.y/32)+1] instanceof eau || map[Math.floor(this.x/32)][Math.floor(this.y/32)+1] instanceof eauProfonde ||map[Math.floor(this.x/32)][Math.floor(this.y/32)+1] instanceof arbre || this.y >= 544){
         return false;
       }
@@ -98,47 +98,55 @@ else if(map[Math.ceil(this.x/32)][Math.floor(this.y/32)-1] instanceof roche || m
 else{return true;}
 }
     deplacementPouf(hup){
-      let collision = 0;
             if(this.detectionHupHautGauche(hup)){
                 let yh = this.y - hup.y;
                 let xh = this.x - hup.x;
-                if(yh>=xh && this.collisionDecorEnnemisH() && this.collisionDecorEnnemisHG()){
+                console.log("detection haut gauche");
+                if(yh>=xh && this.collisionDecorEnnemisH()){
                     this.y -= this.vitesse;
+                    console.log("avance haut gauche en Y");
                 }
-                else if(this.collisionDecorEnnemisPoufG()){
+                else if(this.collisionDecorEnnemisG()){
                     this.x -= this.vitesse;
-                }
-                else if (yh>=xh && this.collisionDecorEnnemisH() && !(this.collisionDecorEnnemisPoufG())){
-                  this.y -=this.vitesse;
+                    console.log("avance haut gauche en X");
                 }
                 }
                 if(this.detectionHupHautDroite(hup)){
+                  console.log("detection haut droit");
                     let yh = this.y - hup.y;
                     let xh = hup.x - this.x;
-                    if(yh>=xh && this.collisionDecorEnnemisH() && this.collisionDecorEnnemisHG()){
+                    if(yh>=xh && this.collisionDecorEnnemisH()){
+                      console.log("monte haut droit");
                         this.y -= this.vitesse;
                     }
-                    else if(this.collisionDecorEnnemisPoufD()){
+                    else if(this.collisionDecorEnnemisD()){
+                      console.log("droite  haut droite");
                         this.x += this.vitesse;
                     }
                 }
             if(this.detectionHupBasGauche(hup)){
+              console.log("detection bas gauche");
                 let yh = hup.y - this.y;
                 let xh = this.x - hup.x;
-                if(yh>=xh && this.collisionDecorEnnemisB() && this.collisionDecorEnnemisBD()){
+                if(this.collisionDecorEnnemisB()){
                     this.y += this.vitesse;
+                    console.log("descend bas gauche");
                 }
-                else if(this.collisionDecorEnnemisPoufG()){
+                if(yh>=xh && this.collisionDecorEnnemisG()){
+                  console.log("bas gauche");
                     this.x -= this.vitesse;
                 }
             }
             if(this.detectionHupBasDroite(hup)){
+              console.log("detection bas droit");
                 let yh = hup.y - this.y;
                 let xh = hup.x - this.x;
                 if(yh>=xh && this.collisionDecorEnnemisB()){
+                  console.log("descend bas droite ");
                     this.y += this.vitesse;
                 }
-                else if(this.collisionDecorEnnemisPoufD()){
+                else if(this.collisionDecorEnnemisD()){
+                  console.log("va a droite bas droit");
                     this.x += this.vitesse;
                 }
             }

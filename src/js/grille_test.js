@@ -1,4 +1,5 @@
-window.onload = init;
+window.onload = loadMenu;
+
 var canvas;
 let moved = true;
 let moveg = true;
@@ -7,6 +8,8 @@ let moveh = true;
 var ennemis = [];
 var portes=[];
 var newElement;
+var clicMenu = false;
+
 
 
 var taille = 32
@@ -130,7 +133,7 @@ function anime() {
       hup.vg =0;
   }
   if(moved == true){
-      hup.vd =32;
+      hup.vd =16;
   }
   else{
       hup.vd =0;
@@ -151,12 +154,29 @@ function anime() {
 
 }
 
+function quitterMenu(){
+  clicMenu = true;
+  init();
+}
 
+/* CES DEUX VARIABLES DOIVENT ETRE EN DEHORS DU LOADMENU !!!!!!!!!*/
+
+    menuImage = new Image();
+    menuImage.src = 'js/menuTest.png';
+
+function loadMenu(){
+    canvas = document.querySelector("#myCanvas");
+    ctx = canvas.getContext("2d");
+    //menuImage = new Image();
+   // menuImage.src = 'js/menuTest.png';
+    ctx.drawImage(menuImage, 0, 0);
+    if (clicMenu == true){
+      init();
+    }
+}
 
 function init() {
 
-  canvas = document.querySelector("#myCanvas");
-  ctx = canvas.getContext("2d");
   loadMap(C1); // permet de charger la première map dès le début. En paramètre, prends la map que l'on veut charger
   hup = new hup(14*32,14*32);
   ennemis.push(new pouf(8*32,8*32));
