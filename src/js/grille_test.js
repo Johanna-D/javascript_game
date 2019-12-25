@@ -1,19 +1,4 @@
-window.onload = loadMenu;
 
-var canvas;
-let moved = true;
-let moveg = true;
-let moveb = true;
-let moveh = true;
-var ennemis = [];
-var portes=[];
-var newElement;
-var clicMenu = false;
-
-
-
-var taille = 32
-var map = new Array(26);
 
 for (var i = 0; i < 24; i++)
 {
@@ -33,10 +18,10 @@ function processMouseMouve(evt) {
     y: mouseY
   }
  }
-
+/*
 function ajoute(element){
   newElement = element;
-}
+}*/
 
 function tirBalle(ennemi){
   if(ennemi.tir < ennemi.tirmax){
@@ -152,43 +137,6 @@ function anime() {
   }
   window.requestAnimationFrame(anime);
 
-}
-
-
-
-/* CES DEUX VARIABLES DOIVENT ETRE EN DEHORS DU LOADMENU !!!!!!!!!*/
-
-    menuImage = new Image();
-    menuImage.src = 'js/menuScreen.png';
-    commandes = new Image();
-    commandes.src = 'js/commandes.png';
-
-function loadMenu(){
-  
-    canvas = document.querySelector("#myCanvas");
-    ctx = canvas.getContext("2d");
-    //menuImage = new Image();
-   // menuImage.src = 'js/menuTest.png';
-    ctx.drawImage(menuImage, 0, 0);
-    window.onkeydown = function(e) {
-      var key = e.keyCode || e.which;
-      switch (key) {
-        case 32:
-          //lancer le jeu
-        init()
-        break;
-        case 67:
-          // afficher les commandes
-          ctx.drawImage(commandes, 0, 0);
-          break;
-        case 77 :
-          // revenir au menu
-          ctx.drawImage(menuImage, 0, 0);
-          break;
-      default:
-          break;
-      }
-    }
 }
 
 function init() {

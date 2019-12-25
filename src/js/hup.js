@@ -161,7 +161,7 @@ class hup extends Personnage{
 }
 gameover(){
     if(this.vie <=0){
-      gameOverScreenLoad();
+      ctx.drawImage(Gover, 0, 0);
       if (this.statutGameOver){
         loadMap(C1);
         this.x = (canvas.width/2)-32;
