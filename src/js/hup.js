@@ -181,11 +181,11 @@ gameover(){
 
     vieHup(){
       var coeur = new Image();
-      coeur.src = 'css/coeur.png';
+      coeur.src = 'css/heart.png';
       var coeurvide = new Image();
-      coeurvide.src = 'css/coeurvide.png';
+      coeurvide.src = 'css/emptyheart.png';
       var demicoeur = new Image();
-      demicoeur.src = 'css/demicoeur.png';
+      demicoeur.src = 'css/halfheart.png';
       
       if(this.vie == 3){
         ctx.drawImage(coeur, 0,576,64,64);
