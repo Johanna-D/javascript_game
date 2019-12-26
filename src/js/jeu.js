@@ -18,10 +18,7 @@ function processMouseMouve(evt) {
     y: mouseY
   }
  }
-/*
-function ajoute(element){
-  newElement = element;
-}*/
+
 
 function tirBalle(ennemi){
   if(ennemi.tir < ennemi.tirmax){

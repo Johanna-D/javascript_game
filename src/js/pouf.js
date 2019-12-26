@@ -4,6 +4,7 @@ class pouf extends Personnage{
     couleurdegat = 'orange';
     vitesse = 2;
     degatcac = 1;
+    type = "pouf";
 
     detectionHupBasGauche(hup){
         if(hup.y>this.y && hup.y<=this.y+5*32 && (hup.x >=  this.x-5*32 && hup.x<= this.x)){
@@ -102,6 +103,8 @@ else{return true;}
                 let yh = this.y - hup.y;
                 let xh = this.x - hup.x;
                 console.log("detection haut gauche");
+                /*this.poufPosition = "haut";
+                console.log(this.poufPosition);*/
                 if(yh>=xh && this.collisionDecorEnnemisH()){
                     this.y -= this.vitesse;
                     console.log("avance haut gauche en Y");

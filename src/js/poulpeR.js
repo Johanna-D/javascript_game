@@ -7,4 +7,5 @@ class poulpeR extends Personnage{
     tir = 0;
     balles= [];
     degatcac= 0.5;
+    type = "poulpeR";
 }

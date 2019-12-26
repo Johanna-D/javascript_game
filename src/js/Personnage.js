@@ -11,6 +11,7 @@ class Personnage {
     this.couleurtemp;
     this.d1 = true;
     this.d2 = false;
+    this.poufPosition;
 
   }
   collisionDecorEnnemisAttaqueD(){
@@ -124,8 +125,78 @@ collisionDecorEnnemisHD(){
 }
   draw() {
       ctx.save();
-      ctx.fillStyle = this.couleur;
-      ctx.fillRect(this.x, this.y, this.taille, this.taille);
+      // -------- POULPE ROUGE --------------//
+
+      if (this.type == "poulpeR" && this.angle == 90){
+            var poulpeRface = new Image();
+            poulpeRface.src = 'js/spritePoulpeR/poulpeRface.png';
+            ctx.drawImage(poulpeRface, this.x, this.y);
+      }
+      else if (this.type == "poulpeR" && this.angle == 180){
+        var poulpeRdroite = new Image();
+        poulpeRdroite.src = 'js/spritePoulpeR/poulpeRdroite.png';
+        ctx.drawImage(poulpeRdroite, this.x, this.y);
+      }
+      else if (this.type == "poulpeR" && this.angle == 0){
+        var poulpeRgauche = new Image();
+        poulpeRgauche.src = 'js/spritePoulpeR/poulpeRgauche.png';
+        ctx.drawImage(poulpeRgauche, this.x, this.y);
+      }
+      else if (this.type == "poulpeR" && this.angle == 360){
+        var poulpeRdos = new Image();
+        poulpeRdos.src = 'js/spritePoulpeR/poulpeRdos.png';
+        ctx.drawImage(poulpeRdos, this.x, this.y);
+      }
+
+      // ---------- POULPE BLEU ------------ //
+      if (this.type == "poulpeB" && this.angle == 90){
+        var poulpeBface = new Image();
+        poulpeBface.src = 'js/spritePoulpeB/poulpeBface.png';
+        ctx.drawImage(poulpeBface, this.x, this.y);
+  }
+  else if (this.type == "poulpeB" && this.angle == 180){
+    var poulpeBdroite = new Image();
+    poulpeBdroite.src = 'js/spritePoulpeB/poulpeBdroite.png';
+    ctx.drawImage(poulpeBdroite, this.x, this.y);
+  }
+  else if (this.type == "poulpeB" && this.angle == 0){
+    var poulpeBgauche = new Image();
+    poulpeBgauche.src = 'js/spritePoulpeB/poulpeBgauche.png';
+    ctx.drawImage(poulpeBgauche, this.x, this.y);
+  }
+  else if (this.type == "poulpeB" && this.angle == 360){
+    var poulpeBdos = new Image();
+    poulpeBdos.src = 'js/spritePoulpeB/poulpeBdos.png';
+    ctx.drawImage(poulpeBdos, this.x, this.y);
+  }
+      // ---------- POUF --------------- //
+      if (this.type == "pouf" && this.angle == 90){
+        var poufface = new Image();
+        poufface.src = 'js/spritePouf/poufface.png';
+        ctx.drawImage(poufface, this.x, this.y);
+  }
+  else if (this.type == "pouf" && this.angle == 180){
+    var poufdroite = new Image();
+    poufdroite.src = 'js/spritePouf/poufdroite.png';
+    ctx.drawImage(poufdroite, this.x, this.y);
+  }
+  else if (this.type == "pouf" && this.angle == 0){
+    var poufgauche = new Image();
+    poufgauche.src = 'js/spritePouf/poufgauche.png';
+    ctx.drawImage(poufgauche, this.x, this.y);
+  }
+  else if (this.type == "pouf" && this.poufPosition=="haut"){
+    var poufdos = new Image();
+    poufdos.src = 'js/spritePouf/poufdos.png';
+    ctx.drawImage(poufdos, this.x, this.y);
+  }
+
+
+      /*
+      else{
+        ctx.fillStyle = this.couleur;
+        ctx.fillRect(this.x, this.y, this.taille, this.taille);
+      }*/
       ctx.restore();
   }
   mortEnnemi(ennemis){
@@ -137,11 +208,11 @@ collisionDecorEnnemisHD(){
     }
   }
   deplacement(){
-    if(this.x < (this.mouvx + (8*32)) && this.d1 == true && this.collisionDecorEnnemisD()){
+    if(this.x < (this.mouvx + (8*32)) && this.d1 == true && this.collisionDecorEnnemisD()){// ALLER A DROITE
       this.angle = 180;
       this.x += this.vitesse;
     }
-    else if(this.y < (this.mouvy + (8*32))  && this.d1 == true && this.collisionDecorEnnemisB()){
+    else if(this.y < (this.mouvy + (8*32))  && this.d1 == true && this.collisionDecorEnnemisB()){// ALLER EN BAS
       this.y += this.vitesse;
       this.angle = 90;
     }
@@ -153,11 +224,11 @@ collisionDecorEnnemisHD(){
       this.d1 = false;
       this.d2 = true;
     }
-    else if(this.x > this.mouvx && this.d2 == true && this.collisionDecorEnnemisG()){
+    else if(this.x > this.mouvx && this.d2 == true && this.collisionDecorEnnemisG()){ // ALLER A GAUCHE
       this.x -= this.vitesse;
       this.angle = 0;
     }
-    else if(this.y > this.mouvy && this.d2 == true && this.collisionDecorEnnemisH()){
+    else if(this.y > this.mouvy && this.d2 == true && this.collisionDecorEnnemisH()){ // ALLER EN HAUT
       this.y -= this.vitesse;
       this.angle = 360;
     }
