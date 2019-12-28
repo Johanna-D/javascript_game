@@ -91,6 +91,17 @@ class Objet{
             
             
         }
+        else if(this.type =="coeur"){
+            var image = new Image();
+            image.src = 'js/objetsRamassables/heartdrop.png';
+            ctx.drawImage(image, this.x, this.y);
+        }
+        else if(this.type =="clef"){
+            var image = new Image();
+            image.src = 'js/objetsRamassables/cle.png';
+            ctx.drawImage(image, this.x, this.y);
+            
+        }
         
         
         else {
@@ -107,10 +118,15 @@ class Objet{
             if (hup.vie < 3 && this.type == "coeur"){
                 hup.vie += 0.5;
                 this.etat = false;
+                console.log("je gagne une vie");
+                mortEnnemi = false;
             }
             if(this.type == "clef"){
+                
                 hup.clefs += 1;
+                
                 this.etat = false;
+
             }
         }
     }

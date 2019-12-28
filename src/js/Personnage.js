@@ -199,12 +199,16 @@ collisionDecorEnnemisHD(){
       }*/
       ctx.restore();
   }
+  
   mortEnnemi(ennemis){
     if(this.vie <= 0){
       clearInterval(ennemis[ennemis.indexOf(this)].couleurtemp);
       clearInterval(ennemis[ennemis.indexOf(this)].black);
       ennemis[ennemis.indexOf(this)].invinsibilité = false;
       ennemis.splice(ennemis.indexOf(this),1);
+      coeur = new coeur(this.x,this.y);
+      mortEnnemi = true;
+      Objet.etat = true;
     }
   }
   deplacement(){

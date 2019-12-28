@@ -9,6 +9,7 @@ var ennemis = [];
 var portes=[];
 var newElement;
 var clicMenu = false;
+var mortEnnemi = false;
 
 
 
@@ -27,4 +28,5 @@ menuImage.src = 'js/menuScreen.png';
 
 commandes = new Image();
 commandes.src = 'js/commandes.png';
+
 

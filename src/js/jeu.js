@@ -74,14 +74,46 @@ function anime() {
       }
     }
   }
-  /*portes.forEach( porte =>{
-    porte.drawObjet();
-    porte.collisionPorteHup(hup);
-  })
-  clef1.drawObjet();
+  if(map[24]=="B8"){
+    portes.forEach( porte =>{
+      porte.drawObjet();
+      porte.collisionPorteHup(hup);
+    })
+  }
+  /**/
+  if(map[24]=="A2key"){
+    clef1.drawObjet();
   clef1.collisionObjetHup(hup);
-  coeur.drawObjet();
-  coeur.collisionObjetHup(hup);*/
+  }
+  if(map[24]=="N7"){
+    clef2.drawObjet();
+  clef2.collisionObjetHup(hup);
+  }
+  if(map[24]=="M1"){
+    clef3.drawObjet();
+  clef3.collisionObjetHup(hup);
+  }
+  
+
+  cleAffiche = new Image();
+cleAffiche.src='js/objetsRamassables/cle.png';
+  if(hup.clefs ==1){
+    ctx.drawImage(cleAffiche, 700,590);
+  }
+  if(hup.clefs ==2){
+    ctx.drawImage(cleAffiche, 700,590);
+    ctx.drawImage(cleAffiche, 680,590);
+  }
+  if(hup.clefs ==3){
+    ctx.drawImage(cleAffiche, 700,590);
+    ctx.drawImage(cleAffiche, 680,590);
+    ctx.drawImage(cleAffiche, 660,590);
+  }
+  if(mortEnnemi == true){
+    coeur.drawObjet();
+    coeur.collisionObjetHup(hup);
+  }
+  
     for(i = 0;i< ennemis.length;i++){
     if(ennemis[i] instanceof pouf){
       ennemis[i].deplacementPouf(hup);
@@ -141,12 +173,15 @@ function init() {
   loadMap(C1); // permet de charger la première map dès le début. En paramètre, prends la map que l'on veut charger
   hup = new hup(14*32,14*32);
   ennemis.push(new pouf(8*32,8*32));
-  /*clef1 = new clef(12*32,32*15);
-  coeur = new coeur(10*32,32*13);
+  clef1 = new clef(12*32,9*32);
+  clef2 = new clef(14*32,8*32);
+  clef3 = new clef(12*32,13*32);
+  //coeur = new coeur(10*32,32*13);
+  
   portes.push(new porte(10*32,0));
   portes.push(new porte(11*32,0));
   portes.push(new porte(12*32,0));
-  portes.push(new porte(13*32,0));*/
+  portes.push(new porte(13*32,0));
 
   canvas.onmousedown = (event) => {
     processMouseMouve(event);
