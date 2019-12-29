@@ -117,9 +117,10 @@ class Objet{
         if (hup.x == this.x && hup.y == this.y && this.etat == true){
             if (hup.vie < 3 && this.type == "coeur"){
                 hup.vie += 0.5;
+                //mortEnnemi = false;
                 this.etat = false;
-                console.log("je gagne une vie");
-                mortEnnemi = false;
+                
+                
             }
             if(this.type == "clef"){
                 

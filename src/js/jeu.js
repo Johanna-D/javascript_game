@@ -108,11 +108,17 @@ cleAffiche.src='js/objetsRamassables/cle.png';
     ctx.drawImage(cleAffiche, 700,590);
     ctx.drawImage(cleAffiche, 680,590);
     ctx.drawImage(cleAffiche, 660,590);
-  }
+  }/* NE FONCTIONNE PAS POUR PLACER COEUR QUAND UN ENNEMI MEURT
   if(mortEnnemi == true){
+    console.log("on rentre dans la boucle");
     coeur.drawObjet();
     coeur.collisionObjetHup(hup);
-  }
+    console.log("fin boucle");
+  }*/
+  
+/* FONCTIONNE POUR PLACER UN COEUR A ENDROIT PRECIS
+  coeur.drawObjet();
+  coeur.collisionObjetHup(hup);*/
   
     for(i = 0;i< ennemis.length;i++){
     if(ennemis[i] instanceof pouf){
@@ -170,13 +176,13 @@ cleAffiche.src='js/objetsRamassables/cle.png';
 
 function init() {
 
-  loadMap(C1); // permet de charger la première map dès le début. En paramètre, prends la map que l'on veut charger
+  loadMap(C1); 
   hup = new hup(14*32,14*32);
   ennemis.push(new pouf(8*32,8*32));
   clef1 = new clef(12*32,9*32);
   clef2 = new clef(14*32,8*32);
   clef3 = new clef(12*32,13*32);
-  //coeur = new coeur(10*32,32*13);
+  //coeur = new coeur(10*32,10*32);
   
   portes.push(new porte(10*32,0));
   portes.push(new porte(11*32,0));

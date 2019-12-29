@@ -202,13 +202,17 @@ collisionDecorEnnemisHD(){
   
   mortEnnemi(ennemis){
     if(this.vie <= 0){
+      mortEnnemi = true;
+      console.log("l'ennemi est mort");
+      ennemiX = this.x;
+      ennemiY = this.y;
       clearInterval(ennemis[ennemis.indexOf(this)].couleurtemp);
       clearInterval(ennemis[ennemis.indexOf(this)].black);
       ennemis[ennemis.indexOf(this)].invinsibilité = false;
       ennemis.splice(ennemis.indexOf(this),1);
-      coeur = new coeur(this.x,this.y);
-      mortEnnemi = true;
-      Objet.etat = true;
+      
+      //coeurDrop = new coeur(this.x,this.y);
+      
     }
   }
   deplacement(){

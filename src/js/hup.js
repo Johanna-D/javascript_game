@@ -11,6 +11,7 @@ class hup extends Personnage{
     Epee=1;
     EpeeChiffre = 0;
     statutGameOver = false;
+    /* DRAW HUP AVEC DES FORMES 
     drawHup(){
       if(this.angle == 0){
         ctx.save();
@@ -38,6 +39,39 @@ class hup extends Personnage{
         ctx.save();
         ctx.fillStyle = this.couleurPerso;
         ctx.fillRect(this.x, this.y+16, this.taille, this.taille/2);
+        ctx.restore();
+      }
+    }*/
+
+    /* DRAW HUP AVEC DES IMAGES */
+    drawHup(){
+      if(this.angle == 0){
+        var image = new Image();
+        image.src = "js/hupGauche.png";
+        ctx.save();
+        ctx.drawImage(image,this.x, this.y)
+        ctx.restore();
+      }
+      else if(this.angle == 90)
+      {
+        var image = new Image();
+        image.src = "js/hupFace.png";
+        ctx.save();
+        ctx.drawImage(image,this.x, this.y)
+        ctx.restore();
+      }
+      else if(this.angle==180){
+        var image = new Image();
+        image.src = "js/hupDroite.png";
+        ctx.save();
+        ctx.drawImage(image,this.x, this.y)
+        ctx.restore();
+      }
+      else if(this.angle == 360){
+        var image = new Image();
+        image.src = "js/hupDos.png";
+        ctx.save();
+        ctx.drawImage(image,this.x, this.y)
         ctx.restore();
       }
     }

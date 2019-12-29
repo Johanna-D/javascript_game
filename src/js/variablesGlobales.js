@@ -10,6 +10,9 @@ var portes=[];
 var newElement;
 var clicMenu = false;
 var mortEnnemi = false;
+var coeurDrop;
+var ennemiX;
+var ennemiY;
 
 
 
