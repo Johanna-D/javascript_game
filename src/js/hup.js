@@ -4,77 +4,22 @@ class hup extends Personnage{
     vh = 32;
     vb = 32;
     couleurPerso = 'black';
-    vie = 3;
+    vie = 20;
     black = 'black';
     clefs = 0;
     ennemiIndex;
     Epee=1;
     EpeeChiffre = 0;
     statutGameOver = false;
-    /* DRAW HUP AVEC DES FORMES 
-    drawHup(){
-      if(this.angle == 0){
-        ctx.save();
-        ctx.fillStyle = this.couleurPerso;
-        ctx.fillRect(this.x+16, this.y, this.taille/2, this.taille);
-        ctx.restore();
-      }
-      else if(this.angle == 90)
-      {
-        console.log("90");
-        ctx.save();
-        ctx.fillStyle = this.couleurPerso;
-        ctx.fillRect(this.x, this.y, this.taille, this.taille/2);
-        ctx.restore();
-      }
-      else if(this.angle==180){
-        console.log("180");
-        ctx.save();
-        ctx.fillStyle = this.couleurPerso;
-        ctx.fillRect(this.x, this.y, this.taille/2, this.taille);
-        ctx.restore();
-      }
-      else if(this.angle == 360){
-        console.log("360");
-        ctx.save();
-        ctx.fillStyle = this.couleurPerso;
-        ctx.fillRect(this.x, this.y+16, this.taille, this.taille/2);
-        ctx.restore();
-      }
-    }*/
+    image = new Image();
 
     /* DRAW HUP AVEC DES IMAGES */
     drawHup(){
-      if(this.angle == 0){
-        var image = new Image();
-        image.src = "js/hupGauche.png";
         ctx.save();
-        ctx.drawImage(image,this.x, this.y)
+        ctx.drawImage(this.image,this.x, this.y)
         ctx.restore();
-      }
-      else if(this.angle == 90)
-      {
-        var image = new Image();
-        image.src = "js/hupFace.png";
-        ctx.save();
-        ctx.drawImage(image,this.x, this.y)
-        ctx.restore();
-      }
-      else if(this.angle==180){
-        var image = new Image();
-        image.src = "js/hupDroite.png";
-        ctx.save();
-        ctx.drawImage(image,this.x, this.y)
-        ctx.restore();
-      }
-      else if(this.angle == 360){
-        var image = new Image();
-        image.src = "js/hupDos.png";
-        ctx.save();
-        ctx.drawImage(image,this.x, this.y)
-        ctx.restore();
-      }
     }
+
     drawHupEpee(chiffre){
       if(this.angle == 0){
         ctx.save();
@@ -130,69 +75,50 @@ class hup extends Personnage{
           moveh = false;
     }
     //Collision carré
-    /*collisionEnnemisHup(ennemis){
+    collisionEnnemisHup(ennemis){
       ennemis.forEach( ennemi => {
-      if ((this.x > ennemi.x-taille && this.x < ennemi.x+taille && this.y>ennemi.y-taille && this.y < ennemi.y+taille ) && this.invinsibilite == false){
-          this.red =setInterval("hup.couleurPerso = 'red'", 50);
-          this.black =setInterval("hup.couleurPerso = 'black'", 100);
+      if((this.x > ennemi.x-taille && this.x < ennemi.x+taille && this.y>ennemi.y-taille && this.y < ennemi.y+taille ) && this.invinsibilite == false){
+          if(this.angle == 0){
+          this.red =setInterval("hup.image.src = 'js/hupGaucheR.png'", 50);
+          this.black =setInterval("hup.image.src = 'js/hupGauche.png'", 100);
           setTimeout("clearInterval(hup.red)",1201);
           setTimeout("clearInterval(hup.black)",1201);
           this.invinsibilite = true;
           this.vie = this.vie - 1;
           setTimeout("hup.invinsibilite = false",1201);
         }
+        if(this.angle == 180){
+          this.red =setInterval("hup.image.src = 'js/hupDroitR.png'", 50);
+          this.black =setInterval("hup.image.src = 'js/hupDroite.png'", 100);
+          setTimeout("clearInterval(hup.red)",1201);
+          setTimeout("clearInterval(hup.black)",1201);
+          this.invinsibilite = true;
+          this.vie = this.vie - 1;
+          setTimeout("hup.invinsibilite = false",1201);
+        }
+        if(this.angle == 90){
+          this.red =setInterval("hup.image.src = 'js/hupFaceR.png'", 50);
+          this.black =setInterval("hup.image.src = 'js/hupFace.png'", 100);
+          setTimeout("clearInterval(hup.red)",1201);
+          setTimeout("clearInterval(hup.black)",1201);
+          this.invinsibilite = true;
+          this.vie = this.vie - 1;
+          setTimeout("hup.invinsibilite = false",1201);
+        }
+        if(this.angle == 360){
+          this.red =setInterval("hup.image.src = 'js/hupDosR.png'", 50);
+          this.black =setInterval("hup.image.src = 'js/hupDos.png'", 100);
+          setTimeout("clearInterval(hup.red)",1201);
+          setTimeout("clearInterval(hup.black)",1201);
+          this.invinsibilite = true;
+          this.vie = this.vie - 1;
+          setTimeout("hup.invinsibilite = false",1201);
+        }
+        }
     })
-  }*/
+  }
 
-  //Colision demi carré en fonction de l'angle
-  collisionEnnemisHup(ennemis){
-    ennemis.forEach( ennemi => {
-      if(this.angle == 0){
-        if(this.x > ennemi.x-taille && this.x+16 < ennemi.x+taille && this.y>ennemi.y-taille && this.y < ennemi.y+taille && this.invinsibilite == false){
-          this.red =setInterval("hup.couleurPerso = 'red'", 50);
-          this.black =setInterval("hup.couleurPerso = 'black'", 100);
-          setTimeout("clearInterval(hup.red)",1201);
-          setTimeout("clearInterval(hup.black)",1201);
-          this.invinsibilite = true;
-          this.vie = this.vie - ennemi.degatcac;
-          setTimeout("hup.invinsibilite = false",1201);
-        }
-      }
-      if(this.angle == 180){
-        if(this.x-16 > ennemi.x-taille && this.x < ennemi.x+taille && this.y>ennemi.y-taille && this.y < ennemi.y+taille && this.invinsibilite == false){
-          this.red =setInterval("hup.couleurPerso = 'red'", 50);
-          this.black =setInterval("hup.couleurPerso = 'black'", 100);
-          setTimeout("clearInterval(hup.red)",1201);
-          setTimeout("clearInterval(hup.black)",1201);
-          this.invinsibilite = true;
-          this.vie = this.vie - ennemi.degatcac;
-          setTimeout("hup.invinsibilite = false",1201);
-        }
-      }
-      if(this.angle == 90){
-        if(this.x > ennemi.x-taille && this.x < ennemi.x+taille && this.y-16>ennemi.y-taille && this.y < ennemi.y+taille && this.invinsibilite == false){
-          this.red =setInterval("hup.couleurPerso = 'red'", 50);
-          this.black =setInterval("hup.couleurPerso = 'black'", 100);
-          setTimeout("clearInterval(hup.red)",1201);
-          setTimeout("clearInterval(hup.black)",1201);
-          this.invinsibilite = true;
-          this.vie = this.vie - ennemi.degatcac;
-          setTimeout("hup.invinsibilite = false",1201);
-        }
-      }
-      if(this.angle == 360){
-        if(this.x > ennemi.x-taille && this.x < ennemi.x+taille && this.y > ennemi.y-taille && this.y+16 < ennemi.y+taille && this.invinsibilite == false){
-          this.red =setInterval("hup.couleurPerso = 'red'", 50);
-          this.black =setInterval("hup.couleurPerso = 'black'", 100);
-          setTimeout("clearInterval(hup.red)",1201);
-          setTimeout("clearInterval(hup.black)",1201);
-          this.invinsibilite = true;
-          this.vie = this.vie - ennemi.degatcac;
-          setTimeout("hup.invinsibilite = false",1201);
-        }
-      }
-  })
-}
+
 gameover(){
     if(this.vie <=0){
       ctx.drawImage(Gover, 0, 0);
@@ -220,7 +146,7 @@ gameover(){
       coeurvide.src = 'css/emptyheart.png';
       var demicoeur = new Image();
       demicoeur.src = 'css/halfheart.png';
-      
+
       if(this.vie == 3){
         ctx.drawImage(coeur, 0,576,64,64);
         ctx.drawImage(coeur, 64,576,64,64);
@@ -254,7 +180,7 @@ gameover(){
 
     }
 }
-  
+
 
 
 function attaqueHup(hup,ennemis){
@@ -363,24 +289,52 @@ function deplacementHup(hup,ennemis){
           //-Move left
         hup.x -= hup.vg;
         hup.angle = 0;
+        hup.image.src = "js/hupGauche.png";
+        if(hup.invinsibilite == true){
+          clearInterval(hup.red);
+          clearInterval(hup.black);
+          hup.red =setInterval("hup.image.src = 'js/hupGaucheR.png'", 50);
+          hup.black =setInterval("hup.image.src = 'js/hupGauche.png'", 100);
+        }
         break;
         case 39:
           //-Move right
           hup.x += hup.vd;
           hup.angle = 180
+          hup.image.src = "js/hupDroite.png";
+          if(hup.invinsibilite == true){
+            clearInterval(hup.red);
+            clearInterval(hup.black);
+            hup.red =setInterval("hup.image.src = 'js/hupDroitR.png'", 50);
+            hup.black =setInterval("hup.image.src = 'js/hupDroite.png'", 100);
+          }
           break;
       case 38:
           //-Move up
           hup.y -= hup.vh;
           hup.angle = 360;
+          hup.image.src = "js/hupDos.png";
+          if(hup.invinsibilite == true){
+            clearInterval(hup.red);
+            clearInterval(hup.black);
+            hup.red =setInterval("hup.image.src = 'js/hupDosR.png'", 50);
+            hup.black =setInterval("hup.image.src = 'js/hupDos.png'", 100);
+          }
           break;
       case 40:
           //-Move down
           hup.y += hup.vb;
           hup.angle = 90;
+          hup.image.src = "js/hupFace.png";
+          if(hup.invinsibilite == true){
+            clearInterval(hup.red);
+            clearInterval(hup.black);
+            hup.red =setInterval("hup.image.src = 'js/hupFaceR.png'", 50);
+            hup.black =setInterval("hup.image.src = 'js/hupFace.png'", 100);
+          }
           break;
       case 32:
-        
+
           attaqueHup(hup,ennemis);
       case 13:
           if(hup.vie <=0){

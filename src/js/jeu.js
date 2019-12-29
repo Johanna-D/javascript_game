@@ -19,6 +19,9 @@ function processMouseMouve(evt) {
   }
  }
 
+ function ajoute(element){
+     newElement = element;
+   }
 
 function tirBalle(ennemi){
   if(ennemi.tir < ennemi.tirmax){
@@ -93,7 +96,7 @@ function anime() {
     clef3.drawObjet();
   clef3.collisionObjetHup(hup);
   }
-  
+
 
   cleAffiche = new Image();
 cleAffiche.src='js/objetsRamassables/cle.png';
@@ -115,11 +118,11 @@ cleAffiche.src='js/objetsRamassables/cle.png';
     coeur.collisionObjetHup(hup);
     console.log("fin boucle");
   }*/
-  
+
 /* FONCTIONNE POUR PLACER UN COEUR A ENDROIT PRECIS
   coeur.drawObjet();
   coeur.collisionObjetHup(hup);*/
-  
+
     for(i = 0;i< ennemis.length;i++){
     if(ennemis[i] instanceof pouf){
       ennemis[i].deplacementPouf(hup);
@@ -153,7 +156,7 @@ cleAffiche.src='js/objetsRamassables/cle.png';
       hup.vg =0;
   }
   if(moved == true){
-      hup.vd =16;
+      hup.vd =32;
   }
   else{
       hup.vd =0;
@@ -176,14 +179,15 @@ cleAffiche.src='js/objetsRamassables/cle.png';
 
 function init() {
 
-  loadMap(C1); 
+  loadMap(C1);
   hup = new hup(14*32,14*32);
+  hup.image.src = "js/hupFace.png";
   ennemis.push(new pouf(8*32,8*32));
   clef1 = new clef(12*32,9*32);
   clef2 = new clef(14*32,8*32);
   clef3 = new clef(12*32,13*32);
   //coeur = new coeur(10*32,10*32);
-  
+
   portes.push(new porte(10*32,0));
   portes.push(new porte(11*32,0));
   portes.push(new porte(12*32,0));

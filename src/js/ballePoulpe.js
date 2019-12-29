@@ -78,8 +78,8 @@ class ballePoulpe{
   collisionTirHup(ennemi,hup,balles){
       if(hup.angle == 0){
         if(hup.x > (this.x)-taille && hup.x < (this.x)+taille && hup.y>(this.y)-taille && hup.y < (this.y)+taille && hup.invinsibilite == false){
-          hup.red =setInterval("hup.couleurPerso = 'red'", 50);
-          hup.black =setInterval("hup.couleurPerso = 'black'", 100);
+          hup.red =setInterval("hup.image.src = 'js/hupGaucheR.png'", 50);
+          hup.black =setInterval("hup.image.src = 'js/hupGauche.png'", 100);
           setTimeout("clearInterval(hup.red)",1201);
           setTimeout("clearInterval(hup.black)",1201);
           hup.invinsibilite = true;
@@ -95,8 +95,8 @@ class ballePoulpe{
       }
       if(hup.angle == 180){
         if(hup.x > (this.x)-taille && hup.x < (this.x)+taille && hup.y>(this.y)-taille && hup.y < (this.y)+taille && hup.invinsibilite == false){
-          hup.red =setInterval("hup.couleurPerso = 'red'", 50);
-          hup.black =setInterval("hup.couleurPerso = 'black'", 100);
+          hup.red =setInterval("hup.image.src = 'js/hupDroitR.png'", 50);
+          hup.black =setInterval("hup.image.src = 'js/hupDroite.png'", 100);
           setTimeout("clearInterval(hup.red)",1201);
           setTimeout("clearInterval(hup.black)",1201);
           hup.invinsibilite = true;
@@ -112,8 +112,8 @@ class ballePoulpe{
       }
       if(hup.angle == 90){
         if(hup.x > (this.x)-taille && hup.x < (this.x)+taille && hup.y>(this.y)-taille && hup.y < (this.y)+taille && hup.invinsibilite == false){
-          hup.red =setInterval("hup.couleurPerso = 'red'", 50);
-          hup.black =setInterval("hup.couleurPerso = 'black'", 100);
+          hup.red =setInterval("hup.image.src = 'js/hupFaceR.png'", 50);
+          hup.black =setInterval("hup.image.src = 'js/hupFace.png'", 100);
           setTimeout("clearInterval(hup.red)",1201);
           setTimeout("clearInterval(hup.black)",1201);
           hup.invinsibilite = true;
@@ -129,8 +129,8 @@ class ballePoulpe{
       }
       if(hup.angle == 360){
         if(hup.x > (this.x)-taille && hup.x < (this.x)+taille && hup.y > (this.y)-taille && hup.y < (this.y)+taille && hup.invinsibilite == false){
-          hup.red =setInterval("hup.couleurPerso = 'red'", 50);
-          hup.black =setInterval("hup.couleurPerso = 'black'", 100);
+          hup.red =setInterval("hup.image.src = 'js/hupDosR.png'", 50);
+          hup.black =setInterval("hup.image.src = 'js/hupDos.png'", 100);
           setTimeout("clearInterval(hup.red)",1201);
           setTimeout("clearInterval(hup.black)",1201);
           hup.invinsibilite = true;
