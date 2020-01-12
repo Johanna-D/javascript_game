@@ -362,16 +362,19 @@ function deplacementHup(hup,ennemis){
             hup.black =setInterval("hup.image.src = 'js/hupFace.png'", 100);
           }
           break;
+      case 90:
+          if(hup.bottes ==1){
+            saut(hup,map);
+          }
+          break;
       case 32:
           attaqueHup(hup,ennemis);
+          break;
       case 13:
           if(hup.vie <=0){
           hup.statutGameOver = true;
           }
-        case 90:
-          if(hup.bottes ==1){
-            saut(hup,map);
-          }
+          break;
       default:
           break;
       }
