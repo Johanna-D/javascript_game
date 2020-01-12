@@ -102,6 +102,41 @@ class Objet{
             ctx.drawImage(image, this.x, this.y);
             
         }
+        else if(this.type =="solDonjon"){
+            var image = new Image();
+            image.src = 'js/classesDecor/solDonjon.png';
+            ctx.drawImage(image, this.x, this.y);
+            
+        }
+        else if(this.type =="murHaut"){
+            var image = new Image();
+            image.src = 'js/classesDecor/murHaut.png';
+            ctx.drawImage(image, this.x, this.y);
+            
+        }
+        else if(this.type =="murBas"){
+            var image = new Image();
+            image.src = 'js/classesDecor/murBas.png';
+            ctx.drawImage(image, this.x, this.y);
+            
+        }
+        else if(this.type =="murGauche"){
+            var image = new Image();
+            image.src = 'js/classesDecor/murGauche.png';
+            ctx.drawImage(image, this.x, this.y);
+            
+        }
+        else if(this.type =="murDroit"){
+            var image = new Image();
+            image.src = 'js/classesDecor/murDroit.png';
+            ctx.drawImage(image, this.x, this.y);
+            
+        }
+        else if(this.type =="vide"){
+            ctx.fillStyle = this.couleur;
+            ctx.fillRect(this.x,this.y,this.taille,this.taille);
+            
+        }
         
         
         else {

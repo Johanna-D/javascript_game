@@ -20,6 +20,12 @@
   <script src="js/classesDecor/fleur.js"></script>
   <script src="js/classesDecor/porte.js"></script>
   <script src="js/classesDecor/gameover.js"></script>
+  <script src="js/classesDecor/solDonjon.js"></script>
+  <script src="js/classesDecor/murHaut.js"></script>
+  <script src="js/classesDecor/murBas.js"></script>
+  <script src="js/classesDecor/murGauche.js"></script>
+  <script src="js/classesDecor/murDroit.js"></script>
+  <script src="js/classesDecor/vide.js"></script>
   <script src="js/objetsRamassables/clef.js"></script>
   <script src="js/objetsRamassables/coeur.js"></script>
   <script src="js/jeu.js"></script>
@@ -39,7 +45,12 @@
 
   <canvas id="myCanvas" width=768 height=640></canvas>
   <p id="menu">
-
+    <img onclick="ajoute('solDonjon')" src="js/classesDecor/solDonjon.png"> Ajouter du sol donjon <br>
+    <img onclick="ajoute('murHaut')" src="js/classesDecor/murHaut.png"> Ajouter murHaut <br>
+    <img onclick="ajoute('murBas')" src="js/classesDecor/murBas.png"> Ajouter murBas <br>
+    <img onclick="ajoute('murGauche')" src="js/classesDecor/murGauche.png"> Ajouter murGauche <br>
+    <img onclick="ajoute('murDroit')" src="js/classesDecor/murDroit.png"> Ajouter murDroit <br>
+    <img onclick="ajoute('vide')" src="js/classesDecor/vide.png"> Ajouter du vide <br>
     <img onclick="ajoute('roche')" src="css/stone.png"> Ajouter une roche <br>
     <img onclick="ajoute('sol')" src="css/sol.jpg"> Ajouter du sol <br>
     <img onclick="ajoute('solRoche')" src="css/solRoche.jpg"> Ajouter du sol rocheux<br>
@@ -50,6 +61,7 @@
     <img onclick="ajoute('eau')" src="css/water.png"> Ajouter de l'eau <br>
     <img onclick="ajoute('eauProfonde')" src="css/deepwater.png"> Ajouter de l'eau profonde <br>
     <img onclick="ajoute('neige')" src="css/neige.png"> Ajouter de la neige <br>
+    
 
   </p>
 </body>

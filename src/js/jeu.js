@@ -97,6 +97,25 @@ function anime() {
       if(map[a][b] instanceof solRoche){
         map[a][b].draw();
       }
+      if(map[a][b] instanceof solDonjon){
+        map[a][b].draw();
+      }
+      if(map[a][b] instanceof murHaut){
+        map[a][b].draw();
+        hup.collisionDecorHup(map[a][b]);
+      }
+      if(map[a][b] instanceof murBas){
+        map[a][b].draw();
+        hup.collisionDecorHup(map[a][b]);
+      }
+      if(map[a][b] instanceof murGauche){
+        map[a][b].draw();
+        hup.collisionDecorHup(map[a][b]);
+      }
+      if(map[a][b] instanceof murDroit){
+        map[a][b].draw();
+        hup.collisionDecorHup(map[a][b]);
+      }
       if(map[a][b] instanceof gameover){
         map[a][b].draw();
       }
@@ -254,6 +273,24 @@ function init() {
     }
     if(newElement == "bois"){
       map[x][y] = new bois(x*taille,y*taille);
+    }
+    if(newElement == "solDonjon"){
+      map[x][y] = new solDonjon(x*taille,y*taille);
+    }
+    if(newElement == "murHaut"){
+      map[x][y] = new murHaut(x*taille,y*taille);
+    }
+    if(newElement == "murBas"){
+      map[x][y] = new murBas(x*taille,y*taille);
+    }
+    if(newElement == "murGauche"){
+      map[x][y] = new murGauche(x*taille,y*taille);
+    }
+    if(newElement == "murDroit"){
+      map[x][y] = new murDroit(x*taille,y*taille);
+    }
+    if(newElement == "vide"){
+      map[x][y] = new vide(x*taille,y*taille);
     }
     if(newElement == "gameover"){
       map[x][y] = new gameover(x*taille,y*taille);

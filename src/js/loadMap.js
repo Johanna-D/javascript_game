@@ -20,6 +20,12 @@ var eauProfondeMap = new eauProfonde();
 var neigeMap = new neige();
 var fleurMap = new fleur();
 var boisMap = new bois();
+var sD = new solDonjon();
+var murH = new murHaut();
+var murB = new murBas();
+var murG = new murGauche();
+var murD = new murDroit();
+var videMap = new vide();
 var gameoverMap = new gameover();
 
 // "nom de la map actuelle", "gauche","gauche string","droite","droite string","haut","haut string","bas","bas string"
@@ -169,6 +175,24 @@ function loadMap(mapToLoad){
        }
        else if(mapToLoad[i][j].couleur == gameoverMap.couleur){
         map[i][j] = new gameover(i*taille,j*taille);
+       }
+       else if(mapToLoad[i][j].couleur == sD.couleur){
+        map[i][j] = new solDonjon(i*taille,j*taille);
+       }
+       else if(mapToLoad[i][j].couleur == murH.couleur){
+        map[i][j] = new murHaut(i*taille,j*taille);
+       }
+       else if(mapToLoad[i][j].couleur == murB.couleur){
+        map[i][j] = new murBas(i*taille,j*taille);
+       }
+       else if(mapToLoad[i][j].couleur == murG.couleur){
+        map[i][j] = new murGauche(i*taille,j*taille);
+       }
+       else if(mapToLoad[i][j].couleur == murD.couleur){
+        map[i][j] = new murDroit(i*taille,j*taille);
+       }
+       else if(mapToLoad[i][j].couleur == videMap.couleur){
+        map[i][j] = new vide(i*taille,j*taille);
        }
 
       }
