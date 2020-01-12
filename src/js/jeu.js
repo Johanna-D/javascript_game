@@ -34,7 +34,7 @@ function tirBalle(ennemi){
 function ecrire(){
   ctx.font = '16px serif';
   if(numeroTexte == 0){
-  ctx.fillText("OH, SOMEONE HERE! I DIDN'T IT WOULD EVER HAPPEN...", (5*32)+8, (6*32)-11);
+  ctx.fillText("OH, SOMEONE HERE! I DIDN'T BELIEVE IT WOULD EVER HAPPEN...", (4*32)+2, (6*32)-11);
   ctx.fillText("PLEASE? WE NEED YOUR HELP...",(8*32)+5, (7*32)-11);
   setTimeout("numeroTexte = 1",4800);
   }
@@ -43,7 +43,7 @@ function ecrire(){
   ctx.fillText("WHICH ALLOW YOU TO ENTER INTO THE MONSTER KING'S DUNGEON", (3*32)+21, (7*32)-11);
   ctx.fillText("DEFEAT HIM AND DESTROY THE CRYSTAL TO SAVE THE WORLD", (4*32)+12, (8*32)-11);
   if(cpt == 0){
-    setTimeout("numeroTexte = 2",7200);
+    setTimeout("numeroTexte = 2",7500);
     cpt = 1;
   }
   }
@@ -133,6 +133,15 @@ function anime() {
     ennemis[0].draw();
     if(hup.x == 12*32 && hup.y == 8*32 && numeroTexte == 3 && hup.Epee == 0){
       hup.Epee = 1;
+    }
+  }
+  if(map[24]=="I1Bracelet"){
+    if(hup.braceletForce == 1){
+      ctx.fillStyle = "black";
+      ctx.fillRect(12*32,9*32,32,32);
+    }
+    if(hup.x == 12*32 && hup.y == 9*32 && hup.braceletForce == 1){
+      hup.braceletForce = 2;
     }
   }
   hup.key();

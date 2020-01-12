@@ -8,11 +8,12 @@ class hup extends Personnage{
     black = 'black';
     clefs = 0;
     ennemiIndex;
-    Epee=0;
+    Epee=1;
     EpeeChiffre = 0;
     statutGameOver = false;
     image = new Image();
     braceletForce = 1;
+    bottes = 1;
     /* DRAW HUP AVEC DES IMAGES */
     drawHup(){
         ctx.save();
@@ -184,7 +185,32 @@ gameover(){
   }
 }
 
-
+function saut(hup,map){
+  if(hup.angle ==0 && ((map[(hup.x/32)-2][(hup.y/32)]) instanceof sol || (map[(hup.x/32)-2][(hup.y/32)]) instanceof fleur || (map[(hup.x/32)-2][(hup.y/32)]) instanceof herbe || (map[(hup.x/32)-2][(hup.y/32)]) instanceof neige || (map[(hup.x/32)-2][(hup.y/32)]) instanceof solRoche || (map[(hup.x/32)-2][(hup.y/32)]) instanceof eau || (map[(hup.x/32)-2][(hup.y/32)]) instanceof bois)) {
+    hup.y = hup.y-32;
+    hup.x = hup.x -32;
+    setTimeout("hup.y = hup.y +32",5);
+    setTimeout("hup.x = hup.x -32;",5);
+  }
+  if(hup.angle ==180 && ((map[(hup.x/32)+2][(hup.y/32)]) instanceof sol || (map[(hup.x/32)+2][(hup.y/32)]) instanceof fleur || (map[(hup.x/32)+2][(hup.y/32)]) instanceof herbe || (map[(hup.x/32)+2][(hup.y/32)]) instanceof neige || (map[(hup.x/32)+2][(hup.y/32)]) instanceof solRoche || (map[(hup.x/32)+2][(hup.y/32)]) instanceof eau || (map[(hup.x/32)+2][(hup.y/32)]) instanceof bois)) {
+    hup.y = hup.y-32;
+    hup.x = hup.x +32;
+    setTimeout("hup.y = hup.y +32",5);
+    setTimeout("hup.x = hup.x +32;",5);
+  }
+  if(hup.angle ==90 && ((map[(hup.x/32)][(hup.y/32)+2]) instanceof sol || (map[(hup.x/32)][(hup.y/32)+2]) instanceof fleur || (map[(hup.x/32)][(hup.y/32)+2]) instanceof herbe || (map[(hup.x/32)][(hup.y/32)+2]) instanceof neige || (map[(hup.x/32)][(hup.y/32)+2]) instanceof solRoche || (map[(hup.x/32)][(hup.y/32)+2]) instanceof eau || (map[(hup.x/32)][(hup.y/32)+2]) instanceof bois)) {
+    hup.y = hup.y+32;
+    hup.x = hup.x +16;
+    setTimeout("hup.y = hup.y +32",5);
+    setTimeout("hup.x = hup.x -16;",5);
+  }
+  if(hup.angle ==360 && ((map[(hup.x/32)][(hup.y/32)-2]) instanceof sol || (map[(hup.x/32)][(hup.y/32)-2]) instanceof fleur || (map[(hup.x/32)][(hup.y/32)-2]) instanceof herbe || (map[(hup.x/32)][(hup.y/32)-2]) instanceof neige || (map[(hup.x/32)][(hup.y/32)-2]) instanceof solRoche || (map[(hup.x/32)][(hup.y/32)-2]) instanceof eau || (map[(hup.x/32)][(hup.y/32)-2]) instanceof bois)) {
+    hup.y = hup.y-32;
+    hup.x = hup.x +16;
+    setTimeout("hup.y = hup.y -32",5);
+    setTimeout("hup.x = hup.x -16;",5);
+  }
+}
 
 function attaqueHup(hup,ennemis){
     if(hup.Epee == 1){
@@ -195,7 +221,7 @@ function attaqueHup(hup,ennemis){
         if(hup.angle == 0){
           if(hup.x-taille > ennemi.x-taille && hup.x-taille < ennemi.x+taille && hup.y>ennemi.y-taille && hup.y < ennemi.y+taille){
             hup.ennemiIndex = ennemis.indexOf(ennemi);
-            ennemi.vie -= 1*this.braceletForce;
+            ennemi.vie -= 1*hup.braceletForce;
             if(ennemi.vie >0){
               if(ennemi.collisionDecorEnnemisAttaqueG()){
                 ennemi.x -=32;
@@ -217,7 +243,7 @@ function attaqueHup(hup,ennemis){
       if(hup.angle == 180){
         if(hup.x+taille > ennemi.x-taille && hup.x+taille < ennemi.x+taille && hup.y>ennemi.y-taille && hup.y < ennemi.y+taille){
           hup.ennemiIndex = ennemis.indexOf(ennemi);
-          ennemi.vie -= 1*this.braceletForce;
+          ennemi.vie -= 1*hup.braceletForce;
           if(ennemi.vie >0){
             if(ennemi.collisionDecorEnnemisAttaqueD()){
               ennemi.x +=32;
@@ -239,7 +265,7 @@ function attaqueHup(hup,ennemis){
       if(hup.angle == 90){
         if(hup.x > ennemi.x-taille && hup.x < ennemi.x+taille && hup.y+taille>ennemi.y-taille && hup.y+taille < ennemi.y+taille){
           hup.ennemiIndex = ennemis.indexOf(ennemi);
-          ennemi.vie -= 1*this.braceletForce;
+          ennemi.vie -= 1*hup.braceletForce;
           if(ennemi.vie >0){
             if(ennemi.collisionDecorEnnemisAttaqueB()){
               ennemi.y +=32;
@@ -261,7 +287,7 @@ function attaqueHup(hup,ennemis){
       if(hup.angle == 360){
         if(hup.x > ennemi.x-taille && hup.x < ennemi.x+taille && hup.y-taille > ennemi.y-taille && hup.y-taille < ennemi.y+taille){
           hup.ennemiIndex = ennemis.indexOf(ennemi);
-          ennemi.vie -= 1*this.braceletForce;
+          ennemi.vie -= 1*hup.braceletForce;
           if(ennemi.vie >0){
             if(ennemi.collisionDecorEnnemisAttaqueH()){
               ennemi.y -=32;
@@ -341,6 +367,10 @@ function deplacementHup(hup,ennemis){
       case 13:
           if(hup.vie <=0){
           hup.statutGameOver = true;
+          }
+        case 90:
+          if(hup.bottes ==1){
+            saut(hup,map);
           }
       default:
           break;
