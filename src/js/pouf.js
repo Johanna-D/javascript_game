@@ -107,10 +107,12 @@ else{return true;}
                 console.log(this.poufPosition);*/
                 if(yh>=xh && this.collisionDecorEnnemisH()){
                     this.y -= this.vitesse;
+                    this.angle=360;
                     console.log("avance haut gauche en Y");
                 }
                 else if(this.collisionDecorEnnemisG()){
                     this.x -= this.vitesse;
+                    this.angle=0;
                     console.log("avance haut gauche en X");
                 }
                 }
@@ -121,10 +123,12 @@ else{return true;}
                     if(yh>=xh && this.collisionDecorEnnemisH()){
                       console.log("monte haut droit");
                         this.y -= this.vitesse;
+                        this.angle=360;
                     }
                     else if(this.collisionDecorEnnemisD()){
                       console.log("droite  haut droite");
                         this.x += this.vitesse;
+                        this.angle=180;
                     }
                 }
             if(this.detectionHupBasGauche(hup)){
@@ -133,11 +137,13 @@ else{return true;}
                 let xh = this.x - hup.x;
                 if(this.collisionDecorEnnemisB()){
                     this.y += this.vitesse;
+                    this.angle=90;
                     console.log("descend bas gauche");
                 }
                 if(yh>=xh && this.collisionDecorEnnemisG()){
                   console.log("bas gauche");
                     this.x -= this.vitesse;
+                    this.angle=0;
                 }
             }
             if(this.detectionHupBasDroite(hup)){
@@ -147,10 +153,12 @@ else{return true;}
                 if(yh>=xh && this.collisionDecorEnnemisB()){
                   console.log("descend bas droite ");
                     this.y += this.vitesse;
+                    this.angle=90;
                 }
                 else if(this.collisionDecorEnnemisD()){
                   console.log("va a droite bas droit");
                     this.x += this.vitesse;
+                    this.angle=180;
                 }
             }
 }
