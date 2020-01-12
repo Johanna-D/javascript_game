@@ -116,6 +116,10 @@ function anime() {
         map[a][b].draw();
         hup.collisionDecorHup(map[a][b]);
       }
+      if(map[a][b] instanceof vide){
+        map[a][b].draw();
+        hup.collisionDecorHup(map[a][b]);
+      }
       if(map[a][b] instanceof gameover){
         map[a][b].draw();
       }
