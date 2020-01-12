@@ -4,7 +4,7 @@ class hup extends Personnage{
     vh = 32;
     vb = 32;
     couleurPerso = 'black';
-    vie = 20;
+    vie = 3;
     black = 'black';
     clefs = 0;
     ennemiIndex;
@@ -146,7 +146,6 @@ gameover(){
       coeurvide.src = 'css/emptyheart.png';
       var demicoeur = new Image();
       demicoeur.src = 'css/halfheart.png';
-
       if(this.vie == 3){
         ctx.drawImage(coeur, 0,576,64,64);
         ctx.drawImage(coeur, 64,576,64,64);
@@ -177,8 +176,24 @@ gameover(){
         ctx.drawImage(coeurvide, 64,576,64,64);
         ctx.drawImage(coeurvide, 124,576,64,64);
       }
-
     }
+
+    key(){
+    let cleAffiche = new Image();
+    cleAffiche.src='js/objetsRamassables/cle.png';
+    if(this.clefs ==1){
+      ctx.drawImage(cleAffiche, 700,590);
+    }
+    if(this.clefs ==2){
+      ctx.drawImage(cleAffiche, 700,590);
+      ctx.drawImage(cleAffiche, 680,590);
+    }
+    if(this.clefs ==3){
+      ctx.drawImage(cleAffiche, 700,590);
+      ctx.drawImage(cleAffiche, 680,590);
+      ctx.drawImage(cleAffiche, 660,590);
+    }
+  }
 }
 
 

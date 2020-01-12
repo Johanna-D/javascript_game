@@ -199,10 +199,11 @@ function loadMap(mapToLoad){
             hup.x = 736;
           }
           else{
-          ennemis = []
+          ennemis = [];
           for(j = 0; j<ennemis.length;j++){
             ennemis[j].balles = [];
           }
+          objets = [];
           loadMap(maps[i][3]);
           hup.x = 0;
           break;
@@ -228,6 +229,7 @@ function loadMap(mapToLoad){
           for(j = 0; j<ennemis.length;j++){
             ennemis[j].balles = [];
           }
+          objets = [];
           loadMap(maps[i][1]);
           hup.x = 736;
           break;
@@ -250,6 +252,7 @@ function loadMap(mapToLoad){
           for(j = 0; j<ennemis.length;j++){
             ennemis[j].balles = [];
           }
+          objets = [];
           loadMap(maps[i][5]);
           hup.y = 544;
           break;
@@ -276,6 +279,7 @@ function loadMap(mapToLoad){
           for(j = 0; j<ennemis.length;j++){
             ennemis[j].balles = [];
           }
+          objets = [];
           loadMap(maps[i][7]);
           hup.y = 0;
           break;

@@ -190,29 +190,21 @@ collisionDecorEnnemisHD(){
     poufdos.src = 'js/spritePouf/poufdos.png';
     ctx.drawImage(poufdos, this.x, this.y);
   }
-
-
-      /*
-      else{
-        ctx.fillStyle = this.couleur;
-        ctx.fillRect(this.x, this.y, this.taille, this.taille);
-      }*/
       ctx.restore();
   }
-  
-  mortEnnemi(ennemis){
+
+  mortEnnemi(ennemis,objets){
     if(this.vie <= 0){
       mortEnnemi = true;
-      console.log("l'ennemi est mort");
       ennemiX = this.x;
       ennemiY = this.y;
       clearInterval(ennemis[ennemis.indexOf(this)].couleurtemp);
       clearInterval(ennemis[ennemis.indexOf(this)].black);
       ennemis[ennemis.indexOf(this)].invinsibilité = false;
+      if((Math.random()*100)<=25){
+        objets.push(new coeur(this.x,this.y));
+      }
       ennemis.splice(ennemis.indexOf(this),1);
-      
-      //coeurDrop = new coeur(this.x,this.y);
-      
     }
   }
   deplacement(){

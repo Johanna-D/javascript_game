@@ -1,5 +1,4 @@
 
-
 for (var i = 0; i < 24; i++)
 {
   map[i] = new Array(18);
@@ -8,7 +7,7 @@ for (var i = 0; i < 24; i++)
    map[i][j] = new sol(i*taille,j*taille);
   }
 }
-
+var objets = [];
 function processMouseMouve(evt) {
   let rect = evt.target.getBoundingClientRect()
   let mouseX = evt.clientX - rect.left;
@@ -96,33 +95,7 @@ function anime() {
     clef3.drawObjet();
   clef3.collisionObjetHup(hup);
   }
-
-
-  cleAffiche = new Image();
-cleAffiche.src='js/objetsRamassables/cle.png';
-  if(hup.clefs ==1){
-    ctx.drawImage(cleAffiche, 700,590);
-  }
-  if(hup.clefs ==2){
-    ctx.drawImage(cleAffiche, 700,590);
-    ctx.drawImage(cleAffiche, 680,590);
-  }
-  if(hup.clefs ==3){
-    ctx.drawImage(cleAffiche, 700,590);
-    ctx.drawImage(cleAffiche, 680,590);
-    ctx.drawImage(cleAffiche, 660,590);
-  }/* NE FONCTIONNE PAS POUR PLACER COEUR QUAND UN ENNEMI MEURT
-  if(mortEnnemi == true){
-    console.log("on rentre dans la boucle");
-    coeur.drawObjet();
-    coeur.collisionObjetHup(hup);
-    console.log("fin boucle");
-  }*/
-
-/* FONCTIONNE POUR PLACER UN COEUR A ENDROIT PRECIS
-  coeur.drawObjet();
-  coeur.collisionObjetHup(hup);*/
-
+  hup.key();
     for(i = 0;i< ennemis.length;i++){
     if(ennemis[i] instanceof pouf){
       ennemis[i].deplacementPouf(hup);
@@ -131,14 +104,18 @@ cleAffiche.src='js/objetsRamassables/cle.png';
     if(ennemis[i] instanceof poulpeR || ennemis[i] instanceof poulpeB){
       ennemis[i].deplacement();
       tirBalle(ennemis[i]);
-      if(ennemis[i].balles != null){
-        for(j = 0;j< ennemis[i].balles.length;j++){
-        ennemis[i].balles[j].drawTir();
-        ennemis[i].balles[j].moveTir(ennemis[i],hup,ennemis[i].balles);
-        }
+    }
+    if(ennemis[i].balles != null){
+      for(j = 0;j< ennemis[i].balles.length;j++){
+      ennemis[i].balles[j].drawTir();
+      ennemis[i].balles[j].moveTir(ennemis[i],hup,ennemis[i].balles);
       }
     }
-    ennemis[i].mortEnnemi(ennemis);
+    ennemis[i].mortEnnemi(ennemis,objets);
+  }
+  for(i = 0; i< objets.length;i++){
+    objets[i].draw();
+    objets[i].ramasseCoeur(objets,hup);
   }
   hup.drawHup();
   if(hup.Epee ==1){
@@ -186,8 +163,6 @@ function init() {
   clef1 = new clef(12*32,9*32);
   clef2 = new clef(14*32,8*32);
   clef3 = new clef(12*32,13*32);
-  //coeur = new coeur(10*32,10*32);
-
   portes.push(new porte(10*32,0));
   portes.push(new porte(11*32,0));
   portes.push(new porte(12*32,0));
