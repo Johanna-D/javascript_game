@@ -7,13 +7,14 @@ class hup extends Personnage{
     vie = 3;
     black = 'black';
     clefs = 0;
+    cleBoss =0 ;
     ennemiIndex;
-    Epee=1;
+    Epee=0;
     EpeeChiffre = 0;
     statutGameOver = false;
     image = new Image();
     braceletForce = 1;
-    bottes = 1;
+    bottes = 0;
     /* DRAW HUP AVEC DES IMAGES */
     drawHup(){
         ctx.save();
@@ -128,13 +129,33 @@ gameover(){
       }
     } }
 
-    vieHup(){
-      var coeur = new Image();
+    Interface(){
+      let cleAffiche = new Image();
+      cleAffiche.src='js/objetsRamassables/cleInterface.png';
+      let cleAfficheOmbre = new Image();
+      cleAfficheOmbre.src='js/objetsRamassables/cleInterfaceOmbre.png';
+      let bracelet = new Image();
+      bracelet.src='js/objetsRamassables/braceletInterface.png';
+      let braceletOmbre = new Image();
+      braceletOmbre.src='js/objetsRamassables/braceletInterfaceOmbre.png';
+      let bottes = new Image();
+      bottes.src='js/objetsRamassables/bottesInterface.png';
+      let bottesOmbre = new Image();
+      bottesOmbre.src='js/objetsRamassables/bottesInterfaceOmbre.png';
+      let cleboss = new Image();
+      cleboss.src='js/objetsRamassables/clebossInterface.png';
+      let clebossOmbre = new Image();
+      clebossOmbre.src='js/objetsRamassables/clebossInterfaceOmbre.png';
+      let coeur = new Image();
       coeur.src = 'css/heart.png';
-      var coeurvide = new Image();
+      let coeurvide = new Image();
       coeurvide.src = 'css/emptyheart.png';
-      var demicoeur = new Image();
+      let demicoeur = new Image();
       demicoeur.src = 'css/halfheart.png';
+      let sword = new Image();
+      sword.src = 'js/objetsRamassables/swordInterface.png';
+      let swordOmbre = new Image();
+      swordOmbre.src = 'js/objetsRamassables/swordInterfaceOmbre.png';
       if(this.vie == 3){
         ctx.drawImage(coeur, 0,576,64,64);
         ctx.drawImage(coeur, 64,576,64,64);
@@ -165,24 +186,52 @@ gameover(){
         ctx.drawImage(coeurvide, 64,576,64,64);
         ctx.drawImage(coeurvide, 124,576,64,64);
       }
+    if(this.clefs == 0){
+      ctx.drawImage(cleAfficheOmbre, 720,576,64,64);
+      ctx.drawImage(cleAfficheOmbre, 700,576,64,64);
+      ctx.drawImage(cleAfficheOmbre, 680,576,64,64);
     }
-
-    key(){
-    let cleAffiche = new Image();
-    cleAffiche.src='js/objetsRamassables/cle.png';
     if(this.clefs ==1){
-      ctx.drawImage(cleAffiche, 700,590);
+      ctx.drawImage(cleAfficheOmbre, 720,576,64,64);
+      ctx.drawImage(cleAfficheOmbre, 700,576,64,64);
+      ctx.drawImage(cleAffiche, 680,576,64,64);
     }
     if(this.clefs ==2){
-      ctx.drawImage(cleAffiche, 700,590);
-      ctx.drawImage(cleAffiche, 680,590);
+      ctx.drawImage(cleAfficheOmbre, 720,576,64,64);
+      ctx.drawImage(cleAffiche, 700,576,64,64);
+      ctx.drawImage(cleAffiche, 680,576,64,64);
     }
     if(this.clefs ==3){
-      ctx.drawImage(cleAffiche, 700,590);
-      ctx.drawImage(cleAffiche, 680,590);
-      ctx.drawImage(cleAffiche, 660,590);
+      ctx.drawImage(cleAffiche, 720,576,64,64);
+      ctx.drawImage(cleAffiche, 700,576,64,64);
+      ctx.drawImage(cleAffiche, 680,576,64,64);
+    }
+    if(this.Epee == 1){
+      ctx.drawImage(sword, 204,576,48,64);
+    }
+    if(this.Epee == 0){
+      ctx.drawImage(swordOmbre, 204,576,48,64);
+    }
+    if(this.cleBoss == 1){
+      ctx.drawImage(cleboss, 616,576);
+    }
+    if(this.cleBoss == 0){
+      ctx.drawImage(clebossOmbre, 616,576);
+    }
+    if(this.bottes == 1){
+      ctx.drawImage(bottes, 540,576);
+    }
+    if(this.bottes == 0){
+      ctx.drawImage(bottesOmbre, 540,576);
+    }
+    if(this.braceletForce == 2){
+      ctx.drawImage(bracelet, 456,576);
+    }
+    if(this.braceletForce == 1){
+      ctx.drawImage(braceletOmbre, 456,576);
     }
   }
+
 }
 
 function saut(hup,map){

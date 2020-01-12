@@ -156,14 +156,15 @@ function anime() {
   }
   if(map[24]=="I1Bracelet"){
     if(hup.braceletForce == 1){
-      ctx.fillStyle = "black";
-      ctx.fillRect(12*32,9*32,32,32);
+      let bracelet = new Image();
+      bracelet.src='js/objetsRamassables/bracelet.png';
+      ctx.drawImage(bracelet, 12*32,9*32);
     }
     if(hup.x == 12*32 && hup.y == 9*32 && hup.braceletForce == 1){
       hup.braceletForce = 2;
     }
   }
-  hup.key();
+  hup.Interface();
     for(i = 0;i< ennemis.length;i++){
     if(ennemis[i] instanceof pouf){
       ennemis[i].deplacementPouf(hup);
@@ -194,7 +195,6 @@ function anime() {
   if(hup.angle == 360){
     hup.drawHup();
   }
-  hup.vieHup();
   deplacementHup(hup,ennemis);
   hup.collisionEnnemisHup(ennemis);
   hup.gameover();

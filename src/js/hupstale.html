@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+
+  <script src="js/variablesGlobales.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/sauvegardeMaps.js"></script>
+  <script src="js/Objet.js"></script>
+  <script src="js/classesDecor/roche.js"></script>
+  <script src="js/classesDecor/arbre.js"></script>
+  <script src="js/classesDecor/sol.js"></script>
+  <script src="js/classesDecor/bois.js"></script>
+  <script src="js/classesDecor/herbe.js"></script>
+  <script src="js/classesDecor/eau.js"></script>
+  <script src="js/classesDecor/eauProfonde.js"></script>
+  <script src="js/classesDecor/solRoche.js"></script>
+  <script src="js/classesDecor/neige.js"></script>
+  <script src="js/classesDecor/fleur.js"></script>
+  <script src="js/classesDecor/porte.js"></script>
+  <script src="js/classesDecor/gameover.js"></script>
+  <script src="js/classesDecor/solDonjon.js"></script>
+  <script src="js/classesDecor/murHaut.js"></script>
+  <script src="js/classesDecor/murBas.js"></script>
+  <script src="js/classesDecor/murGauche.js"></script>
+  <script src="js/classesDecor/murDroit.js"></script>
+  <script src="js/classesDecor/vide.js"></script>
+  <script src="js/objetsRamassables/clef.js"></script>
+  <script src="js/objetsRamassables/coeur.js"></script>
+  <script src="js/jeu.js"></script>
+  <script src="js/loadMap.js"></script>
+  <script src="js/Personnage.js"></script>
+  <script src="js/hup.js"></script>
+  <script src="js/poulpeR.js"></script>
+  <script src="js/poulpeB.js"></script>
+  <script src="js/pouf.js"></script>
+  <script src="js/PNJ.js"></script>
+  <script src="js/ballePoulpe.js"></script>
+  <link rel="stylesheet" href="css/grille_test.css" />
+  <title>Hup's Tale</title>
+</head>
+
+<body id="body">
+
+  <canvas id="myCanvas" width=768 height=640></canvas>
+  <p id="menu">
+    <img onclick="ajoute('solDonjon')" src="js/classesDecor/solDonjon.png"> Ajouter du sol donjon <br>
+    <img onclick="ajoute('murHaut')" src="js/classesDecor/murHaut.png"> Ajouter murHaut <br>
+    <img onclick="ajoute('murBas')" src="js/classesDecor/murBas.png"> Ajouter murBas <br>
+    <img onclick="ajoute('murGauche')" src="js/classesDecor/murGauche.png"> Ajouter murGauche <br>
+    <img onclick="ajoute('murDroit')" src="js/classesDecor/murDroit.png"> Ajouter murDroit <br>
+    <img onclick="ajoute('vide')" src="js/classesDecor/vide.png"> Ajouter du vide <br>
+    <img onclick="ajoute('roche')" src="css/stone.png"> Ajouter une roche <br>
+    <img onclick="ajoute('sol')" src="css/sol.jpg"> Ajouter du sol <br>
+    <img onclick="ajoute('solRoche')" src="css/solRoche.jpg"> Ajouter du sol rocheux<br>
+    <img onclick="ajoute('bois')" src="css/bois.jpg"> Ajouter du bois <br>
+    <img onclick="ajoute('arbre')" src="css/tree.jpg"> Ajouter un arbre <br>
+    <img onclick="ajoute('herbe')" src="css/herbe.png"> Ajouter de l'herbe <br>
+    <img onclick="ajoute('fleur')" src="css/fleurs.png"> Ajouter des fleurs<br>
+    <img onclick="ajoute('eau')" src="css/water.png"> Ajouter de l'eau <br>
+    <img onclick="ajoute('eauProfonde')" src="css/deepwater.png"> Ajouter de l'eau profonde <br>
+    <img onclick="ajoute('neige')" src="css/neige.png"> Ajouter de la neige <br>
+    
+
+  </p>
+</body>
+</html>
