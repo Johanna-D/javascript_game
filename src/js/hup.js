@@ -8,11 +8,11 @@ class hup extends Personnage{
     black = 'black';
     clefs = 0;
     ennemiIndex;
-    Epee=1;
+    Epee=0;
     EpeeChiffre = 0;
     statutGameOver = false;
     image = new Image();
-
+    braceletForce = 1;
     /* DRAW HUP AVEC DES IMAGES */
     drawHup(){
         ctx.save();
@@ -23,43 +23,31 @@ class hup extends Personnage{
     drawHupEpee(chiffre){
       if(this.angle == 0){
         ctx.save();
-        ctx.fillStyle = 'grey';
-        ctx.fillRect(this.x-chiffre, this.y+2, 16, 6);
-        ctx.fillStyle = 'brown';
-        ctx.fillRect(this.x+18-chiffre, this.y+2, 6, 6);
-        ctx.fillStyle = 'yellow';
-        ctx.fillRect(this.x+16-chiffre, this.y, 2, 10);
+        var sword = new Image();
+        sword.src = 'js/objetsRamassables/swordGauche.png';
+        ctx.drawImage(sword, this.x-4-chiffre, this.y+17);
         ctx.restore();
       }
       else if(this.angle == 90)
       {
         ctx.save();
-        ctx.fillStyle = 'grey';
-        ctx.fillRect(this.x+2, this.y+16+chiffre, 6, 16);
-        ctx.fillStyle = 'brown';
-        ctx.fillRect(this.x+2, this.y+8+chiffre, 6, 6);
-        ctx.fillStyle = 'yellow';
-        ctx.fillRect(this.x, this.y+14+chiffre, 10, 2);
+        var sword = new Image();
+        sword.src = 'js/objetsRamassables/swordBas.png';
+        ctx.drawImage(sword, this.x+18, this.y+24+chiffre);
         ctx.restore();
       }
       else if(this.angle==180){
         ctx.save();
-        ctx.fillStyle = 'grey';
-        ctx.fillRect(this.x+16+chiffre, this.y+24, 16, 6);
-        ctx.fillStyle = 'brown';
-        ctx.fillRect(this.x+8+chiffre, this.y+24, 6, 6);
-        ctx.fillStyle = 'yellow';
-        ctx.fillRect(this.x+14+chiffre, this.y+22, 2, 10);
+        var sword = new Image();
+        sword.src = 'js/objetsRamassables/swordDroit.png';
+        ctx.drawImage(sword, this.x+27+chiffre, this.y+17);
         ctx.restore();
       }
       else if(this.angle == 360){
         ctx.save();
-        ctx.fillStyle = 'grey';
-        ctx.fillRect(this.x+24, this.y-chiffre, 6, 16);
-        ctx.fillStyle = 'brown';
-        ctx.fillRect(this.x+24, this.y+18-chiffre, 6, 6);
-        ctx.fillStyle = 'yellow';
-        ctx.fillRect(this.x+22, this.y+16-chiffre, 10, 2);
+        var sword = new Image();
+        sword.src = 'js/objetsRamassables/swordHaut.png';
+        ctx.drawImage(sword, this.x-3, this.y-1-chiffre);
         ctx.restore();
       }
     }
@@ -84,7 +72,7 @@ class hup extends Personnage{
           setTimeout("clearInterval(hup.red)",1201);
           setTimeout("clearInterval(hup.black)",1201);
           this.invinsibilite = true;
-          this.vie = this.vie - 1;
+          this.vie = this.vie - ennemi.degatcac;
           setTimeout("hup.invinsibilite = false",1201);
         }
         if(this.angle == 180){
@@ -93,7 +81,7 @@ class hup extends Personnage{
           setTimeout("clearInterval(hup.red)",1201);
           setTimeout("clearInterval(hup.black)",1201);
           this.invinsibilite = true;
-          this.vie = this.vie - 1;
+          this.vie = this.vie - ennemi.degatcac;
           setTimeout("hup.invinsibilite = false",1201);
         }
         if(this.angle == 90){
@@ -102,7 +90,7 @@ class hup extends Personnage{
           setTimeout("clearInterval(hup.red)",1201);
           setTimeout("clearInterval(hup.black)",1201);
           this.invinsibilite = true;
-          this.vie = this.vie - 1;
+          this.vie = this.vie - ennemi.degatcac;
           setTimeout("hup.invinsibilite = false",1201);
         }
         if(this.angle == 360){
@@ -111,7 +99,7 @@ class hup extends Personnage{
           setTimeout("clearInterval(hup.red)",1201);
           setTimeout("clearInterval(hup.black)",1201);
           this.invinsibilite = true;
-          this.vie = this.vie - 1;
+          this.vie = this.vie - ennemi.degatcac;
           setTimeout("hup.invinsibilite = false",1201);
         }
         }
@@ -207,7 +195,7 @@ function attaqueHup(hup,ennemis){
         if(hup.angle == 0){
           if(hup.x-taille > ennemi.x-taille && hup.x-taille < ennemi.x+taille && hup.y>ennemi.y-taille && hup.y < ennemi.y+taille){
             hup.ennemiIndex = ennemis.indexOf(ennemi);
-            ennemi.vie -= 1;
+            ennemi.vie -= 1*this.braceletForce;
             if(ennemi.vie >0){
               if(ennemi.collisionDecorEnnemisAttaqueG()){
                 ennemi.x -=32;
@@ -229,7 +217,7 @@ function attaqueHup(hup,ennemis){
       if(hup.angle == 180){
         if(hup.x+taille > ennemi.x-taille && hup.x+taille < ennemi.x+taille && hup.y>ennemi.y-taille && hup.y < ennemi.y+taille){
           hup.ennemiIndex = ennemis.indexOf(ennemi);
-          ennemi.vie -= 1;
+          ennemi.vie -= 1*this.braceletForce;
           if(ennemi.vie >0){
             if(ennemi.collisionDecorEnnemisAttaqueD()){
               ennemi.x +=32;
@@ -251,7 +239,7 @@ function attaqueHup(hup,ennemis){
       if(hup.angle == 90){
         if(hup.x > ennemi.x-taille && hup.x < ennemi.x+taille && hup.y+taille>ennemi.y-taille && hup.y+taille < ennemi.y+taille){
           hup.ennemiIndex = ennemis.indexOf(ennemi);
-          ennemi.vie -= 1;
+          ennemi.vie -= 1*this.braceletForce;
           if(ennemi.vie >0){
             if(ennemi.collisionDecorEnnemisAttaqueB()){
               ennemi.y +=32;
@@ -273,7 +261,7 @@ function attaqueHup(hup,ennemis){
       if(hup.angle == 360){
         if(hup.x > ennemi.x-taille && hup.x < ennemi.x+taille && hup.y-taille > ennemi.y-taille && hup.y-taille < ennemi.y+taille){
           hup.ennemiIndex = ennemis.indexOf(ennemi);
-          ennemi.vie -= 1;
+          ennemi.vie -= 1*this.braceletForce;
           if(ennemi.vie >0){
             if(ennemi.collisionDecorEnnemisAttaqueH()){
               ennemi.y -=32;
@@ -349,7 +337,6 @@ function deplacementHup(hup,ennemis){
           }
           break;
       case 32:
-
           attaqueHup(hup,ennemis);
       case 13:
           if(hup.vie <=0){

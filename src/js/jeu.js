@@ -1,4 +1,5 @@
-
+var numeroTexte = 0;
+var cpt = 0;
 for (var i = 0; i < 24; i++)
 {
   map[i] = new Array(18);
@@ -28,6 +29,31 @@ function tirBalle(ennemi){
      ennemi.tir = ennemi.tir + 1;
       ennemi.balles.push(new ballePoulpe(ennemi.x,ennemi.y,ennemi.angle));
     }
+  }
+}
+function ecrire(){
+  ctx.font = '16px serif';
+  if(numeroTexte == 0){
+  ctx.fillText("OH, SOMEONE HERE! I DIDN'T IT WOULD EVER HAPPEN...", (5*32)+8, (6*32)-11);
+  ctx.fillText("PLEASE? WE NEED YOUR HELP...",(8*32)+5, (7*32)-11);
+  setTimeout("numeroTexte = 1",4800);
+  }
+  if(numeroTexte == 1){
+  ctx.fillText("TRAVEL THE WORLD TO FIND THE THREE KEYS,", (6*32)+10, (6*32)-11);
+  ctx.fillText("WHICH ALLOW YOU TO ENTER INTO THE MONSTER KING'S DUNGEON", (3*32)+21, (7*32)-11);
+  ctx.fillText("DEFEAT HIM AND DESTROY THE CRYSTAL TO SAVE THE WORLD", (4*32)+12, (8*32)-11);
+  if(cpt == 0){
+    setTimeout("numeroTexte = 2",7200);
+    cpt = 1;
+  }
+  }
+  if(numeroTexte == 2){
+  ctx.fillText("IT'S DANGEROUS TO GO ALONE!", (8*32)+6, (6*32)-11);
+  ctx.fillText("TAKE THIS.",(11*32)-10, (7*32)-11);
+  setTimeout("numeroTexte = 3",3000);
+  }
+  if(numeroTexte == 3){
+  ctx.fillText("GOOD LUCK!", (10*32)+14, (7*32)-11);
   }
 }
 function anime() {
@@ -95,6 +121,20 @@ function anime() {
     clef3.drawObjet();
   clef3.collisionObjetHup(hup);
   }
+  if(map[24]=="C1sword"){
+    ennemis.push(new PNJ(map[25][i+1],(map[25][i+2])));
+    hup.collisionDecorHup(map[11][8]);
+    if(numeroTexte == 3 && hup.Epee == 0){
+    var sword = new Image();
+    sword.src = 'js/objetsRamassables/sword.png';
+    ctx.drawImage(sword, (12*32)+8, (8*32)+4);
+    }
+    ecrire();
+    ennemis[0].draw();
+    if(hup.x == 12*32 && hup.y == 8*32 && numeroTexte == 3 && hup.Epee == 0){
+      hup.Epee = 1;
+    }
+  }
   hup.key();
     for(i = 0;i< ennemis.length;i++){
     if(ennemis[i] instanceof pouf){
@@ -104,11 +144,11 @@ function anime() {
     if(ennemis[i] instanceof poulpeR || ennemis[i] instanceof poulpeB){
       ennemis[i].deplacement();
       tirBalle(ennemis[i]);
-    }
-    if(ennemis[i].balles != null){
-      for(j = 0;j< ennemis[i].balles.length;j++){
-      ennemis[i].balles[j].drawTir();
-      ennemis[i].balles[j].moveTir(ennemis[i],hup,ennemis[i].balles);
+      if(ennemis[i].balles != null){
+        for(j = 0;j< ennemis[i].balles.length;j++){
+        ennemis[i].balles[j].drawTir();
+        ennemis[i].balles[j].moveTir(ennemis[i],hup,ennemis[i].balles);
+        }
       }
     }
     ennemis[i].mortEnnemi(ennemis,objets);
@@ -117,9 +157,14 @@ function anime() {
     objets[i].draw();
     objets[i].ramasseCoeur(objets,hup);
   }
-  hup.drawHup();
+  if(hup.angle != 360){
+    hup.drawHup();
+  }
   if(hup.Epee ==1){
     hup.drawHupEpee(hup.EpeeChiffre);
+  }
+  if(hup.angle == 360){
+    hup.drawHup();
   }
   hup.vieHup();
   deplacementHup(hup,ennemis);
@@ -167,7 +212,6 @@ function init() {
   portes.push(new porte(11*32,0));
   portes.push(new porte(12*32,0));
   portes.push(new porte(13*32,0));
-
   canvas.onmousedown = (event) => {
     processMouseMouve(event);
     let x = Math.floor(mousePos.x/taille);

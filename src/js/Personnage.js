@@ -126,7 +126,6 @@ collisionDecorEnnemisHD(){
   draw() {
       ctx.save();
       // -------- POULPE ROUGE --------------//
-
       if (this.type == "poulpeR" && this.angle == 90){
             var poulpeRface = new Image();
             poulpeRface.src = 'js/spritePoulpeR/poulpeRface.png';
@@ -170,10 +169,10 @@ collisionDecorEnnemisHD(){
     ctx.drawImage(poulpeBdos, this.x, this.y);
   }
       // ---------- POUF --------------- //
-      if (this.type == "pouf" && this.angle == 90){
-        var poufface = new Image();
-        poufface.src = 'js/spritePouf/poufface.png';
-        ctx.drawImage(poufface, this.x, this.y);
+  if (this.type == "pouf" && this.angle == 90){
+      var poufface = new Image();
+      poufface.src = 'js/spritePouf/poufface.png';
+      ctx.drawImage(poufface, this.x, this.y);
   }
   else if (this.type == "pouf" && this.angle == 180){
     var poufdroite = new Image();
@@ -189,6 +188,11 @@ collisionDecorEnnemisHD(){
     var poufdos = new Image();
     poufdos.src = 'js/spritePouf/poufdos.png';
     ctx.drawImage(poufdos, this.x, this.y);
+  }
+  if(this.type == "PNJ"){
+    var pnj = new Image();
+    pnj.src = 'js/spritePNJ/PNJ.png';
+    ctx.drawImage(pnj, this.x, this.y);
   }
       ctx.restore();
   }
