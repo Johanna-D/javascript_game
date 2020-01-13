@@ -280,13 +280,110 @@ function attaqueHup(hup,ennemis){
                 ennemi.x -=(ennemi.x%32);
                 ennemi.cpt=false;
               }
-              if(ennemi.type == "poulpeR")
-              ennemi.black = setInterval("ennemis[hup.ennemiIndex].couleur = 'black'", 50);
-              ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].couleur = ennemis[hup.ennemiIndex].couleurdegat", 100);
-              setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
-              setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
-              setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
-              ennemi.invinsibilite = true;
+              if(ennemi.angle ==90){
+                if(ennemi.type == "poulpeR"){
+                  ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRfaceR.png'", 50);
+                  ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRface.png'", 100);
+                  setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                  setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                  setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                  ennemi.invinsibilite = true;
+                }
+                if(ennemi.type == "poulpeB"){
+                  ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBfaceR.png'", 50);
+                  ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBface.png'", 100);
+                  setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                  setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                  setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                  ennemi.invinsibilite = true;
+                }
+                if(ennemi.type == "pouf"){
+                  ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightfaceR.png'", 50);
+                  ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightface.png'", 100);
+                  setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                  setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                  setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                  ennemi.invinsibilite = true;
+                }
+              }
+              if(ennemi.angle ==360){
+                if(ennemi.type == "poulpeR"){
+                  ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRdosR.png'", 50);
+                  ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRdos.png'", 100);
+                  setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                  setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                  setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                  ennemi.invinsibilite = true;
+                }
+                if(ennemi.type == "poulpeB"){
+                  ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBdosR.png'", 50);
+                  ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBdos.png'", 100);
+                  setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                  setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                  setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                  ennemi.invinsibilite = true;
+                }
+                if(ennemi.type == "pouf"){
+                  ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightdosR.png'", 50);
+                  ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightdos.png'", 100);
+                  setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                  setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                  setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                  ennemi.invinsibilite = true;
+                }
+              }
+              if(ennemi.angle ==0){
+                if(ennemi.type == "poulpeR"){
+                  ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRgaucheR.png'", 50);
+                  ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRgauche.png'", 100);
+                  setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                  setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                  setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                  ennemi.invinsibilite = true;
+                }
+                if(ennemi.type == "poulpeB"){
+                  ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBgaucheR.png'", 50);
+                  ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBgauche.png'", 100);
+                  setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                  setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                  setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                  ennemi.invinsibilite = true;
+                }
+                if(ennemi.type == "pouf"){
+                  ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightGaucheR.png'", 50);
+                  ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightGauche.png'", 100);
+                  setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                  setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                  setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                  ennemi.invinsibilite = true;
+                }
+              }
+              if(ennemi.angle ==180){
+                if(ennemi.type == "poulpeR"){
+                  ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRdroiteR.png'", 50);
+                  ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRdroite.png'", 100);
+                  setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                  setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                  setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                  ennemi.invinsibilite = true;
+                }
+                if(ennemi.type == "poulpeB"){
+                  ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBdroiteR.png'", 50);
+                  ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBdroite.png'", 100);
+                  setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                  setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                  setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                  ennemi.invinsibilite = true;
+                }
+                if(ennemi.type == "pouf"){
+                  ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightDroitR.png'", 50);
+                  ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightDroit.png'", 100);
+                  setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                  setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                  setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                  ennemi.invinsibilite = true;
+                }
+              }
             }
         }
       }
@@ -303,12 +400,111 @@ function attaqueHup(hup,ennemis){
               ennemi.x +=((32-ennemi.x%32)%32);
               ennemi.cpt=false;
             }
-            ennemi.black = setInterval("ennemis[hup.ennemiIndex].couleur = 'black'", 50);
-            ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].couleur = ennemis[hup.ennemiIndex].couleurdegat", 100);
-            setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
-            setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
-            ennemi.invinsibilite = true;
-            setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+            if(ennemi.angle ==90){
+              if(ennemi.type == "poulpeR"){
+                console.log("ennemis[hup.ennemiIndex].image.src"); 
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRfaceR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRface.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+              if(ennemi.type == "poulpeB"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBfaceR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBface.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+              if(ennemi.type == "pouf"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightfaceR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightface.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+            }
+            if(ennemi.angle ==360){
+              if(ennemi.type == "poulpeR"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRdosR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRdos.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+              if(ennemi.type == "poulpeB"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBdosR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBdos.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+              if(ennemi.type == "pouf"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightdosR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightdos.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+            }
+            if(ennemi.angle ==0){
+              if(ennemi.type == "poulpeR"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRgaucheR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRgauche.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+              if(ennemi.type == "poulpeB"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBgaucheR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBgauche.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+              if(ennemi.type == "pouf"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightGaucheR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightGauche.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+            }
+            if(ennemi.angle ==180){
+              if(ennemi.type == "poulpeR"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRdroiteR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRdroite.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+              if(ennemi.type == "poulpeB"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBdroiteR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBdroite.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+              if(ennemi.type == "pouf"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightDroitR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightDroit.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+            }
             }
         }
       }
@@ -325,12 +521,110 @@ function attaqueHup(hup,ennemis){
               ennemi.y +=((32-ennemi.y%32)%32);
               ennemi.cpt=false;
             }
-            ennemi.black = setInterval("ennemis[hup.ennemiIndex].couleur = 'black'", 50);
-            ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].couleur = ennemis[hup.ennemiIndex].couleurdegat", 100);
-            setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
-            setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
-            ennemi.invinsibilite = true;
-            setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+            if(ennemi.angle ==90){
+              if(ennemi.type == "poulpeR"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRfaceR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRface.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+              if(ennemi.type == "poulpeB"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBfaceR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBface.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+              if(ennemi.type == "pouf"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightfaceR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightface.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+            }
+            if(ennemi.angle ==360){
+              if(ennemi.type == "poulpeR"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRdosR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRdos.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+              if(ennemi.type == "poulpeB"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBdosR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBdos.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+              if(ennemi.type == "pouf"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightdosR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightdos.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+            }
+            if(ennemi.angle ==0){
+              if(ennemi.type == "poulpeR"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRgaucheR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRgauche.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+              if(ennemi.type == "poulpeB"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBgaucheR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBgauche.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+              if(ennemi.type == "pouf"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightGaucheR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightGauche.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+            }
+            if(ennemi.angle ==180){
+              if(ennemi.type == "poulpeR"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRdroiteR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRdroite.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+              if(ennemi.type == "poulpeB"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBdroiteR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBdroite.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+              if(ennemi.type == "pouf"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightDroitR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightDroit.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+            }
             }
         }
       }
@@ -347,12 +641,110 @@ function attaqueHup(hup,ennemis){
               ennemi.y -=(ennemi.y%32);
               ennemi.cpt=false;
             }
-            ennemi.black = setInterval("ennemis[hup.ennemiIndex].couleur = 'black'", 50);
-            ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].couleur = ennemis[hup.ennemiIndex].couleurdegat",100);
-            setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
-            setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
-            ennemi.invinsibilite = true;
-            setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+            if(ennemi.angle ==90){
+              if(ennemi.type == "poulpeR"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRfaceR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRface.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+              if(ennemi.type == "poulpeB"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBfaceR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBface.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+              if(ennemi.type == "pouf"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightfaceR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightface.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+            }
+            if(ennemi.angle ==360){
+              if(ennemi.type == "poulpeR"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRdosR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRdos.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+              if(ennemi.type == "poulpeB"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBdosR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBdos.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+              if(ennemi.type == "pouf"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightdosR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightdos.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+            }
+            if(ennemi.angle ==0){
+              if(ennemi.type == "poulpeR"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRgaucheR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRgauche.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+              if(ennemi.type == "poulpeB"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBgaucheR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBgauche.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+              if(ennemi.type == "pouf"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightGaucheR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightGauche.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+            }
+            if(ennemi.angle ==180){
+              if(ennemi.type == "poulpeR"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRdroiteR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRdroite.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+              if(ennemi.type == "poulpeB"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBdroiteR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeB/poulpeBdroite.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+              if(ennemi.type == "pouf"){
+                ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightDroitR.png'", 50);
+                ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spriteKnight/knightDroit.png'", 100);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
+                setTimeout("clearInterval(ennemis[hup.ennemiIndex].couleurtemp)",601);
+                setTimeout("ennemis[hup.ennemiIndex].invinsibilite = false",601);
+                ennemi.invinsibilite = true;
+              }
+            }
             }
         }
       }

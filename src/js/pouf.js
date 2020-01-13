@@ -1,8 +1,7 @@
 class pouf extends Personnage{
-    couleur = 'orange';
-    vie = 3;
-    couleurdegat = 'orange';
-    vitesse = 2;
+    vie = 9;
+    image = new Image();
+    vitesse = 1.9;
     degatcac = 1;
     type = "pouf";
 

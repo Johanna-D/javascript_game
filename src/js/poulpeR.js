@@ -1,8 +1,6 @@
 class poulpeR extends Personnage{
-    couleur = 'red';
     image = new Image();
     vie = 3;
-    couleurdegat = 'red';
     tirmax= 1;
     vitesse = 1;
     tir = 0;

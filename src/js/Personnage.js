@@ -7,7 +7,7 @@ class Personnage {
     this.angle = 0;
     this.mouvx = this.x;
     this.mouvy = this.y;
-    this.black = 'black';
+    this.black
     this.couleurtemp;
     this.d1 = true;
     this.d2 = false;
@@ -116,63 +116,79 @@ collisionDecorEnnemisHD(){
       ctx.save();
       // -------- POULPE ROUGE --------------//
       if (this.type == "poulpeR" && this.angle == 90){
+        if(this.invinsibilite == false){
             this.image.src = 'js/spritePoulpeR/poulpeRface.png';
+          }
             ctx.drawImage(this.image, this.x, this.y);
       }
       else if (this.type == "poulpeR" && this.angle == 180){
-        this.image.src = 'js/spritePoulpeR/poulpeRdroite.png';
+        if(this.invinsibilite == false){
+            this.image.src = 'js/spritePoulpeR/poulpeRdroite.png';
+          }
         ctx.drawImage(this.image, this.x, this.y);
       }
       else if (this.type == "poulpeR" && this.angle == 0){
-        this.image.src = 'js/spritePoulpeR/poulpeRgauche.png';
+        if(this.invinsibilite == false){
+            this.image.src = 'js/spritePoulpeR/poulpeRgauche.png';
+          }
         ctx.drawImage(this.image, this.x, this.y);
       }
       else if (this.type == "poulpeR" && this.angle == 360){
-        this.image.src = 'js/spritePoulpeR/poulpeRdos.png';
+        if(this.invinsibilite == false){
+            this.image.src = 'js/spritePoulpeR/poulpeRdos.png';
+          }
         ctx.drawImage(this.image, this.x, this.y);
       }
 
       // ---------- POULPE BLEU ------------ //
-      if (this.type == "poulpeB" && this.angle == 90){
-        var poulpeBface = new Image();
-        poulpeBface.src = 'js/spritePoulpeB/poulpeBface.png';
-        ctx.drawImage(poulpeBface, this.x, this.y);
+    if (this.type == "poulpeB" && this.angle == 90){
+        if(this.invinsibilite == false){
+        this.image.src = 'js/spritePoulpeB/poulpeBface.png';
+      }
+        ctx.drawImage(this.image, this.x, this.y);
   }
   else if (this.type == "poulpeB" && this.angle == 180){
-    var poulpeBdroite = new Image();
-    poulpeBdroite.src = 'js/spritePoulpeB/poulpeBdroite.png';
-    ctx.drawImage(poulpeBdroite, this.x, this.y);
+    if(this.invinsibilite == false){
+    this.image.src = 'js/spritePoulpeB/poulpeBdroite.png';
+  }
+    ctx.drawImage(this.image, this.x, this.y);
   }
   else if (this.type == "poulpeB" && this.angle == 0){
-    var poulpeBgauche = new Image();
-    poulpeBgauche.src = 'js/spritePoulpeB/poulpeBgauche.png';
-    ctx.drawImage(poulpeBgauche, this.x, this.y);
+    if(this.invinsibilite == false){
+    this.image.src = 'js/spritePoulpeB/poulpeBgauche.png';
+  }
+    ctx.drawImage(this.image, this.x, this.y);
   }
   else if (this.type == "poulpeB" && this.angle == 360){
-    var poulpeBdos = new Image();
-    poulpeBdos.src = 'js/spritePoulpeB/poulpeBdos.png';
-    ctx.drawImage(poulpeBdos, this.x, this.y);
+    if(this.invinsibilite == false){
+    this.image.src = 'js/spritePoulpeB/poulpeBdos.png';
+  }
+    ctx.drawImage(this.image, this.x, this.y);
   }
       // ---------- POUF --------------- //
   if (this.type == "pouf" && this.angle == 90){
-      var poufface = new Image();
-      poufface.src = 'js/spritePouf/poufface.png';
-      ctx.drawImage(poufface, this.x, this.y);
+      if(this.invinsibilite == false){
+      this.image.src = 'js/spriteKnight/knightface.png';
+    }
+      ctx.drawImage(this.image, this.x, this.y);
   }
   else if (this.type == "pouf" && this.angle == 180){
-    var poufdroite = new Image();
-    poufdroite.src = 'js/spritePouf/poufdroite.png';
-    ctx.drawImage(poufdroite, this.x, this.y);
+    if(this.invinsibilite == false){
+    this.image.src = 'js/spriteKnight/knightDroit.png';
+  }
+    ctx.drawImage(this.image, this.x, this.y);
   }
   else if (this.type == "pouf" && this.angle == 0){
-    var poufgauche = new Image();
-    poufgauche.src = 'js/spritePouf/poufgauche.png';
-    ctx.drawImage(poufgauche, this.x, this.y);
+    if(this.invinsibilite == false){
+    this.image.src = 'js/spriteKnight/knightGauche.png';
   }
-  else if (this.type == "pouf" && this.poufPosition=="haut"){
-    var poufdos = new Image();
-    poufdos.src = 'js/spritePouf/poufdos.png';
-    ctx.drawImage(poufdos, this.x, this.y);
+    ctx.drawImage(this.image, this.x, this.y);
+  }
+  else if (this.type == "pouf" && this.angle == 360){
+    if(this.invinsibilite == false){
+    this.image.src = 'js/spriteKnight/knightdos.png';
+  }
+    ctx.drawImage(this.image, this.x, this.y);
   }
   if(this.type == "PNJ"){
     var pnj = new Image();

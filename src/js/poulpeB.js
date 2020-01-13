@@ -1,7 +1,6 @@
 class poulpeB extends Personnage{
-    couleur = 'blue';
+    image = new Image();
     vie = 6;
-    couleurdegat = 'blue';
     tirmax = 4;
     vitesse = 2;
     tir = 0;
