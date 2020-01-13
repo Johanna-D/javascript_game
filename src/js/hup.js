@@ -109,11 +109,16 @@ class hup extends Personnage{
   }
 
 
-gameover(){
+gameover(checkpoint){
     if(this.vie <=0){
       ctx.drawImage(Gover, 0, 0);
       if (this.statutGameOver){
+        if(checkpoint ==0){
         loadMap(C1);
+      }
+      else{
+        loadMap(S10);
+      }
         this.x = (canvas.width/2)-32;
         this.y = (canvas.height/2)-32;
         ennemis =[]
@@ -402,7 +407,7 @@ function attaqueHup(hup,ennemis){
             }
             if(ennemi.angle ==90){
               if(ennemi.type == "poulpeR"){
-                console.log("ennemis[hup.ennemiIndex].image.src"); 
+                console.log("ennemis[hup.ennemiIndex].image.src");
                 ennemi.black = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRfaceR.png'", 50);
                 ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].image.src = 'js/spritePoulpeR/poulpeRface.png'", 100);
                 setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
