@@ -25,6 +25,7 @@ var murH = new murHaut();
 var murB = new murBas();
 var murG = new murGauche();
 var murD = new murDroit();
+var trouMap = new trou();
 var videMap = new vide();
 var gameoverMap = new gameover();
 
@@ -234,7 +235,10 @@ function loadMap(mapToLoad){
        else if(mapToLoad[i][j].couleur == murD.couleur){
         map[i][j] = new murDroit(i*taille,j*taille);
        }
-       else if(mapToLoad[i][j].couleur == videMap.couleur){
+       else if(mapToLoad[i][j].couleur == trouMap.couleur){
+        map[i][j] = new trou(i*taille,j*taille);
+       }
+       else if(mapToLoad[i][j].type == videMap.type){
         map[i][j] = new vide(i*taille,j*taille);
        }
 

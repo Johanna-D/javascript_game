@@ -117,6 +117,10 @@ function anime() {
         map[a][b].draw();
         hup.collisionDecorHup(map[a][b]);
       }
+      if(map[a][b] instanceof trou){
+        map[a][b].draw();
+        hup.collisionDecorHup(map[a][b]);
+      }
       if(map[a][b] instanceof vide){
         map[a][b].draw();
         hup.collisionDecorHup(map[a][b]);
@@ -302,6 +306,7 @@ function anime() {
     objets[i].draw();
     objets[i].ramasseCoeur(objets,hup);
   }
+  deplacementHup(hup,ennemis);
   if(hup.angle != 360){
     hup.drawHup();
   }
@@ -351,6 +356,12 @@ function init() {
   clef1 = new clef(12*32,9*32);
   clef2 = new clef(14*32,8*32);
   clef3 = new clef(12*32,13*32);
+  clefQ10 = new clef(13*32,15*32);
+  clefT9 = new clef(18*32,2*32);
+  clefU12 = new clef(22*32,8*32);
+  clefO14 = new clef(22*32,2*32);
+  clefU13 = new clef(9*32,16*32);
+  clefR9 = new clef(12*32,15*32);
   entrées.push(new porte(10*32,0));
   botte = new bottes(11*32,10*32);
   crystal = new cristal(12*32,8*32);
@@ -429,6 +440,9 @@ function init() {
     }
     if(newElement == "murDroit"){
       map[x][y] = new murDroit(x*taille,y*taille);
+    }
+    if(newElement == "trou"){
+      map[x][y] = new trou(x*taille,y*taille);
     }
     if(newElement == "vide"){
       map[x][y] = new vide(x*taille,y*taille);

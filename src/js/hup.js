@@ -9,7 +9,7 @@ class hup extends Personnage{
     clefs = 0;
     cleBoss =0 ;
     ennemiIndex;
-    Epee=1;
+    Epee=0;
     EpeeChiffre = 0;
     statutGameOver = false;
     image = new Image();
@@ -240,25 +240,25 @@ gameover(checkpoint){
 }
 
 function saut(hup,map){
-  if(hup.angle ==0 && (map[(hup.x/32)-1][(hup.y/32)]) instanceof vide && ((map[(hup.x/32)-2][(hup.y/32)]) instanceof sol || (map[(hup.x/32)-2][(hup.y/32)]) instanceof fleur || (map[(hup.x/32)-2][(hup.y/32)]) instanceof herbe || (map[(hup.x/32)-2][(hup.y/32)]) instanceof neige || (map[(hup.x/32)-2][(hup.y/32)]) instanceof solRoche || (map[(hup.x/32)-2][(hup.y/32)]) instanceof eau || (map[(hup.x/32)-2][(hup.y/32)]) instanceof bois)) {
+  if(hup.angle ==0 && (map[(hup.x/32)-1][(hup.y/32)]) instanceof trou && ((map[(hup.x/32)-2][(hup.y/32)]) instanceof solDonjon || (map[(hup.x/32)-2][(hup.y/32)]) instanceof sol || (map[(hup.x/32)-2][(hup.y/32)]) instanceof fleur || (map[(hup.x/32)-2][(hup.y/32)]) instanceof herbe || (map[(hup.x/32)-2][(hup.y/32)]) instanceof neige || (map[(hup.x/32)-2][(hup.y/32)]) instanceof solRoche || (map[(hup.x/32)-2][(hup.y/32)]) instanceof eau || (map[(hup.x/32)-2][(hup.y/32)]) instanceof bois)) {
     hup.y = hup.y-32;
     hup.x = hup.x -32;
     setTimeout("hup.y = hup.y +32",5);
     setTimeout("hup.x = hup.x -32;",5);
   }
-  if(hup.angle ==180 && (map[(hup.x/32)+1][(hup.y/32)]) instanceof vide && ((map[(hup.x/32)+2][(hup.y/32)]) instanceof sol || (map[(hup.x/32)+2][(hup.y/32)]) instanceof fleur || (map[(hup.x/32)+2][(hup.y/32)]) instanceof herbe || (map[(hup.x/32)+2][(hup.y/32)]) instanceof neige || (map[(hup.x/32)+2][(hup.y/32)]) instanceof solRoche || (map[(hup.x/32)+2][(hup.y/32)]) instanceof eau || (map[(hup.x/32)+2][(hup.y/32)]) instanceof bois)) {
+  if(hup.angle ==180 && (map[(hup.x/32)+1][(hup.y/32)]) instanceof trou && ((map[(hup.x/32)+2][(hup.y/32)]) instanceof solDonjon || (map[(hup.x/32)+2][(hup.y/32)]) instanceof sol || (map[(hup.x/32)+2][(hup.y/32)]) instanceof fleur || (map[(hup.x/32)+2][(hup.y/32)]) instanceof herbe || (map[(hup.x/32)+2][(hup.y/32)]) instanceof neige || (map[(hup.x/32)+2][(hup.y/32)]) instanceof solRoche || (map[(hup.x/32)+2][(hup.y/32)]) instanceof eau || (map[(hup.x/32)+2][(hup.y/32)]) instanceof bois)) {
     hup.y = hup.y-32;
     hup.x = hup.x +32;
     setTimeout("hup.y = hup.y +32",5);
     setTimeout("hup.x = hup.x +32;",5);
   }
-  if(hup.angle ==90 && (map[(hup.x/32)][(hup.y/32)+1]) instanceof vide && ((map[(hup.x/32)][(hup.y/32)+2]) instanceof sol || (map[(hup.x/32)][(hup.y/32)+2]) instanceof fleur || (map[(hup.x/32)][(hup.y/32)+2]) instanceof herbe || (map[(hup.x/32)][(hup.y/32)+2]) instanceof neige || (map[(hup.x/32)][(hup.y/32)+2]) instanceof solRoche || (map[(hup.x/32)][(hup.y/32)+2]) instanceof eau || (map[(hup.x/32)][(hup.y/32)+2]) instanceof bois)) {
+  if(hup.angle ==90 && (map[(hup.x/32)][(hup.y/32)+1]) instanceof trou &&  ((map[(hup.x/32)][(hup.y/32)+2]) instanceof solDonjon || (map[(hup.x/32)][(hup.y/32)+2]) instanceof sol || (map[(hup.x/32)][(hup.y/32)+2]) instanceof fleur || (map[(hup.x/32)][(hup.y/32)+2]) instanceof herbe || (map[(hup.x/32)][(hup.y/32)+2]) instanceof neige || (map[(hup.x/32)][(hup.y/32)+2]) instanceof solRoche || (map[(hup.x/32)][(hup.y/32)+2]) instanceof eau || (map[(hup.x/32)][(hup.y/32)+2]) instanceof bois)) {
     hup.y = hup.y+32;
     hup.x = hup.x +16;
     setTimeout("hup.y = hup.y +32",5);
     setTimeout("hup.x = hup.x -16;",5);
   }
-  if(hup.angle ==360 && (map[(hup.x/32)][(hup.y/32)-1]) instanceof vide && ((map[(hup.x/32)][(hup.y/32)-2]) instanceof sol || (map[(hup.x/32)][(hup.y/32)-2]) instanceof fleur || (map[(hup.x/32)][(hup.y/32)-2]) instanceof herbe || (map[(hup.x/32)][(hup.y/32)-2]) instanceof neige || (map[(hup.x/32)][(hup.y/32)-2]) instanceof solRoche || (map[(hup.x/32)][(hup.y/32)-2]) instanceof eau || (map[(hup.x/32)][(hup.y/32)-2]) instanceof bois)) {
+  if(hup.angle ==360 && (map[(hup.x/32)][(hup.y/32)-1]) instanceof trou &&  ((map[(hup.x/32)][(hup.y/32)-2]) instanceof solDonjon || (map[(hup.x/32)][(hup.y/32)-2]) instanceof sol || (map[(hup.x/32)][(hup.y/32)-2]) instanceof fleur || (map[(hup.x/32)][(hup.y/32)-2]) instanceof herbe || (map[(hup.x/32)][(hup.y/32)-2]) instanceof neige || (map[(hup.x/32)][(hup.y/32)-2]) instanceof solRoche || (map[(hup.x/32)][(hup.y/32)-2]) instanceof eau || (map[(hup.x/32)][(hup.y/32)-2]) instanceof bois)) {
     hup.y = hup.y-32;
     hup.x = hup.x +16;
     setTimeout("hup.y = hup.y -32",5);
