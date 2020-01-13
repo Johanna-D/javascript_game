@@ -4,6 +4,7 @@ class pouf extends Personnage{
     vitesse = 1.9;
     degatcac = 1;
     type = "pouf";
+    mort = 0;
 
     detectionHupBasGauche(hup){
         if(hup.y>this.y && hup.y<=this.y+5*32 && (hup.x >=  this.x-5*32 && hup.x<= this.x)){

@@ -180,12 +180,11 @@ function anime() {
     })
   }
   if(map[24]=="U15"){
-    porteCristal.forEach( porteFinBoss =>{
-      porteFinBoss.drawObjet();
-    })
+      if(ennemis == []){
+        porteCristal = [];
+      }
+    }
     
-    
-  }
   /**/
   if(map[24]=="A2key"){
     clef1.drawObjet();

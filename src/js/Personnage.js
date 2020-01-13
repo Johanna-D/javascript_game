@@ -206,6 +206,9 @@ collisionDecorEnnemisHD(){
       clearInterval(ennemis[ennemis.indexOf(this)].couleurtemp);
       clearInterval(ennemis[ennemis.indexOf(this)].black);
       ennemis[ennemis.indexOf(this)].invinsibilité = false;
+      if([ennemis.indexOf(this)].type == "pouf"){
+        [ennemis.indexOf(this)].mort = 1;
+      }
       if((Math.random()*100)<=25){
         objets.push(new coeur(this.x,this.y));
       }
