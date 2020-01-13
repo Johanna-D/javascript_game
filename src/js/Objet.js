@@ -150,6 +150,12 @@ class Objet{
             ctx.drawImage(image, this.x, this.y);
             
         }
+        else if(this.type =="cleBoss"){
+            var image = new Image();
+            image.src = 'js/objetsRamassables/cleboss.png';
+            ctx.drawImage(image, this.x, this.y);
+            
+        }
         else if(this.type =="cristal"){
             var image = new Image();
             image.src = 'js/objetsRamassables/cristal.png';
@@ -190,6 +196,13 @@ class Objet{
             if(this.type == "clef"){
                 
                 hup.clefs += 1;
+                
+                this.etat = false;
+
+            }
+            if(this.type == "cleBoss"){
+                
+                hup.cleBoss += 1;
                 
                 this.etat = false;
 

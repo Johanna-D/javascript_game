@@ -139,44 +139,47 @@ function anime() {
   if(map[24]=="S13"){
     porteD.forEach( porte =>{
       porte.drawObjet();
+      porte.type = "porteD";
       porte.collisionPorteHup(hup);
     })
   }
   if(map[24]=="U14"){
-    porteD2.forEach( porte =>{
+    portesBoss.forEach( porte =>{
       porte.drawObjet();
       porte.collisionPorteBossHup(hup);
     })
   }
   if(map[24]=="R9"){
+    clefR9.drawObjet();
+    clefR9.collisionObjetHup(hup);
     porteD3.forEach( porte =>{
+      porte.type = "porteD3";
       porte.drawObjet();
       porte.collisionPorteHup(hup);
     })
   }
   if(map[24]=="P13"){
     porteD4.forEach( porte =>{
+      porte.type = "porteD4";
       porte.drawObjet();
       porte.collisionPorteHup(hup);
     })
   }
   if(map[24]=="O13"){
     porteD5.forEach( porte =>{
+      porte.type = "porteD5";
       porte.drawObjet();
       porte.collisionPorteHup(hup);
     })
   }
   if(map[24]=="O11"){
     porteD6.forEach( porte =>{
+      porte.type = "porteD6";
       porte.drawObjet();
       porte.collisionPorteHup(hup);
     })
   }
-  if(map[24]=="S14"){
-    porteMiniB.forEach( porteFinBoss =>{
-      porteFinBoss.drawObjet();
-    })
-    
+  
   }
   if(map[24]=="U15"){
     porteCristal.forEach( porteFinBoss =>{
@@ -194,9 +197,29 @@ function anime() {
     clef2.drawObjet();
   clef2.collisionObjetHup(hup);
   }
+  if(map[24]=="T9"){
+    clefT9.drawObjet();
+  clefT9.collisionObjetHup(hup);
+  }
   if(map[24]=="M1"){
     clef3.drawObjet();
   clef3.collisionObjetHup(hup);
+  }
+  if(map[24]=="Q10"){
+    clefQ10.drawObjet();
+  clefQ10.collisionObjetHup(hup);
+  }
+  if(map[24]=="U12"){
+    clefU12.drawObjet();
+  clefU12.collisionObjetHup(hup);
+  }
+  if(map[24]=="U13"){
+    clefU13.drawObjet();
+  clefU13.collisionObjetHup(hup);
+  }
+  if(map[24]=="O14"){
+    clefO14.drawObjet();
+  clefO14.collisionObjetHup(hup);
   }
   if(map[24]=="S15"){
     botte.drawObjet();
@@ -352,7 +375,6 @@ function init() {
   loadMap(C1);
   hup = new hup(14*32,14*32);
   hup.image.src = "js/hupFace.png";
-  //ennemis.push(new pouf(8*32,8*32));
   clef1 = new clef(12*32,9*32);
   clef2 = new clef(14*32,8*32);
   clef3 = new clef(12*32,13*32);
@@ -361,7 +383,7 @@ function init() {
   clefU12 = new clef(22*32,8*32);
   clefO14 = new clef(22*32,2*32);
   clefU13 = new clef(9*32,16*32);
-  clefR9 = new clef(12*32,15*32);
+  clefR9 = new cleBoss(12*32,15*32);
   entrées.push(new porte(10*32,0));
   botte = new bottes(11*32,10*32);
   crystal = new cristal(12*32,8*32);
@@ -370,8 +392,8 @@ function init() {
   entrées.push(new porte(13*32,0));
   porteD.push(new porte(11*32,2*32));
   porteD.push(new porte(12*32,2*32));
-  porteD2.push(new porte(11*32,4*32));
-  porteD2.push(new porte(12*32,4*32));
+  portesBoss.push(new porteBoss(11*32,4*32));
+  portesBoss.push(new porteBoss(12*32,4*32));
   porteD3.push(new porte(11*32,11*32));
   porteD3.push(new porte(12*32,11*32));
   porteD4.push(new porte(11*32,8*32));
@@ -380,8 +402,6 @@ function init() {
   porteD5.push(new porte(12*32,13*32));
   porteD6.push(new porte(18*32,8*32));
   porteD6.push(new porte(18*32,9*32));
-  porteMiniB.push(new porteFinBoss(11*32,2*32));
-  porteMiniB.push(new porteFinBoss(12*32,2*32));
   porteCristal.push(new porteFinBoss(10*32,0*32));
   porteCristal.push(new porteFinBoss(11*32,0*32));
   porteCristal.push(new porteFinBoss(12*32,0*32));
