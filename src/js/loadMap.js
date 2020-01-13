@@ -33,11 +33,11 @@ var gameoverMap = new gameover();
 
 var maps = [
 // -------MAPS ANNEXES ---------- //
-["C1sword",C1sword,"C1sword",C1sword,"C1sword",C1,"C1",C1sword,"C1sword"],
+["C1sword",C1sword,"C1sword",C1sword,"C1sword",C1sword,"C1sword",C1,"C1"],
 ["I1Bracelet",I1Bracelet,"I1Bracelet",I1Bracelet,"I1Bracelet",I1,"I1",I1Bracelet,"I1Bracelet"],
 ["A2key",A2key,"A2key",A2,"A2",A2key,"A2key",A2key,"A2key"],
 // -------LIGNE 1 --------------- //
-["C1",C1,"C1",D1,"D1",C1,"C1",C1sword,"C1sword"],
+["C1",C1,"C1",D1,"D1",C1sword,"C1sword",C1,"C1"],
 ["D1",C1,"C1",E1,"E1",D2,"D2",D1,"D1"],
 ["E1",D1,"D1",F1,"F1",E2,"E2",E1,"E1"],
 ["F1",E1,"E1",G1,"G1",F2,"F2",F1,"F1"],
