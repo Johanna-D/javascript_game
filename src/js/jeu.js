@@ -144,6 +144,42 @@ function anime() {
     clef3.drawObjet();
   clef3.collisionObjetHup(hup);
   }
+  if(map[24]=="V11"){
+    stairs1.drawObjet();
+    if (hup.x == stairs1.x && hup.y == stairs1.y){
+      hup.x = stairs1.x-32;
+      hup.angle = 0;
+      loadMap(Q13)
+      
+    }
+  }
+  if(map[24]=="Q13"){
+    stairs2.drawObjet();
+    if (hup.x == stairs2.x && hup.y == stairs2.y){
+      hup.x = stairs2.x-32;
+      hup.angle = 0;
+      loadMap(V11);
+      
+    }
+  }
+  if(map[24]=="P12"){
+    stairs3.drawObjet();
+    if (hup.x == stairs3.x && hup.y == stairs3.y){
+      hup.x = stairs3.x-32;
+      hup.angle = 180;
+      loadMap(U14);
+      
+    }
+  }
+  if(map[24]=="U14"){
+    stairs4.drawObjet();
+    if (hup.x == stairs4.x && hup.y == stairs4.y){
+      hup.x = stairs4.x+32;
+      hup.angle = 180;
+      loadMap(P12);
+      
+    }
+  }
   if(map[24]=="C1sword"){
     ennemis.push(new PNJ(map[25][i+1],(map[25][i+2])));
     hup.collisionDecorHup(map[11][8]);
@@ -240,6 +276,10 @@ function init() {
   clef1 = new clef(12*32,9*32);
   clef2 = new clef(14*32,8*32);
   clef3 = new clef(12*32,13*32);
+  stairs1 = new stairs(19*32,9*32);
+  stairs2 = new stairs(19*32,9*32);
+  stairs3 = new stairs(4*32,9*32);
+  stairs4 = new stairs(11*32,9*32);
   portes.push(new porte(10*32,0));
   portes.push(new porte(11*32,0));
   portes.push(new porte(12*32,0));
