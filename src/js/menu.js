@@ -15,7 +15,7 @@ function loadMenu(){
       break;
       case 67:
         // afficher les commandes
-        ctx.drawImage(commandes, 0, 0);
+        ctx.drawImage(commandes, 0, 0,768,640);
         break;
       case 77 :
         // revenir au menu

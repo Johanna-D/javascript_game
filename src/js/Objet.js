@@ -216,7 +216,7 @@ class Objet{
             }
             if(this.type == "cristal"){
                    
-                ctx.drawImage(finJeu, 0, 0);
+                ctx.drawImage(finJeu, 0, 0,768,640);
                 //this.etat = false;
 
             }

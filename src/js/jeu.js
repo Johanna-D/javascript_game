@@ -179,8 +179,6 @@ function anime() {
       porte.collisionPorteHup(hup);
     })
   }
-  
-  }
   if(map[24]=="U15"){
     porteCristal.forEach( porteFinBoss =>{
       porteFinBoss.drawObjet();
@@ -343,6 +341,9 @@ function anime() {
   hup.collisionEnnemisHup(ennemis);
   hup.gameover();
   changeMap();
+  if(map[24]=="U16"){
+    crystal.collisionObjetHup(hup);
+  }
   if(moveg == true){
       hup.vg =32;
   }
