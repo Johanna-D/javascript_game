@@ -132,6 +132,12 @@ class Objet{
             ctx.drawImage(image, this.x, this.y);
             
         }
+        else if(this.type =="stairs"){
+            var image = new Image();
+            image.src = 'js/classesDecor/stairs.png';
+            ctx.drawImage(image, this.x, this.y);
+            
+        }
         else if(this.type =="vide"){
             ctx.fillStyle = this.couleur;
             ctx.fillRect(this.x,this.y,this.taille,this.taille);

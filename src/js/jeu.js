@@ -166,7 +166,7 @@ function anime() {
   if(map[24]=="P12"){
     stairs3.drawObjet();
     if (hup.x == stairs3.x && hup.y == stairs3.y){
-      hup.x = stairs3.x-32;
+      hup.x = stairs4.x+32;
       hup.angle = 180;
       loadMap(U14);
 
@@ -175,9 +175,27 @@ function anime() {
   if(map[24]=="U14"){
     stairs4.drawObjet();
     if (hup.x == stairs4.x && hup.y == stairs4.y){
-      hup.x = stairs4.x+32;
+      hup.x = stairs3.x+32;
       hup.angle = 180;
       loadMap(P12);
+
+    }
+  }
+  if(map[24]=="P11"){
+    stairs5.drawObjet();
+    if (hup.x == stairs5.x && hup.y == stairs5.y){
+      hup.x = stairs6.x+32;
+      hup.angle = 180;
+      loadMap(R13);
+
+    }
+  }
+  if(map[24]=="R13"){
+    stairs6.drawObjet();
+    if (hup.x == stairs6.x && hup.y == stairs6.y){
+      hup.x = stairs5.x-32;
+      hup.angle = 180;
+      loadMap(P11);
 
     }
   }
@@ -272,7 +290,7 @@ function init() {
   loadMap(C1);
   hup = new hup(14*32,14*32);
   hup.image.src = "js/hupFace.png";
-  ennemis.push(new pouf(8*32,8*32));
+  //ennemis.push(new pouf(8*32,8*32));
   clef1 = new clef(12*32,9*32);
   clef2 = new clef(14*32,8*32);
   clef3 = new clef(12*32,13*32);
@@ -284,6 +302,8 @@ function init() {
   stairs2 = new stairs(19*32,9*32);
   stairs3 = new stairs(4*32,9*32);
   stairs4 = new stairs(11*32,9*32);
+  stairs5 = new stairs(19*32,9*32);
+  stairs6 = new stairs(4*32,9*32);
   canvas.onmousedown = (event) => {
     processMouseMouve(event);
     let x = Math.floor(mousePos.x/taille);
