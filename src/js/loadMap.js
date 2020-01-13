@@ -270,6 +270,10 @@ function loadMap(mapToLoad){
             ennemis[j].balles = [];
           }
           objets = [];
+          hup.moveg=false;
+          hup.moved=false;
+          hup.moveh=false;
+          hup.moveb=false;
           loadMap(maps[i][3]);
           hup.x = 0;
           break;
@@ -296,6 +300,10 @@ function loadMap(mapToLoad){
             ennemis[j].balles = [];
           }
           objets = [];
+          hup.moveg=false;
+          hup.moved=false;
+          hup.moveh=false;
+          hup.moveb=false;
           loadMap(maps[i][1]);
           hup.x = 736;
           break;
@@ -319,6 +327,10 @@ function loadMap(mapToLoad){
             ennemis[j].balles = [];
           }
           objets = [];
+          hup.moveg=false;
+          hup.moved=false;
+          hup.moveh=false;
+          hup.moveb=false;
           loadMap(maps[i][5]);
           hup.y = 544;
           break;
@@ -344,6 +356,10 @@ function loadMap(mapToLoad){
             ennemis[j].balles = [];
           }
           objets = [];
+          hup.moveg=false;
+          hup.moved=false;
+          hup.moveh=false;
+          hup.moveb=false;
           loadMap(maps[i][7]);
           hup.y = 0;
           break;

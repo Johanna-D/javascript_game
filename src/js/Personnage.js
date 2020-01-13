@@ -16,17 +16,15 @@ class Personnage {
   }
   collisionDecorEnnemisAttaqueD(){
     if((this.x%32 == 0) && (this.y%32 == 0)){
-    if(map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof roche || map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof eau || map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof eauProfonde ||map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof arbre || this.x >= 736){
-      console.log("Fine");
+    if(map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof vide || map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof murDroit || map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof murGauche || map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof murBas || map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof murHaut || map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof roche || map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof eau || map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof eauProfonde ||map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof arbre || this.x >= 736){
       return false;
     }
     else{return true;}
   }
-  else if(map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)] instanceof roche || map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)] instanceof eau || map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)] instanceof eauProfonde ||map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)] instanceof arbre || this.x >= 736){
+  else if(map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)] instanceof vide ||map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)] instanceof murDroit ||map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)] instanceof murGauche ||map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)] instanceof murHaut ||map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)] instanceof murBas ||map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)] instanceof roche || map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)] instanceof eau || map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)] instanceof eauProfonde ||map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)] instanceof arbre || this.x >= 736){
     return false;
   }
-  else if(map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof roche || map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof eau || map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof eauProfonde ||map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof arbre || this.x >= 736){
-    console.log("collision");
+  else if(map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof vide || map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof murGauche || map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof murDroit || map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof murBas || map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof murHaut || map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof roche || map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof eau || map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof eauProfonde ||map[Math.ceil(this.x/32)+1][Math.floor(this.y/32)] instanceof arbre || this.x >= 736){
     return false;
   }
   else{
@@ -36,16 +34,15 @@ class Personnage {
 
   collisionDecorEnnemisAttaqueG(){
     if((this.x%32 == 0) && (this.y%32 == 0)){
-    if(map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof roche || map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof eau || map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof eauProfonde ||map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof arbre || this.x <= 32){
+    if(map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof vide || map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof murGauche || map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof murDroit || map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof murBas || map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof murHaut || map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof roche || map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof eau || map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof eauProfonde ||map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof arbre || this.x <= 32){
       return false;
     }
     else{return true;}
   }
-  else if(map[Math.floor(this.x/32)-1][Math.ceil(this.y/32)] instanceof roche || map[Math.floor(this.x/32)-1][Math.ceil(this.y/32)] instanceof eau || map[Math.floor(this.x/32)-1][Math.ceil(this.y/32)] instanceof eauProfonde ||map[Math.floor(this.x/32)-1][Math.ceil(this.y/32)] instanceof arbre || this.x <= 32){
+  else if(map[Math.floor(this.x/32)-1][Math.ceil(this.y/32)] instanceof vide || map[Math.floor(this.x/32)-1][Math.ceil(this.y/32)] instanceof murGauche|| map[Math.floor(this.x/32)-1][Math.ceil(this.y/32)] instanceof murDroit || map[Math.floor(this.x/32)-1][Math.ceil(this.y/32)] instanceof murHaut || map[Math.floor(this.x/32)-1][Math.ceil(this.y/32)] instanceof murBas || map[Math.floor(this.x/32)-1][Math.ceil(this.y/32)] instanceof roche || map[Math.floor(this.x/32)-1][Math.ceil(this.y/32)] instanceof eau || map[Math.floor(this.x/32)-1][Math.ceil(this.y/32)] instanceof eauProfonde ||map[Math.floor(this.x/32)-1][Math.ceil(this.y/32)] instanceof arbre || this.x <= 32){
     return false;
   }
-  else if(map[Math.floor(this.x/32)-1][Math.ceil(this.y/32)-1] instanceof roche || map[Math.floor(this.x/32)-1][Math.ceil(this.y/32)-1] instanceof eau || map[Math.floor(this.x/32)-1][Math.ceil(this.y/32)-1] instanceof eauProfonde ||map[Math.floor(this.x/32)-1][Math.ceil(this.y/32)-1] instanceof arbre || this.x <= 32){
-    console.log("collision");
+  else if(map[Math.floor(this.x/32)-1][Math.ceil(this.y/32)-1] instanceof vide || map[Math.floor(this.x/32)-1][Math.ceil(this.y/32)-1] instanceof murHaut || map[Math.floor(this.x/32)-1][Math.ceil(this.y/32)-1] instanceof murGauche || map[Math.floor(this.x/32)-1][Math.ceil(this.y/32)-1] instanceof murDroit || map[Math.floor(this.x/32)-1][Math.ceil(this.y/32)-1] instanceof murBas || map[Math.floor(this.x/32)-1][Math.ceil(this.y/32)-1] instanceof roche || map[Math.floor(this.x/32)-1][Math.ceil(this.y/32)-1] instanceof eau || map[Math.floor(this.x/32)-1][Math.ceil(this.y/32)-1] instanceof eauProfonde ||map[Math.floor(this.x/32)-1][Math.ceil(this.y/32)-1] instanceof arbre || this.x <= 32){
     return false;
   }
   else{return true;}
@@ -53,15 +50,15 @@ class Personnage {
 
   collisionDecorEnnemisAttaqueB(){
     if((this.x%32 == 0) && (this.y%32 == 0)){
-    if(map[Math.floor(this.x/32)][Math.floor(this.y/32)+1] instanceof roche || map[Math.floor(this.x/32)][Math.floor(this.y/32)+1] instanceof eau || map[Math.floor(this.x/32)][Math.floor(this.y/32)+1] instanceof eauProfonde ||map[Math.floor(this.x/32)][Math.floor(this.y/32)+1] instanceof arbre || this.y >= 544){
+    if(map[Math.floor(this.x/32)][Math.floor(this.y/32)+1] instanceof vide || map[Math.floor(this.x/32)][Math.floor(this.y/32)+1] instanceof murGauche || map[Math.floor(this.x/32)][Math.floor(this.y/32)+1] instanceof murDroit || map[Math.floor(this.x/32)][Math.floor(this.y/32)+1] instanceof murBas || map[Math.floor(this.x/32)][Math.floor(this.y/32)+1] instanceof murHaut || map[Math.floor(this.x/32)][Math.floor(this.y/32)+1] instanceof roche || map[Math.floor(this.x/32)][Math.floor(this.y/32)+1] instanceof eau || map[Math.floor(this.x/32)][Math.floor(this.y/32)+1] instanceof eauProfonde ||map[Math.floor(this.x/32)][Math.floor(this.y/32)+1] instanceof arbre || this.y >= 544){
       return false;
     }
     else{return true;}
   }
-  else if(map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)+2] instanceof roche || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)+2] instanceof eau || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)+2] instanceof eauProfonde ||map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)+2] instanceof arbre || this.y >= 544){
+  else if(map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)+2] instanceof vide || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)+2] instanceof murGauche || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)+2] instanceof murDroit || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)+2] instanceof murHaut || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)+2] instanceof murBas || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)+2] instanceof roche || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)+2] instanceof eau || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)+2] instanceof eauProfonde ||map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)+2] instanceof arbre || this.y >= 544){
     return false;
   }
-  else if(map[Math.ceil(this.x/32)][Math.floor(this.y/32)+2] instanceof roche || map[Math.ceil(this.x/32)][Math.floor(this.y/32)+2] instanceof eau || map[Math.ceil(this.x/32)][Math.floor(this.y/32)+2] instanceof eauProfonde ||map[Math.ceil(this.x/32)][Math.floor(this.y/32)+2] instanceof arbre || this.y >= 544){
+  else if(map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)+2] instanceof vide || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)+2] instanceof murDroit || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)+2] instanceof murGauche || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)+2] instanceof murBas || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)+2] instanceof murHaut || map[Math.ceil(this.x/32)][Math.floor(this.y/32)+2] instanceof roche || map[Math.ceil(this.x/32)][Math.floor(this.y/32)+2] instanceof eau || map[Math.ceil(this.x/32)][Math.floor(this.y/32)+2] instanceof eauProfonde ||map[Math.ceil(this.x/32)][Math.floor(this.y/32)+2] instanceof arbre || this.y >= 544){
     return false;
   }
   else{return true;}
@@ -69,54 +66,46 @@ class Personnage {
 
   collisionDecorEnnemisAttaqueH(){
     if((this.x%32 == 0) && (this.y%32 == 0)){
-    if(map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof roche || map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof eau || map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof eauProfonde ||map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof arbre || this.y <  32){
+    if(map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof vide || map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof murDroit || map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof murGauche || map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof murBas || map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof murHaut || map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof roche || map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof eau || map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof eauProfonde ||map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof arbre || this.y <  32){
       return false;
     }
     else{return true;}
   }
-  else if(map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)-1] instanceof roche || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)-1] instanceof eau || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)-1] instanceof eauProfonde ||map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)-1] instanceof arbre || this.y <  32){
+  else if(map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)-1] instanceof vide || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)-1] instanceof murGauche || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)-1] instanceof murDroit || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)-1] instanceof murBas || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)-1] instanceof murHaut || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)-1] instanceof roche || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)-1] instanceof eau || map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)-1] instanceof eauProfonde ||map[Math.ceil(this.x/32)-1][Math.floor(this.y/32)-1] instanceof arbre || this.y <  32){
     return false;
   }
-  else if(map[Math.ceil(this.x/32)][Math.floor(this.y/32)-1] instanceof roche || map[Math.ceil(this.x/32)][Math.floor(this.y/32)-1] instanceof eau || map[Math.ceil(this.x/32)][Math.floor(this.y/32)-1] instanceof eauProfonde ||map[Math.ceil(this.x/32)][Math.floor(this.y/32)-1] instanceof arbre || this.y <  32){
+  else if(map[Math.ceil(this.x/32)][Math.floor(this.y/32)-1] instanceof vide || map[Math.ceil(this.x/32)][Math.floor(this.y/32)-1] instanceof murGauche || map[Math.ceil(this.x/32)][Math.floor(this.y/32)-1] instanceof murDroit || map[Math.ceil(this.x/32)][Math.floor(this.y/32)-1] instanceof murHaut || map[Math.ceil(this.x/32)][Math.floor(this.y/32)-1] instanceof murBas || map[Math.ceil(this.x/32)][Math.floor(this.y/32)-1] instanceof roche || map[Math.ceil(this.x/32)][Math.floor(this.y/32)-1] instanceof eau || map[Math.ceil(this.x/32)][Math.floor(this.y/32)-1] instanceof eauProfonde ||map[Math.ceil(this.x/32)][Math.floor(this.y/32)-1] instanceof arbre || this.y <  32){
     return false;
   }
   else{return true;}
 }
 collisionDecorEnnemisD(){
-  if(map[Math.floor(this.x/32)+1][Math.floor(this.y/32)] instanceof roche || map[Math.floor(this.x/32)+1][Math.floor(this.y/32)] instanceof eau || map[Math.floor(this.x/32)+1][Math.floor(this.y/32)] instanceof eauProfonde ||map[Math.floor(this.x/32)+1][Math.floor(this.y/32)] instanceof arbre || this.x >canvas.width-33){
+  if(map[Math.floor(this.x/32)+1][Math.floor(this.y/32)] instanceof vide || map[Math.floor(this.x/32)+1][Math.floor(this.y/32)] instanceof murGauche || map[Math.floor(this.x/32)+1][Math.floor(this.y/32)] instanceof murDroit || map[Math.floor(this.x/32)+1][Math.floor(this.y/32)] instanceof murHaut || map[Math.floor(this.x/32)+1][Math.floor(this.y/32)] instanceof murBas || map[Math.floor(this.x/32)+1][Math.floor(this.y/32)] instanceof roche || map[Math.floor(this.x/32)+1][Math.floor(this.y/32)] instanceof eau || map[Math.floor(this.x/32)+1][Math.floor(this.y/32)] instanceof eauProfonde ||map[Math.floor(this.x/32)+1][Math.floor(this.y/32)] instanceof arbre || this.x >canvas.width-33){
     return false;
   }
   else{return true;}
 }
-collisionDecorEnnemisBD(){
-  if(map[Math.floor(this.x/32)+1][Math.floor(this.y/32)+1] instanceof roche || map[Math.floor(this.x/32)+1][Math.floor(this.y/32)+1] instanceof eau || map[Math.floor(this.x/32)+1][Math.floor(this.y/32)+1] instanceof eauProfonde ||map[Math.floor(this.x/32)+1][Math.floor(this.y/32)+1] instanceof arbre || this.x >canvas.width-33){
-    return false;
-  }
-  else{return true;}
-}
+
 collisionDecorEnnemisG(){
-  if(map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof roche || map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof eau || map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof eauProfonde ||map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof arbre || this.x <0){
+  if(map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof vide || map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof murDroit || map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof murGauche || map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof murBas || map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof murHaut || map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof roche || map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof eau || map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof eauProfonde ||map[Math.ceil(this.x/32)-1][Math.ceil(this.y/32)] instanceof arbre || this.x <0){
     return false;
   }
   else{return true;}
 }
 collisionDecorEnnemisB(){
-  if(map[Math.ceil(this.x/32)][Math.floor(this.y/32)+1] instanceof roche || map[Math.ceil(this.x/32)][Math.floor(this.y/32)+1] instanceof eau || map[Math.ceil(this.x/32)][Math.floor(this.y/32)+1] instanceof eauProfonde ||map[Math.ceil(this.x/32)][Math.floor(this.y/32)+1] instanceof arbre || this.y >=canvas.height-32){
-    console.log("collision en bas");
+  if(map[Math.ceil(this.x/32)][Math.floor(this.y/32)+1] instanceof vide || map[Math.ceil(this.x/32)][Math.floor(this.y/32)+1] instanceof murGauche || map[Math.ceil(this.x/32)][Math.floor(this.y/32)+1] instanceof murBas || map[Math.ceil(this.x/32)][Math.floor(this.y/32)+1] instanceof murDroit || map[Math.ceil(this.x/32)][Math.floor(this.y/32)+1] instanceof murHaut || map[Math.ceil(this.x/32)][Math.floor(this.y/32)+1] instanceof roche || map[Math.ceil(this.x/32)][Math.floor(this.y/32)+1] instanceof eau || map[Math.ceil(this.x/32)][Math.floor(this.y/32)+1] instanceof eauProfonde ||map[Math.ceil(this.x/32)][Math.floor(this.y/32)+1] instanceof arbre || this.y >=canvas.height-96){
     return false;
   }
   else{return true;}
 }
 collisionDecorEnnemisH(){
-  if(map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof roche || map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof eau || map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof eauProfonde ||map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof arbre || this.y <0){
-    console.log("haut");
+  if(map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof vide || map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof murDroit || map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof murGauche || map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof murBas || map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof murHaut || map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof roche || map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof eau || map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof eauProfonde ||map[Math.ceil(this.x/32)][Math.ceil(this.y/32)-1] instanceof arbre || this.y <0){
     return false;
   }
   else{return true;}
 }
 collisionDecorEnnemisHD(){
-  if(map[Math.ceil(this.x/32+1)][Math.ceil(this.y/32)-1] instanceof roche || map[Math.ceil(this.x/32+1)][Math.ceil(this.y/32)-1] instanceof eau || map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)-1] instanceof eauProfonde ||map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)-1] instanceof arbre || this.y <0){
-    console.log("hautG");
+  if(map[Math.ceil(this.x/32+1)][Math.ceil(this.y/32)-1] instanceof vide || map[Math.ceil(this.x/32+1)][Math.ceil(this.y/32)-1] instanceof murDroit || map[Math.ceil(this.x/32+1)][Math.ceil(this.y/32)-1] instanceof murGauche || map[Math.ceil(this.x/32+1)][Math.ceil(this.y/32)-1] instanceof murBas || map[Math.ceil(this.x/32+1)][Math.ceil(this.y/32)-1] instanceof murHaut || map[Math.ceil(this.x/32+1)][Math.ceil(this.y/32)-1] instanceof roche || map[Math.ceil(this.x/32+1)][Math.ceil(this.y/32)-1] instanceof eau || map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)-1] instanceof eauProfonde ||map[Math.ceil(this.x/32)+1][Math.ceil(this.y/32)-1] instanceof arbre || this.y <0){
     return false;
   }
   else{
@@ -127,24 +116,20 @@ collisionDecorEnnemisHD(){
       ctx.save();
       // -------- POULPE ROUGE --------------//
       if (this.type == "poulpeR" && this.angle == 90){
-            var poulpeRface = new Image();
-            poulpeRface.src = 'js/spritePoulpeR/poulpeRface.png';
-            ctx.drawImage(poulpeRface, this.x, this.y);
+            this.image.src = 'js/spritePoulpeR/poulpeRface.png';
+            ctx.drawImage(this.image, this.x, this.y);
       }
       else if (this.type == "poulpeR" && this.angle == 180){
-        var poulpeRdroite = new Image();
-        poulpeRdroite.src = 'js/spritePoulpeR/poulpeRdroite.png';
-        ctx.drawImage(poulpeRdroite, this.x, this.y);
+        this.image.src = 'js/spritePoulpeR/poulpeRdroite.png';
+        ctx.drawImage(this.image, this.x, this.y);
       }
       else if (this.type == "poulpeR" && this.angle == 0){
-        var poulpeRgauche = new Image();
-        poulpeRgauche.src = 'js/spritePoulpeR/poulpeRgauche.png';
-        ctx.drawImage(poulpeRgauche, this.x, this.y);
+        this.image.src = 'js/spritePoulpeR/poulpeRgauche.png';
+        ctx.drawImage(this.image, this.x, this.y);
       }
       else if (this.type == "poulpeR" && this.angle == 360){
-        var poulpeRdos = new Image();
-        poulpeRdos.src = 'js/spritePoulpeR/poulpeRdos.png';
-        ctx.drawImage(poulpeRdos, this.x, this.y);
+        this.image.src = 'js/spritePoulpeR/poulpeRdos.png';
+        ctx.drawImage(this.image, this.x, this.y);
       }
 
       // ---------- POULPE BLEU ------------ //

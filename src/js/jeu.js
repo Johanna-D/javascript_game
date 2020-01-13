@@ -1,4 +1,5 @@
 var numeroTexte = 0;
+var entrées = [];
 var cpt = 0;
 for (var i = 0; i < 24; i++)
 {
@@ -126,9 +127,9 @@ function anime() {
     }
   }
   if(map[24]=="B8"){
-    portes.forEach( porte =>{
-      porte.drawObjet();
-      porte.collisionPorteHup(hup);
+    entrées.forEach( entrée =>{
+      entrée.drawObjet();
+      entrée.collisionEntréeHup(hup);
     })
   }
   /**/
@@ -150,7 +151,7 @@ function anime() {
       hup.x = stairs1.x-32;
       hup.angle = 0;
       loadMap(Q13)
-      
+
     }
   }
   if(map[24]=="Q13"){
@@ -159,7 +160,7 @@ function anime() {
       hup.x = stairs2.x-32;
       hup.angle = 0;
       loadMap(V11);
-      
+
     }
   }
   if(map[24]=="P12"){
@@ -168,7 +169,7 @@ function anime() {
       hup.x = stairs3.x-32;
       hup.angle = 180;
       loadMap(U14);
-      
+
     }
   }
   if(map[24]=="U14"){
@@ -177,7 +178,7 @@ function anime() {
       hup.x = stairs4.x+32;
       hup.angle = 180;
       loadMap(P12);
-      
+
     }
   }
   if(map[24]=="C1sword"){
@@ -268,7 +269,6 @@ function anime() {
 }
 
 function init() {
-
   loadMap(C1);
   hup = new hup(14*32,14*32);
   hup.image.src = "js/hupFace.png";
@@ -276,14 +276,14 @@ function init() {
   clef1 = new clef(12*32,9*32);
   clef2 = new clef(14*32,8*32);
   clef3 = new clef(12*32,13*32);
+  entrées.push(new porte(10*32,0));
+  entrées.push(new porte(11*32,0));
+  entrées.push(new porte(12*32,0));
+  entrées.push(new porte(13*32,0));
   stairs1 = new stairs(19*32,9*32);
   stairs2 = new stairs(19*32,9*32);
   stairs3 = new stairs(4*32,9*32);
   stairs4 = new stairs(11*32,9*32);
-  portes.push(new porte(10*32,0));
-  portes.push(new porte(11*32,0));
-  portes.push(new porte(12*32,0));
-  portes.push(new porte(13*32,0));
   canvas.onmousedown = (event) => {
     processMouseMouve(event);
     let x = Math.floor(mousePos.x/taille);

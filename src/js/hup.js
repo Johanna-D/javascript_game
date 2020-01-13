@@ -6,15 +6,15 @@ class hup extends Personnage{
     couleurPerso = 'black';
     vie = 3;
     black = 'black';
-    clefs = 3;
+    clefs = 0;
     cleBoss =0 ;
     ennemiIndex;
-    Epee=0;
+    Epee=1;
     EpeeChiffre = 0;
     statutGameOver = false;
     image = new Image();
     braceletForce = 1;
-    bottes = 1;
+    bottes = 0;
     /* DRAW HUP AVEC DES IMAGES */
     drawHup(){
         ctx.save();
@@ -280,6 +280,7 @@ function attaqueHup(hup,ennemis){
                 ennemi.x -=(ennemi.x%32);
                 ennemi.cpt=false;
               }
+              if(ennemi.type == "poulpeR")
               ennemi.black = setInterval("ennemis[hup.ennemiIndex].couleur = 'black'", 50);
               ennemi.couleurtemp = setInterval("ennemis[hup.ennemiIndex].couleur = ennemis[hup.ennemiIndex].couleurdegat", 100);
               setTimeout("clearInterval(ennemis[hup.ennemiIndex].black)",601);
