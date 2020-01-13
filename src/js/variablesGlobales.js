@@ -7,6 +7,14 @@ let moveb = true;
 let moveh = true;
 var ennemis = [];
 var portes=[];
+var porteD=[];
+var porteD2=[];
+var porteD3=[];
+var porteD4=[];
+var porteD5=[];
+var porteD6=[];
+var porteMiniB=[];
+var porteCristal=[];
 var newElement;
 var clicMenu = false;
 var mortEnnemi = false;
@@ -32,4 +40,6 @@ menuImage.src = 'js/menuScreen.png';
 commandes = new Image();
 commandes.src = 'js/commandes.png';
 
+var finJeu = new Image();
+finJeu.src = 'js/congrats.png';
 

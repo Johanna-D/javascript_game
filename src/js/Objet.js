@@ -138,6 +138,23 @@ class Objet{
             ctx.drawImage(image, this.x, this.y);
             
         }
+        else if(this.type =="bottes"){
+            var image = new Image();
+            image.src = 'js/objetsRamassables/bottes.png';
+            ctx.drawImage(image, this.x, this.y);
+            
+        }
+        else if(this.type =="cristal"){
+            var image = new Image();
+            image.src = 'js/objetsRamassables/cristal.png';
+            ctx.drawImage(image, this.x, this.y);
+            
+        }
+        else if(this.type =="porteFinBoss"){
+            ctx.fillStyle = this.couleur;
+            ctx.fillRect(this.x,this.y,this.taille,this.taille);
+            
+        }
         else if(this.type =="vide"){
             ctx.fillStyle = this.couleur;
             ctx.fillRect(this.x,this.y,this.taille,this.taille);
@@ -168,6 +185,19 @@ class Objet{
                 hup.clefs += 1;
                 
                 this.etat = false;
+
+            }
+            if(this.type == "bottes"){
+                
+                hup.bottes = 1;
+                
+                this.etat = false;
+
+            }
+            if(this.type == "cristal"){
+                   
+                ctx.drawImage(finJeu, 0, 0);
+                //this.etat = false;
 
             }
         }

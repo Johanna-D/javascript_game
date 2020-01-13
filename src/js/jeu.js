@@ -132,6 +132,55 @@ function anime() {
       entrée.collisionEntréeHup(hup);
     })
   }
+  if(map[24]=="S13"){
+    porteD.forEach( porte =>{
+      porte.drawObjet();
+      porte.collisionPorteHup(hup);
+    })
+  }
+  if(map[24]=="U14"){
+    porteD2.forEach( porte =>{
+      porte.drawObjet();
+      porte.collisionPorteBossHup(hup);
+    })
+  }
+  if(map[24]=="R9"){
+    porteD3.forEach( porte =>{
+      porte.drawObjet();
+      porte.collisionPorteHup(hup);
+    })
+  }
+  if(map[24]=="P13"){
+    porteD4.forEach( porte =>{
+      porte.drawObjet();
+      porte.collisionPorteHup(hup);
+    })
+  }
+  if(map[24]=="O13"){
+    porteD5.forEach( porte =>{
+      porte.drawObjet();
+      porte.collisionPorteHup(hup);
+    })
+  }
+  if(map[24]=="O11"){
+    porteD6.forEach( porte =>{
+      porte.drawObjet();
+      porte.collisionPorteHup(hup);
+    })
+  }
+  if(map[24]=="S14"){
+    porteMiniB.forEach( porteFinBoss =>{
+      porteFinBoss.drawObjet();
+    })
+    
+  }
+  if(map[24]=="U15"){
+    porteCristal.forEach( porteFinBoss =>{
+      porteFinBoss.drawObjet();
+    })
+    
+    
+  }
   /**/
   if(map[24]=="A2key"){
     clef1.drawObjet();
@@ -144,6 +193,14 @@ function anime() {
   if(map[24]=="M1"){
     clef3.drawObjet();
   clef3.collisionObjetHup(hup);
+  }
+  if(map[24]=="S15"){
+    botte.drawObjet();
+  botte.collisionObjetHup(hup);
+  }
+  if(map[24]=="U16"){
+    crystal.drawObjet();
+    crystal.collisionObjetHup(hup);
   }
   if(map[24]=="V11"){
     stairs1.drawObjet();
@@ -295,9 +352,29 @@ function init() {
   clef2 = new clef(14*32,8*32);
   clef3 = new clef(12*32,13*32);
   entrées.push(new porte(10*32,0));
+  botte = new bottes(11*32,10*32);
+  crystal = new cristal(12*32,8*32);
   entrées.push(new porte(11*32,0));
   entrées.push(new porte(12*32,0));
   entrées.push(new porte(13*32,0));
+  porteD.push(new porte(11*32,2*32));
+  porteD.push(new porte(12*32,2*32));
+  porteD2.push(new porte(11*32,4*32));
+  porteD2.push(new porte(12*32,4*32));
+  porteD3.push(new porte(11*32,11*32));
+  porteD3.push(new porte(12*32,11*32));
+  porteD4.push(new porte(11*32,8*32));
+  porteD4.push(new porte(11*32,9*32));
+  porteD5.push(new porte(11*32,13*32));
+  porteD5.push(new porte(12*32,13*32));
+  porteD6.push(new porte(18*32,8*32));
+  porteD6.push(new porte(18*32,9*32));
+  porteMiniB.push(new porteFinBoss(11*32,2*32));
+  porteMiniB.push(new porteFinBoss(12*32,2*32));
+  porteCristal.push(new porteFinBoss(10*32,0*32));
+  porteCristal.push(new porteFinBoss(11*32,0*32));
+  porteCristal.push(new porteFinBoss(12*32,0*32));
+  porteCristal.push(new porteFinBoss(13*32,0*32));
   stairs1 = new stairs(19*32,9*32);
   stairs2 = new stairs(19*32,9*32);
   stairs3 = new stairs(4*32,9*32);
