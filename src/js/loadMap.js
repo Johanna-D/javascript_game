@@ -256,6 +256,9 @@ function loadMap(mapToLoad){
       if(map[25][i] == "poulpeB"){
         ennemis.push(new poulpeB(map[25][i+1],(map[25][i+2])));
       }
+      if(map[25][i] == "pouf"){
+        ennemis.push(new pouf(map[25][i+1],(map[25][i+2])));
+      }
     }
   }
 }
