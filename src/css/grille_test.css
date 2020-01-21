@@ -1,6 +1,14 @@
+body {
+  background-image: url("fond.jpeg");
+}
+
 #myCanvas {
   border: 1px solid black;
   background-color:lightgrey;
+  width: 768;
+  display : block;
+  margin: auto;
+  box-shadow: 0px 0px 6px black;
 }
 
 img:hover {
