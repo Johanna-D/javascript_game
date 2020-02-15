@@ -1,5 +1,6 @@
 class porteBoss extends Objet {
-    couleur = "#610303";
+    couleur = "#610330";
+    type = "porteboss";
 
         ouvrirPorteBoss(hup){
         if(hup.cleBoss == 1 && this.etat ==true){

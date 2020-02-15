@@ -1,6 +1,6 @@
 class porte extends Objet {
     couleur = "#610303";
-    type;
+    type = "porte";
 
     ouvrirEntréeDonjon(hup){
         if(hup.clefs >= 3 && this.etat ==true){

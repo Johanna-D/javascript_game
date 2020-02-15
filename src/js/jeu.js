@@ -179,6 +179,9 @@ function anime() {
       porte.collisionPorteHup(hup);
     })
   }
+  if (map[24]=="S10"){
+    hup.checkpoint= 1;
+  }
   if(map[24]=="U15"){
       if(ennemis == []){
         porteCristal = [];

@@ -8,6 +8,7 @@ class hup extends Personnage{
     black = 'black';
     clefs = 0;
     cleBoss =0 ;
+    checkpoint = 0;
     ennemiIndex;
     Epee=0;
     EpeeChiffre = 0;
@@ -109,11 +110,11 @@ class hup extends Personnage{
   }
 
 
-gameover(checkpoint){
+gameover(){
     if(this.vie <=0){
       ctx.drawImage(Gover, 0, 0);
       if (this.statutGameOver){
-        if(checkpoint ==0){
+        if(this.checkpoint ==0){
         loadMap(C1);
       }
       else{

@@ -173,6 +173,25 @@ class Objet{
             ctx.drawImage(image, this.x, this.y);
             
         }
+        else if(this.couleur =="#610303"){
+            if (this.type == "porte"){
+                var image = new Image();
+            image.src = 'js/classesDecor/porteentree.png';
+            ctx.drawImage(image, this.x, this.y);
+            }
+            
+            else {
+                var image = new Image();
+            image.src = 'js/classesDecor/portedonjon.png';
+            ctx.drawImage(image, this.x, this.y);
+            }
+            
+        }
+        else if(this.type =="porteboss"){
+            var image = new Image();
+        image.src = 'js/classesDecor/porteboss.png';
+        ctx.drawImage(image, this.x, this.y);
+        }
         
         
         else {
