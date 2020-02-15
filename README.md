@@ -1,7 +1,11 @@
 # javascript_game
 <h1>Hup's tale</h1>
 Jeu vidéo en 2D Zelda-like
+
+
 Réalisé par Johanna Delachambre et Yann Soca, étudiants en Licence 3 MIAGE
+
+
 Techno utilisée : Javascript 
 
 
